@@ -1,5 +1,5 @@
 const fs = require('fs');
-require('dotenv').config();
+require( 'dotenv' ).config();
 
 const uri = process.env.DB_URI;
 const user = process.env.DB_USER;
@@ -7,6 +7,7 @@ const password = process.env.DB_PSWD;
 
 const neo4j = require( 'neo4j-driver' )
 const auth = neo4j.auth.basic( user, password )
+
 
 module.exports = {
     /** */
