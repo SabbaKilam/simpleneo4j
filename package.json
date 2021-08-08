@@ -1,0 +1,12 @@
+{
+  "name": "simpleneo4japi",
+  "version": "1.0.0",
+  "description": "Attempt an as-simple-as-possible api for the family circle graph database",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Abbas Abdulmalik",
+  "license": "ISC"
+}
