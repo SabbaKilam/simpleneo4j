@@ -16,7 +16,7 @@ http.createServer( ( req, res )=>{
     if ( isApiRequest ){
         const apiType = urlArray[2];
         if ( apiType && api[apiType] ){
-            api[apiType](req,res);
+            api[apiType]( req, res );
         }
         else {
             res.writeHead( 500, {'Content-Type': 'text/plain'});
@@ -35,6 +35,6 @@ http.createServer( ( req, res )=>{
     }    
 
 
-} ).listen(port, host, ()=>{
+}).listen(port, host, ()=>{
     console.log(`Server running at http://${host}:${port}`);
 });

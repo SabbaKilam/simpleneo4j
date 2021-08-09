@@ -53,8 +53,7 @@ module.exports = {
                 'MATCH (a:Person) RETURN a'
             )
             let arrayOfNodeProperties = [];
-            let record = null;
-            for (record of result.records){
+            for (let record of result.records){
                 let properties = record.get(0).properties;
                 arrayOfNodeProperties.push( properties );
             }
@@ -74,6 +73,7 @@ module.exports = {
     /** 
      * 
     */
+   //
     async createPair( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
@@ -151,7 +151,7 @@ module.exports = {
             let records = result.records;
             
             console.log(`dropAllRelationsAB : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
-            for ( let i=0; i < 2; i++ ){
+            for ( let i = 0; i < 2; i++ ){
                 let properties = records[0]['_fields'][i].properties;
                 arrayOfNodeProperties.push( properties );
             }
@@ -169,5 +169,32 @@ module.exports = {
             await conn.close()          
         }
     },
+    /** */
+    async deleteAllMembers( req, res){
+        //https://neo4j.com/docs/cypher-manual/current/clauses/delete/
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session()
+   
+        try {
+            const result = await session.run(
+                'MATCH (n) DETACH DELETE n RETURN n'
+            )        
+            const singleRecord = result.records[0]
+            const node = singleRecord.get(0)
+        
+            console.log(node.properties.name)
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(node.properties));
+        }
+        catch( dbError){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }
+    }
 
 };// END of module
