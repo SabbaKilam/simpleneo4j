@@ -6,6 +6,10 @@ const host = 'localhost';
 const port = 3000;
 
 http.createServer( ( req, res )=>{
+    console.log(`raw url: ${req.url}`);
+    let url = decodeURI(req.url)
+    url = `.${url}`;
+    console.log(`cleaned-up url: ${url}`)
     const urlArray =  req.url.split('/')
     const isLoginRequest = urlArray[1].toLowerCase() == 'login';
     const isApiRequest = urlArray[1].toLowerCase() == 'api';

@@ -23,7 +23,7 @@ module.exports = {
             if( !personName ){ throw new Error("Name not provided.")} 
 
             const result = await session.run(
-                'MERGE (a:Person {name: $var}) RETURN a',
+                'MERGE (a:Person {name: $var, firstName: $var}) RETURN a',
                 { var: personName  }
             )        
             const singleRecord = result.records[0]
@@ -75,21 +75,23 @@ module.exports = {
     async createPair( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
+        let url = decodeURI(req.url)
+        url = `.${url}`;
 
-        const urlArray =  req.url.split('/')        
+        const urlArray =  url.split('/')        
         const jsonSourceName = urlArray[3] || url.headers.jsonSourceName;
         const relationship =  urlArray[4] || url.headers.relationship;
         const jsonTargetName = urlArray[5] || url.headers.jsonTargetName;
         const relationshipComponent = `-[:${relationship.toUpperCase()}]->`;
-           
+        
         try {
             const sourceLastName = JSON.parse(jsonSourceName)['lastName'];
             const sourceFirstName = JSON.parse(jsonSourceName)['firstName'];
             const targetLastName = JSON.parse(jsonTargetName)['lastName'];
             const targetFirstName = JSON.parse(jsonTargetName)['firstName'];
 
-            const queryString = `MERGE (s:Person {lastName: $sln, firstName: $sfn});
-            ${relationshipComponent}(t:Person {lastName: $tln, firstName: $tfn})
+            const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
+            ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
             RETURN s, t`;
 
             const result = await session.run(
@@ -98,13 +100,17 @@ module.exports = {
                     sln: sourceLastName,
                     sfn: sourceFirstName,
                     tln: targetLastName,
-                    tfn: targetFirstName
+                    tfn: targetFirstName,
+                    semail: `${sourceFirstName}.${sourceLastName}@kin-keepers.ai`,
+                    temail: `${targetFirstName}.${targetLastName}@kin-keepers.ai`
                 }        
             )        
             let arrayOfNodeProperties = [];
-            let record = null;
-            for (record of result.records){
-                let properties = record.get(0).properties;
+            let records = result.records;
+
+            console.log(`createPair : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
+            for ( let i=0; i < 2; i++ ){
+                let properties = records[0]['_fields'][i].properties;
                 arrayOfNodeProperties.push( properties );
             }
             res.writeHead( 200, {'Content-Type':'application/json'})
