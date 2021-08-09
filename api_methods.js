@@ -81,9 +81,9 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/')        
-        const jsonSourceName = urlArray[3] || url.headers.jsonSourceName;
-        const relationship =  urlArray[4] || url.headers.relationship;
-        const jsonTargetName = urlArray[5] || url.headers.jsonTargetName;
+        const jsonSourceName = urlArray[3] || req.headers.jsonSourceName;
+        const relationship =  urlArray[4] || req.headers.relationship;
+        const jsonTargetName = urlArray[5] || req.headers.jsonTargetName;
         const relationshipComponent = `-[:${relationship.toUpperCase()}]->`;
         
         try {

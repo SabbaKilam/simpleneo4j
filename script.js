@@ -10,6 +10,11 @@
 */
 ////////////////////////////////////
 ///////| data and references: |/////
+
+//const { connectivityVerifier } = require("neo4j-driver-core/types/internal");
+
+
+
 ////////////////////////////////////
 let m = { // the MODEL object
   username: "",
@@ -39,7 +44,27 @@ const h = { // the HELPER object
 /////////////////////////////////////
 const c = { // the CONTROLLER object
   /**/
-
+  async createPair( eo ){
+    const sourceName = {
+      lastName: v.sLastName.value.trim(),
+      firstName: v.sFirstName.value.trim(),
+    }; 
+    const  targetName = {
+      lastName: v.tLastName.value.trim(),
+      firstName: v.tFirstName.value.trim(),
+    };   
+    const parameters = {
+      method: 'POST',
+      headers: {
+        jsonSourceName: JSON.stringify(sourceName),
+        jsonTargetName: JSON.stringify(targetName),
+        relationship: v.relationship.value.trim().toUpperCase()
+      }
+    }
+    console.log(parameters)
+    const result = await fetch('./api/createPair', parameters ).then( r=>r.text() );
+    console.log(result);
+  }
 };
 
 ////////////////////////////////////
@@ -51,8 +76,4 @@ h.IDsToView( m.IDs, v );
 ////////////////////////////////////
 //////| establish listeners: |/////
 ////////////////////////////////////
-/*
-v.fileElement.on( 'change', c.uploadFile );
-v.fileSelector.on( 'change', c.useFile );
-v.btnDeleteFile.on( 'click', c.deleteFile)
-*/
+v.btnCreatePair.on('click', c.createPair);
