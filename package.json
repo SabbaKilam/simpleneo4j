@@ -6,6 +6,10 @@
   "scripts": {
     "start": "nodemon server.js"
   },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SabbaKilam/simpleneo4j.git"
+  },
   "keywords": [],
   "author": "Abbas Abdulmalik",
   "license": "ISC",

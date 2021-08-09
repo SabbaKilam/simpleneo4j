@@ -71,7 +71,9 @@ module.exports = {
             await conn.close()          
         }        
     },
-    /** */
+    /** 
+     * 
+    */
     async createPair( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
