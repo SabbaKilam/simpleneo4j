@@ -126,5 +126,46 @@ module.exports = {
             await conn.close()          
         }
     },
+    async dropAllRelationshipsAB( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session()
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/')        
+        const sourceEmail = urlArray[3] || url.headers.sourceEmail;
+        const targetEmail = urlArray[4] || url.headers.targetEmail;
+   
+        try {
+            const queryString = `MATCH (s:Person {email: $sEmail })-[r]-(t:Person {email: $tEmail})
+            DELETE r
+            RETURN s, t`
+            const result = await session.run(
+                queryString,
+                { sEmail: sourceEmail, tEmail: targetEmail }
+            )        
+            let arrayOfNodeProperties = [];
+            let records = result.records;
+            
+            console.log(`dropAllRelationsAB : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
+            for ( let i=0; i < 2; i++ ){
+                let properties = records[0]['_fields'][i].properties;
+                arrayOfNodeProperties.push( properties );
+            }
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(arrayOfNodeProperties));            
+
+        }
+        catch( dbError ){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }
+    },
 
 };// END of module
