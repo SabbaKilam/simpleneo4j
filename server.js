@@ -20,13 +20,12 @@ const forbiddenFiles = [
 ];
 
 http.createServer( ( req, res )=>{
-    console.log(`raw url: ${req.url}`);
     let url = decodeURI(req.url)
     url = `.${url}`;
     if ( forbiddenFiles.includes(url) ){
         url = './index.html'
     }
-    console.log(`cleaned-up url: ${url}`)
+    console.log(`url: ${url}`)
     const urlArray =  req.url.split('/')
     const isLoginRequest = urlArray[1].toLowerCase() == 'login';
     const isApiRequest = urlArray[1].toLowerCase() == 'api';

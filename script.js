@@ -46,13 +46,14 @@ const c = { // the CONTROLLER object
   /**/
   async createPair( eo ){
     const sourceName = {
-      lastName: v.sLastName.value.trim(),
-      firstName: v.sFirstName.value.trim(),
+      'lastName': v.sLastName.value,
+      'firstName': v.sFirstName.value
     }; 
     const  targetName = {
-      lastName: v.tLastName.value.trim(),
-      firstName: v.tFirstName.value.trim(),
-    };   
+      'lastName': v.tLastName.value,
+      'firstName': v.tFirstName.value
+    };
+
     const parameters = {
       method: 'POST',
       headers: {
@@ -63,9 +64,10 @@ const c = { // the CONTROLLER object
     }
     try{
       console.log(parameters)
-      const result = await fetch('./api/createPair', parameters ).then( rosponse =>{
-        console.log(`response.Okay: ${response.Okay}`);
-        return response.text();
+      const result = await fetch(`./api/createPair/${JSON.stringify(sourceName)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetName)}`, parameters ).then( response =>{
+      //const result = await fetch('./api/createPair', parameters ).then( response =>{
+        console.log(`response.status: ${response.status}`);
+        return response.json();
       });
       console.log(result);
     }

@@ -81,16 +81,25 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/')        
-        const jsonSourceName = urlArray[3] || req.headers.jsonSourceName;
-        const relationship =  urlArray[4] || req.headers.relationship;
-        const jsonTargetName = urlArray[5] || req.headers.jsonTargetName;
+        const jsonSourceName = urlArray[3] || req.headers['jsonSourceName'];
+        const relationship =  urlArray[4] || req.headers['relationship'];
+        const jsonTargetName = urlArray[5] || req.headers['jsonTargetName'];
         const relationshipComponent = `-[:${relationship.toUpperCase()}]->`;
-        
+        console.log(`jsonSourceName: ${req.headers['jsonSourceName']}`)
+        console.log(`relationship:${req.headers['relationship']}`)
         try {
+            
             const sourceLastName = JSON.parse(jsonSourceName)['lastName'];
             const sourceFirstName = JSON.parse(jsonSourceName)['firstName'];
             const targetLastName = JSON.parse(jsonTargetName)['lastName'];
             const targetFirstName = JSON.parse(jsonTargetName)['firstName'];
+            
+            /*
+            const sourceLastName = jsonSourceName['lastName'];
+            const sourceFirstName = jsonSourceName['firstName'];
+            const targetLastName = jsonTargetName['lastName'];
+            const targetFirstName = jsonTargetName['firstName'];
+            */
 
             const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
             ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
