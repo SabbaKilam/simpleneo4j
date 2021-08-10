@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-require( 'dotenv' ).config();
 const api = require('./api_methods.js');
 
 const host = 'localhost';

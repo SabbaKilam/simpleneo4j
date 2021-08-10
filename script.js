@@ -63,8 +63,8 @@ const c = { // the CONTROLLER object
       }
     }
     try{
-      console.log(parameters)
-      const result = await fetch(`./api/createPair/${JSON.stringify(sourceName)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetName)}`, parameters ).then( response =>{
+        console.log(parameters)
+        const result = await fetch(`./api/createPair/${JSON.stringify(sourceName)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetName)}`, parameters ).then( response =>{
       //const result = await fetch('./api/createPair', parameters ).then( response =>{
         console.log(`response.status: ${response.status}`);
         return response.json();

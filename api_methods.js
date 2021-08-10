@@ -205,6 +205,49 @@ module.exports = {
             await session.close()
             await conn.close()          
         }
+    },
+    /** */
+    async newMemberRelationship( req, res ){
+
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const oldEmail = urlArray[3] || req.headers.memberEmail;
+        const relationship = urlArray[4].toUpperCase() || req.headers.relationship;        
+        const firstName = urlArray[5].split('.')[0] || req.headers.firstName;
+        const lastName = urlArray[5].split('.')[1] || req.headers.lastName;
+        const newEmail = `${firstName}.${lastName}@kin-keepers.ai`;
+
+         const queryString = `MATCH (oldMember:Person {email: '${oldEmail}' })
+            MERGE (oldMember)-[:${relationship}]->(newMember:Person {email: '${newEmail}', name: '${firstName}', lastName: '${lastName}', firstName: '${firstName}'})
+            RETURN oldMember, newMember`
+         
+        try {
+            const result = await session.run( queryString )        
+            let arrayOfNodeProperties = [];
+            let records = result.records;            
+           
+            for ( let i = 0; i < 2; i++ ){
+                let properties = records[0]['_fields'][i].properties;
+                arrayOfNodeProperties.push( properties );
+            }
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(arrayOfNodeProperties));            
+
+        }
+        catch( dbError){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }        
     }
 
 };// END of module

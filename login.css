@@ -46,6 +46,17 @@ body{
   margin: 0.125rem;
   text-align: left;
 }
+
+.leftBox{
+  position: absolute;
+  width: 49vw;
+  left: 0;
+}
+.rightBox{
+  position: absolute;
+  width: 49vw;
+  right: 0;
+}
 #overlay{
   position: absolute;  
   visibility: hidden;
