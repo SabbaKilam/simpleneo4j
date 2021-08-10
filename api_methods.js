@@ -128,6 +128,7 @@ module.exports = {
             await conn.close()          
         }
     },
+    /** */
     async dropAllRelationshipsAB( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()

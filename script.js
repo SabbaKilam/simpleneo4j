@@ -61,9 +61,17 @@ const c = { // the CONTROLLER object
         relationship: v.relationship.value.trim().toUpperCase()
       }
     }
-    console.log(parameters)
-    const result = await fetch('./api/createPair', parameters ).then( r=>r.text() );
-    console.log(result);
+    try{
+      console.log(parameters)
+      const result = await fetch('./api/createPair', parameters ).then( rosponse =>{
+        console.log(`response.Okay: ${response.Okay}`);
+        return response.text();
+      });
+      console.log(result);
+    }
+    catch(error){
+
+    }
   }
 };
 
