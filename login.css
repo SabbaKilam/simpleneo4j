@@ -3,19 +3,63 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    
+    overflow: hidden;  
 }
 body{
     box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    font-family: sans-serif; 
 }
-#apiControls {
+.box{
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   text-align: center;
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid black;
   width: 85vw;
+ 
 }
+#apiControls {
+  top: 8%;
+  /*bottom: 50%;*/
+  height: 30%;
+  padding: 1rem;
+
+}
+#familyGraph{
+  top: 45%;
+  height: 55%;
+  background-image: url("./assets/TheFamily.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: lightgray;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  
+}
+.apiControls{
+  margin: 0.125rem;
+  text-align: left;
+}
+#overlay{
+  position: absolute;  
+  visibility: hidden;
+  opacity: 1;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  text-align: center;
+  background-image: url("./assets/TheFamily.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: lightgray;
+  cursor: pointer;
+  transition: opacity 0.5s ease
+}  

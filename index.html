@@ -8,17 +8,20 @@
         <script src="script.js" defer></script>
     </head>
     <body id="body">
-        <h2>Login Page</h2>
-        <div id="apiControls">
-            Source FirstName: <input id="sFirstName"><br />
-            source LastName: <input id="sLastName"><br /><br />
+       <h4>Login Page</h4>
+        
+        <div id="apiControls" class="box">
+            Source FirstName: <input id="sFirstName" class="apiControls"><br />
+            source LastName:&nbsp; <input id="sLastName" class="apiControls"><br /><br />
 
-            RELATIONSHIP: <input id="relationship"><br /><br />
+            RELATIONSHIP:&nbsp; <input id="relationship" class="apiControls"><br /><br />
 
-            Target FirstName: <input id="tFirstName"><br />
-            Target LastName: <input id="tLastName"><br /><br />
+            Target FirstName: <input id="tFirstName" class="apiControls"><br />
+            Target LastName: <input id="tLastName" class="apiControls"><br /><br />
 
             <button id="btnCreatePair">CREATE PAIR</button>
         </div>
+        <div id="familyGraph" class="box" title="Click to Enlarge"></div>
+        <div id="overlay" title="Click to Close">TEST FAMILY GRAPH</div>
     </body>
 </html>

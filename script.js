@@ -74,6 +74,17 @@ const c = { // the CONTROLLER object
     catch(error){
 
     }
+  },
+  /** */
+  showBigGraph( eo ){
+    v.overlay.style.visibility = "visible";
+    v.overlay.style.opacity = "1";
+    
+  },
+  /** */
+  hideBigGraph( eo ){
+    v.overlay.style.visibility = "hidden";
+    v.overlay.style.opacity = "0";    
   }
 };
 
@@ -87,3 +98,5 @@ h.IDsToView( m.IDs, v );
 //////| establish listeners: |/////
 ////////////////////////////////////
 v.btnCreatePair.on('click', c.createPair);
+v.familyGraph.on('click', c.showBigGraph);
+v.overlay.on('click', c.hideBigGraph);

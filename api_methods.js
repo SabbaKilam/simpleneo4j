@@ -100,7 +100,7 @@ module.exports = {
             const targetLastName = jsonTargetName['lastName'];
             const targetFirstName = jsonTargetName['firstName'];
             */
-
+      
             const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
             ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
             RETURN s, t`;
