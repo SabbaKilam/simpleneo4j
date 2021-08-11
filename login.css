@@ -7,7 +7,8 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;  
+    overflow: hidden; 
+    background-color: lightgray; 
 }
 body{
     box-sizing: border-box;
@@ -92,4 +93,11 @@ select, option {
   background-color: lightgray;
   cursor: pointer;
   transition: opacity 0.5s ease
-}  
+}
+.version{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: rgb(127, 127, 127);
+  z-index: 2;
+}

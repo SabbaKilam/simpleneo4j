@@ -48,6 +48,7 @@ const c = { // the CONTROLLER object
   async createPair( eo ){
     if (v.relationshipNewPair.selectedIndex == 0){
       console.log("You need to select a relationship");
+      alert("You need to select a relationship");      
       return;
     }
     const names = [
@@ -58,6 +59,7 @@ const c = { // the CONTROLLER object
     ];
     if ( names.includes('') ){
       console.log(`createPair says: "No blank fields allowed"`);
+      alert("No blank fields allowed");
       return
     }
     const parameters = {
@@ -85,6 +87,8 @@ const c = { // the CONTROLLER object
   async relateNewMember( eo ){
     if (v.relationshipNewMember.selectedIndex == 0){
       console.log("You need to select a relationship");
+      alert("You need to select a relationship");
+      
       return
     }
     const data = [
@@ -94,6 +98,7 @@ const c = { // the CONTROLLER object
     ];
     if ( data.includes('') ){
       console.log(`relateNewMember says: "No blank fields allowed"`);
+      alert("No blank fields allowed");      
       return
     }
 

@@ -38,7 +38,7 @@ http.createServer( ( req, res )=>{
             res.end('Missing or Bad API Type.');       
         }
     }
-    else if (isLoginRequest){
+    else if ( isLoginRequest ){
         res.writeHead( 200, {'Content-Type': 'text/plain'});
         res.end('Login code: work in progress');   
     }
@@ -56,7 +56,10 @@ http.createServer( ( req, res )=>{
             }
         });
     }
-    else if (false){}
+    else if ( req.method =='POST '){
+        res.writeHead( 500, {'Content-Type': 'text/plain'} );
+        res.end(`Only responding to API POSTs from logged in users`)
+    }
     else {
         res.writeHead( 500, {'Content-Type': 'text/plain'});
         res.end('Bad or Malformed request.')

@@ -72,6 +72,11 @@ module.exports = {
     },
     /**/
     async createPair( req, res ){
+
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
         let url = decodeURI(req.url)
@@ -129,6 +134,11 @@ module.exports = {
 
     /** */
     async createRelationshipAB( req, res ){
+
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
 
@@ -181,6 +191,11 @@ module.exports = {
 
     /** */
     async dropAllRelationshipsAB( req, res ){
+
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
 
@@ -225,6 +240,11 @@ module.exports = {
     /** */
     async deleteAllMembers( req, res){
         //https://neo4j.com/docs/cypher-manual/current/clauses/delete/
+        
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
    
@@ -252,6 +272,10 @@ module.exports = {
 
     /** */
     async newMemberRelationship( req, res ){
+
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
 
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
