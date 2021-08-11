@@ -50,6 +50,16 @@ const c = { // the CONTROLLER object
       console.log("You need to select a relationship");
       return;
     }
+    const names = [
+      v.sFirstName.value.trim(),
+      v.sLastName.value.trim(),
+      v.tFirstName.value.trim(),
+      v.tLastName.value.trim()
+    ];
+    if ( names.includes('') ){
+      console.log(`createPair says: "No blank fields allowed"`);
+      return
+    }
     const parameters = {
       method: 'POST',
       headers: {
@@ -77,6 +87,16 @@ const c = { // the CONTROLLER object
       console.log("You need to select a relationship");
       return
     }
+    const data = [
+      v.currentMemberEmail.value.trim(),
+      v.newFirstName.value.trim(),
+      v.newLastName.value.trim()
+    ];
+    if ( data.includes('') ){
+      console.log(`relateNewMember says: "No blank fields allowed"`);
+      return
+    }
+
     const parameters = {
       method: 'POST',
       headers: {
