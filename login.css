@@ -42,7 +42,7 @@ select, option {
   top: 45%;
   height: 55%;
   text-align: center;
-  background-image: url("./assets/TheFamily.jpg");
+  background-image: url("./assets/TheFamilyWithLastNames.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,7 +86,7 @@ select, option {
   width: 100%;
   top: 0;
   text-align: center;
-  background-image: url("./assets/TheFamily.jpg");
+  background-image: url("./assets/TheFamilyWithLastNames.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
