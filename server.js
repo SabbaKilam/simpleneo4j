@@ -56,9 +56,9 @@ http.createServer( ( req, res )=>{
             }
         });
     }
-    else if ( req.method =='POST '){
+    else if ( req.method =='POST'){
         res.writeHead( 500, {'Content-Type': 'text/plain'} );
-        res.end(`Only responding to API POSTs from logged in users`)
+        res.end(`Responding to API POSTs only from logged in users`)
     }
     else {
         res.writeHead( 500, {'Content-Type': 'text/plain'});
