@@ -1,3 +1,7 @@
+html{
+  user-select: none;
+  font-size: calc(0.7vw + 0.7vh + 7px);
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -19,7 +23,7 @@ body{
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid black;
-  width: 85vw;
+  width: 100%;
  
 }
 #apiControls {
@@ -27,8 +31,12 @@ body{
   /*bottom: 50%;*/
   height: 30%;
   padding: 1rem;
-
+  width: 98%;
 }
+select, option {
+  font-weight: bold;
+}
+
 #familyGraph{
   top: 45%;
   height: 55%;
@@ -49,13 +57,23 @@ body{
 
 .leftBox{
   position: absolute;
-  width: 49vw;
+  top: 0;
+  width: 49.5%;
+  height: 100%;
   left: 0;
+  padding: 0.125rem;
+  border-radius: 0.125rem;
+  background-color: pink;   
 }
 .rightBox{
   position: absolute;
-  width: 49vw;
+  top: 0;
+  width: 49.5%;
+  height: 100%;
   right: 0;
+  padding: 0.125rem;
+  border-radius: 0.125rem;
+  background-color: lightblue;    
 }
 #overlay{
   position: absolute;  

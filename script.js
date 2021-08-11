@@ -21,7 +21,8 @@ let m = { // the MODEL object
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
-  .map( element => element.id ),
+  .map( element => element.id )
+  .sort(),
 
 };
 const v = {}; // the VIEW object
@@ -45,41 +46,64 @@ const h = { // the HELPER object
 const c = { // the CONTROLLER object
   /**/
   async createPair( eo ){
-    const sourceName = {
-      'lastName': v.sLastName.value,
-      'firstName': v.sFirstName.value
-    }; 
-    const  targetName = {
-      'lastName': v.tLastName.value,
-      'firstName': v.tFirstName.value
-    };
-
+    if (v.relationshipNewPair.selectedIndex == 0){
+      console.log("You need to select a relationship");
+      return;
+    }
     const parameters = {
       method: 'POST',
       headers: {
-        jsonSourceName: JSON.stringify(sourceName),
-        jsonTargetName: JSON.stringify(targetName),
-        relationship: v.relationship.value.trim().toUpperCase()
+        sourcename: `${v.sFirstName.value.trim()}.${v.sLastName.value.trim()}`,
+        targetname: `${v.tFirstName.value.trim()}.${v.tLastName.value.trim()}`,
+        relationship: v.relationshipNewPair.value.trim().toUpperCase()
       }
     }
     try{
         console.log(parameters)
-        const result = await fetch(`./api/createPair/${JSON.stringify(sourceName)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetName)}`, parameters ).then( response =>{
-      //const result = await fetch('./api/createPair', parameters ).then( response =>{
+        //const result = await fetch(`./api/createPair/${JSON.stringify(sourcename)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetname)}`, parameters ).then( response =>{
+        const result = await fetch('./api/createPair', parameters ).then( response =>{
         console.log(`response.status: ${response.status}`);
         return response.json();
       });
       console.log(result);
     }
     catch(error){
-
+      console.log(`createPair Error:\n${error}`)
     }
+  },
+  /** */
+  async relateNewMember( eo ){
+    if (v.relationshipNewMember.selectedIndex == 0){
+      console.log("You need to select a relationship");
+      return
+    }
+    const parameters = {
+      method: 'POST',
+      headers: {
+        relationship: v.relationshipNewMember.value.trim(),
+        memberemail: v.currentMemberEmail.value.trim(),
+        firstname: v.newFirstName.value.trim(),
+        lastname: v.newLastName.value.trim(),
+      }
+    }
+    console.log(`sent parameters:\n${JSON.stringify(parameters)}\n`);    
+    try{
+      const result = await fetch('./api/newMemberRelationship', parameters)
+      .then( response =>{
+        if( response.status > 299 ) { throw new Error(`relateNewMember had trouble: ${response.status}`)}
+        return response.text();
+      });
+      console.log( result)
+    }
+    catch(error){
+      console.log(error);
+    }
+
   },
   /** */
   showBigGraph( eo ){
     v.overlay.style.visibility = "visible";
-    v.overlay.style.opacity = "1";
-    
+    v.overlay.style.opacity = "1";    
   },
   /** */
   hideBigGraph( eo ){
@@ -98,5 +122,6 @@ h.IDsToView( m.IDs, v );
 //////| establish listeners: |/////
 ////////////////////////////////////
 v.btnCreatePair.on('click', c.createPair);
+v.btnRelateNewMember.on('click', c.relateNewMember);
 v.familyGraph.on('click', c.showBigGraph);
 v.overlay.on('click', c.hideBigGraph);

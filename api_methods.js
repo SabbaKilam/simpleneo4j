@@ -16,7 +16,7 @@ module.exports = {
         const session = conn.session()
 
         const urlArray =  req.url.split('/')        
-        const personName = urlArray[3] || url.headers.name;
+        const personName = urlArray[3] || req.headers.name;
         console.log(`personName: ${personName}`)
    
         try {
@@ -70,10 +70,7 @@ module.exports = {
             await conn.close()          
         }        
     },
-    /** 
-     * 
-    */
-   //
+    /**/
     async createPair( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
@@ -81,25 +78,17 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/')        
-        const jsonSourceName = urlArray[3] || req.headers['jsonSourceName'];
+        const sourceName = urlArray[3] || req.headers['sourcename'];
         const relationship =  urlArray[4] || req.headers['relationship'];
-        const jsonTargetName = urlArray[5] || req.headers['jsonTargetName'];
+        const targetName = urlArray[5] || req.headers['targetname'];
         const relationshipComponent = `-[:${relationship.toUpperCase()}]->`;
-        console.log(`jsonSourceName: ${req.headers['jsonSourceName']}`)
+        console.log(`sourceName: ${req.headers['sourceName']}`)
         console.log(`relationship:${req.headers['relationship']}`)
         try {
-            
-            const sourceLastName = JSON.parse(jsonSourceName)['lastName'];
-            const sourceFirstName = JSON.parse(jsonSourceName)['firstName'];
-            const targetLastName = JSON.parse(jsonTargetName)['lastName'];
-            const targetFirstName = JSON.parse(jsonTargetName)['firstName'];
-            
-            /*
-            const sourceLastName = jsonSourceName['lastName'];
-            const sourceFirstName = jsonSourceName['firstName'];
-            const targetLastName = jsonTargetName['lastName'];
-            const targetFirstName = jsonTargetName['firstName'];
-            */
+            const sourceFirstName = sourceName.split('.')[0]
+            const sourceLastName = sourceName.split('.')[1]
+            const targetFirstName = targetName.split('.')[0]
+            const targetLastName = targetName.split('.')[1]            
       
             const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
             ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
@@ -137,6 +126,59 @@ module.exports = {
             await conn.close()          
         }
     },
+
+    /** */
+    async createRelationshipAB( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session()
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/')        
+        const sourceEmail = urlArray[3] || req.headers.sourceemail;
+        const relationship =urlArray[4] || req.headers.relationship;
+        const targetEmail = urlArray[5] || req.headers.targetemail;
+        const directional = urlArray[6] || req.headers.directional;
+
+        const directionalString = (directional == "1") ? ">" : "";     
+   
+        try {
+            const queryString = `MATCH (s:Person {email: $sEmail })
+            MATCH (t:Person {email: $tEmail})
+            MERGE (s)-[:${relationship}]-${directionalString}(t)
+            RETURN s, t`
+            console.log(`createRelationAB queryString:\n${queryString}`)
+            const result = await session.run(
+                queryString,
+                {
+                     sEmail: sourceEmail,
+                     tEmail: targetEmail
+                }
+            )        
+            let arrayOfNodeProperties = [];
+            let records = result.records;
+            
+            console.log(`dropAllRelationsAB : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
+            for ( let i = 0; i < 2; i++ ){
+                let properties = records[0]['_fields'][i].properties;
+                arrayOfNodeProperties.push( properties );
+            }
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(arrayOfNodeProperties));            
+
+        }
+        catch( dbError ){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }
+    },
+
     /** */
     async dropAllRelationshipsAB( req, res ){
         const conn = neo4j.driver( uri, auth )
@@ -146,8 +188,8 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/')        
-        const sourceEmail = urlArray[3] || url.headers.sourceEmail;
-        const targetEmail = urlArray[4] || url.headers.targetEmail;
+        const sourceEmail = urlArray[3] || req.headers.sourceemail;
+        const targetEmail = urlArray[4] || req.headers.targetemail;
    
         try {
             const queryString = `MATCH (s:Person {email: $sEmail })-[r]-(t:Person {email: $tEmail})
@@ -179,6 +221,7 @@ module.exports = {
             await conn.close()          
         }
     },
+
     /** */
     async deleteAllMembers( req, res){
         //https://neo4j.com/docs/cypher-manual/current/clauses/delete/
@@ -206,6 +249,7 @@ module.exports = {
             await conn.close()          
         }
     },
+
     /** */
     async newMemberRelationship( req, res ){
 
@@ -216,18 +260,20 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/') 
-        const oldEmail = urlArray[3] || req.headers.memberEmail;
-        const relationship = urlArray[4].toUpperCase() || req.headers.relationship;        
-        const firstName = urlArray[5].split('.')[0] || req.headers.firstName;
-        const lastName = urlArray[5].split('.')[1] || req.headers.lastName;
+        const oldEmail = urlArray[3] || req.headers['memberemail'];
+        const relationship = urlArray[4]?.toUpperCase() || req.headers['relationship'];        
+        const firstName = urlArray[5]?.split('.')[0] || req.headers['firstname'];
+        const lastName = urlArray[5]?.split('.')[1] || req.headers['lastname'];
         const newEmail = `${firstName}.${lastName}@kin-keepers.ai`;
-
-         const queryString = `MATCH (oldMember:Person {email: '${oldEmail}' })
+        
+        const queryString = `MATCH (oldMember:Person {email: '${oldEmail}' })
             MERGE (oldMember)-[:${relationship}]->(newMember:Person {email: '${newEmail}', name: '${firstName}', lastName: '${lastName}', firstName: '${firstName}'})
             RETURN oldMember, newMember`
-         
+        console.log( `queryString:\n${queryString}`) ;
         try {
-            const result = await session.run( queryString )        
+            const result = await session.run( 
+                queryString
+            );      
             let arrayOfNodeProperties = [];
             let records = result.records;            
            
@@ -247,7 +293,7 @@ module.exports = {
         finally {
             await session.close()
             await conn.close()          
-        }        
-    }
+        }            
+    },
 
 };// END of module

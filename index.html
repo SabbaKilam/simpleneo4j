@@ -12,19 +12,24 @@
         
         <div id="apiControls" class="box">
             <div class="leftBox">
-                Source FirstName: <input id="sFirstName" class="apiControls"><br />
-                source LastName:&nbsp; <input id="sLastName" class="apiControls"><br /><br />
+                Source First Name: <input id="sFirstName" class="apiControls"><br />
+                source Last Name:&nbsp; <input id="sLastName" class="apiControls"><br /><br />
+                <select id="relationshipNewPair" class="apiControls">
+                    <option>Select Relationship</option>
+                    <option>IS_FRIEND_OF</option>
+                    <option>IS_SPOUSE_OF</option>
+                    <option>IS_PARENT_OF</option>
+                    <option>IS_CHILD_OF</option>
+                </select><br /><br />
 
-                RELATIONSHIP:&nbsp; <input id="relationship" class="apiControls"><br /><br />
+                Target First Name: <input id="tFirstName" class="apiControls"><br />
+                Target Last Name: <input id="tLastName" class="apiControls"><br /><br />
 
-                Target FirstName: <input id="tFirstName" class="apiControls"><br />
-                Target LastName: <input id="tLastName" class="apiControls"><br /><br />
-
-                <button id="btnCreatePair">CREATE PAIR</button>
+                <button id="btnCreatePair">CREATE NEW PAIR</button>
             </div>
             <div class="rightBox">
-                Email Current Member <input id="currentEmail" class="apiControls"><br /><br />
-                <select id="relationshipSelector" class="apiControls">
+                Current Member Email: <input id="currentMemberEmail" value="@kin-keepers.ai" class="apiControls"><br /><br />
+                <select id="relationshipNewMember" class="apiControls">
                     <option>Select Relationship</option>
                     <option>IS_FRIEND_OF</option>
                     <option>IS_SPOUSE_OF</option>
@@ -33,7 +38,7 @@
                 </select><br /><br />
                 New Member First Name: <input id="newFirstName" class="apiControls"><br />
                 New Member Last Name: <input id="newLastName" class="apiControls"><br /><br />                
-                <button id="btnCreatePair">RELATE NEW MEMBER</button>
+                <button id="btnRelateNewMember">RELATE NEW MEMBER</button>
             </div>
 
         </div>
