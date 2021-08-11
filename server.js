@@ -10,6 +10,7 @@ const mimeTypes = {
     css: 'text/css',
     js: 'text/javascript',
     ico: 'image/icon',
+    jpg: `image/jpg`,
 }
 
 const forbiddenFiles = [
@@ -58,7 +59,7 @@ http.createServer( ( req, res )=>{
     }
     else if ( req.method =='POST'){
         res.writeHead( 500, {'Content-Type': 'text/plain'} );
-        res.end(`Responding to API POSTs only from logged in users`)
+        res.end(`Responding to API POSTs only from logged-in users`)
     }
     else {
         res.writeHead( 500, {'Content-Type': 'text/plain'});

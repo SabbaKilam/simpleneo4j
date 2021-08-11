@@ -10,11 +10,6 @@
 */
 ////////////////////////////////////
 ///////| data and references: |/////
-
-//const { connectivityVerifier } = require("neo4j-driver-core/types/internal");
-
-
-
 ////////////////////////////////////
 let m = { // the MODEL object
   username: "",
@@ -41,7 +36,7 @@ const h = { // the HELPER object
 };
 
 /////////////////////////////////////
-//| define handler functions: |///
+//| define handler functions: |//////
 /////////////////////////////////////
 const c = { // the CONTROLLER object
   /**/
@@ -71,11 +66,10 @@ const c = { // the CONTROLLER object
       }
     }
     try{
-        console.log(parameters)
-        //const result = await fetch(`./api/createPair/${JSON.stringify(sourcename)}/${v.relationship.value.trim().toUpperCase()}/${JSON.stringify(targetname)}`, parameters ).then( response =>{
+        console.log(parameters);        
         const result = await fetch('./api/createPair', parameters ).then( response =>{
-        console.log(`response.status: ${response.status}`);
-        return response.json();
+          console.log(`response.status: ${response.status}`);
+          return response.json();
       });
       console.log(result);
     }
@@ -87,9 +81,8 @@ const c = { // the CONTROLLER object
   async relateNewMember( eo ){
     if (v.relationshipNewMember.selectedIndex == 0){
       console.log("You need to select a relationship");
-      alert("You need to select a relationship");
-      
-      return
+      alert("You need to select a relationship");      
+      return;
     }
     const data = [
       v.currentMemberEmail.value.trim(),
@@ -99,9 +92,8 @@ const c = { // the CONTROLLER object
     if ( data.includes('') ){
       console.log(`relateNewMember says: "No blank fields allowed"`);
       alert("No blank fields allowed");      
-      return
+      return;
     }
-
     const parameters = {
       method: 'POST',
       headers: {
@@ -141,7 +133,6 @@ const c = { // the CONTROLLER object
 /////////| initialization: |////////
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
-
 
 ////////////////////////////////////
 //////| establish listeners: |/////
