@@ -60,7 +60,7 @@ const c = { // the CONTROLLER object
     if ( names.includes('') ){
       console.log(`createPair says: "No blank fields allowed"`);
       alert("No blank fields allowed");
-      return
+      return;
     }
     const parameters = {
       method: 'POST',
@@ -148,5 +148,6 @@ h.IDsToView( m.IDs, v );
 ////////////////////////////////////
 v.btnCreatePair.on('click', c.createPair);
 v.btnRelateNewMember.on('click', c.relateNewMember);
+
 v.familyGraph.on('click', c.showBigGraph);
 v.overlay.on('click', c.hideBigGraph);

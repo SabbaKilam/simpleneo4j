@@ -80,7 +80,7 @@ select, option {
 #overlay{
   position: absolute;  
   visibility: hidden;
-  opacity: 1;
+  opacity: 0;
   z-index: 1;
   height: 100%;
   width: 100%;
