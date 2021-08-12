@@ -16,6 +16,10 @@ body{
     text-align: center;
     font-family: sans-serif; 
 }
+button{
+  font-weight: bold;
+}
+
 .box{
   position: absolute;
   left: 50%;
@@ -24,13 +28,12 @@ body{
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid black;
-  width: 100%;
- 
+  width: 100%; 
 }
 #apiControls {
   top: 8%;
-  /*bottom: 50%;*/
-  height: 30%;
+  bottom: 50%;
+  height: 32%;
   padding: 1rem;
   width: 98%;
 }
@@ -39,22 +42,41 @@ select, option {
 }
 
 #familyGraph{
-  top: 45%;
-  height: 55%;
-  text-align: center;
   background-image: url("./assets/TheFamilyWithLastNames.jpg");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: lightgray;
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.5s ease;
-  
+  transition: opacity 0.5s ease;  
+}
+#bottomDiv{
+  position: absolute;
+  top: 50%;
+  height: 45%;
+  width: 100%;
+  text-align: center;
+  border: 1px solid black;
+}
+.bottomBox{
+  position: relative;
+  float: left;
+  width: 33.2%;
+  top: 0;
+  height: 100%;
+}
+
+#createMemberBox{
+  background-color: lightblue;
+}
+#addPropertyBox{
+  background-color: pink;
 }
 .apiControls{
   margin: 0.125rem;
   text-align: left;
+
 }
 
 .leftBox{
