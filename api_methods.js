@@ -15,7 +15,10 @@ module.exports = {
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
 
-        const urlArray =  req.url.split('/')        
+        let url = decodeURI(req.url)
+        url = `.${url}`;        
+
+        const urlArray =  url.split('/')        
         const personName = urlArray[3] || req.headers.name;
         console.log(`personName: ${personName}`)
    

@@ -25,8 +25,10 @@ http.createServer( ( req, res )=>{
     if ( forbiddenFiles.includes(url) ){
         url = './index.html'
     }
+    
     console.log(`url: ${url}`)
-    const urlArray =  req.url.split('/')
+
+    const urlArray = url.split('/')
     const isLoginRequest = urlArray[1].toLowerCase() == 'login';
     const isApiRequest = urlArray[1].toLowerCase() == 'api';
     if ( isApiRequest ){
