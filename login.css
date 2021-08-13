@@ -28,7 +28,7 @@ button{
   text-align: center;
   border-radius: 1rem;
   padding: 1.5rem;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   width: 100%; 
 }
 #apiControls {
@@ -36,7 +36,7 @@ button{
   bottom: 50%;
   height: 32%;
   padding: 1rem;
-  width: 98%;
+  width: 98.5%;
 }
 select, option {
   font-weight: bold;
@@ -58,7 +58,7 @@ select, option {
   height: 45%;
   width: 100%;
   text-align: center;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 .bottomBox{
   position: relative;

@@ -325,14 +325,17 @@ module.exports = {
 
     /** */ 
     async addProperty( req, res ){
+        // For now, just "echo back" the header values:
         const params = [];
         params.push(req.headers.targetemail);
         params.push(req.headers.propertyname);
         params.push(req.headers.propertyvalue);
+
+        const paramsJson = JSON.stringify(params);
+        console.log (paramsJson );
         
         res.writeHead(200, {'Content-Type':'application/json'});
-        res.end( JSON.stringify(params) );
-        
+        res.end( paramsJson );
     }
 
 };// END of module

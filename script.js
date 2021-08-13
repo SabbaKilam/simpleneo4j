@@ -141,7 +141,7 @@ const c = { // the CONTROLLER object
         if ( response.status > 299 ){ throw new Error(`Trouble setting new property: ${response.status}` )}
         return response.text();
       });
-      console.log(result);
+      console.log(`Server response to addProperty:\n${result}`);
     }
     catch(error){
       console.log(error);
