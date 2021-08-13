@@ -115,7 +115,37 @@ const c = { // the CONTROLLER object
     catch(error){
       console.log(error);
     }
-
+  },
+  /** */ 
+  async addProperty( eo ){
+    const data = [
+      v.emailAddProperty.value.trim(),
+      v.txtNewPropertyName.value.trim(),
+      v.txtNewPropertyValue.value.trim()
+    ];
+    if ( data.includes('') ){
+      console.log(`addProperty says: "No blank fields allowed"`);
+      alert("No blank fields allowed");      
+      return;
+    }
+    const parameters = {
+      method: 'POST',
+      headers: {
+        targetemail: v.emailAddProperty.value.trim(),
+        propertyname: v.txtNewPropertyName.value.trim(),
+        propertyvalue: v.txtNewPropertyValue.value.trim()
+      }
+    };
+    try{
+      const result = await fetch('./api/addProperty', parameters).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble setting new property: ${response.status}` )}
+        return response.text();
+      });
+      console.log(result);
+    }
+    catch(error){
+      console.log(error);
+    }
   },
   /** */
   showBigGraph( eo ){
@@ -139,6 +169,7 @@ h.IDsToView( m.IDs, v );
 ////////////////////////////////////
 v.btnCreatePair.on('click', c.createPair);
 v.btnRelateNewMember.on('click', c.relateNewMember);
+v.btnAddProperty.on('click', c.addProperty);
 
 v.familyGraph.on('click', c.showBigGraph);
 v.overlay.on('click', c.hideBigGraph);

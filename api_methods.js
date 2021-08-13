@@ -323,4 +323,16 @@ module.exports = {
         }            
     },
 
+    /** */ 
+    async addProperty( req, res ){
+        const params = [];
+        params.push(req.headers.targetemail);
+        params.push(req.headers.propertyname);
+        params.push(req.headers.propertyvalue);
+        
+        res.writeHead(200, {'Content-Type':'application/json'});
+        res.end( JSON.stringify(params) );
+        
+    }
+
 };// END of module
