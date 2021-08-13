@@ -8,7 +8,7 @@ An Expanding list of database methods in module api_methods:
     createRelationshipAB
     dropAllRelationshipsAB
     deleteAllMembers
-    addProperty (not yet written)
+    addProperty (has a front end button)
     createMember (not yet written)
 
 
