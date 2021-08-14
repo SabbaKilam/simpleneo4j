@@ -1,6 +1,6 @@
 Attempt an as-simple-as-possible api for the family circle graph database.
 
-An Expanding list of database methods in module api_methods:
+An Expanding list of database methods in module api_methods.js:
     tryNeo
     getAllMembers
     createPair (has a front end button)
@@ -9,6 +9,7 @@ An Expanding list of database methods in module api_methods:
     dropAllRelationshipsAB
     deleteAllMembers
     addProperty (has a front end button)
-    createMember (not yet written)
+    createMember (has a front end button)
+    createRelationship (has a front end button)
 
 

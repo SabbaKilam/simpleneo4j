@@ -46,6 +46,46 @@ module.exports = {
             await conn.close()          
         }
     },
+
+    /** */ 
+    async createMember( req, res ){
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
+        const conn = neo4j.driver( uri, auth );
+        const session = conn.session();
+
+        let url = decodeURI(req.url);
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') ;
+        const firstName = urlArray[3] || req.headers.firstname;
+        const lastName = urlArray[4] || req.headers.lastname;
+        
+        const queryString = `MERGE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai'})
+        RETURN p`;
+        
+        try {
+            const result = await session.run( queryString )     
+            const singleRecord = result.records[0]
+            const node = singleRecord.get(0)
+        
+            console.log(node.properties.name)
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(node.properties));
+        }
+        catch( dbError){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }
+    },
+
     /** */
     async getAllMembers( req, res ){
         const conn = neo4j.driver( uri, auth )
@@ -73,6 +113,7 @@ module.exports = {
             await conn.close()          
         }        
     },
+
     /**/
     async createPair( req, res ){
 
@@ -126,7 +167,7 @@ module.exports = {
         }
         catch( dbError){
             console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.writeHead( 500, {'Content-Type':'text/plain'} )
             res.end('Trouble executing API');            
         }
         finally {
@@ -152,7 +193,7 @@ module.exports = {
         const sourceEmail = urlArray[3] || req.headers.sourceemail;
         const relationship =urlArray[4] || req.headers.relationship;
         const targetEmail = urlArray[5] || req.headers.targetemail;
-        const directional = urlArray[6] || req.headers.directional;
+        const directional = urlArray[6] || req.headers.directional || "1";
 
         const directionalString = (directional == "1") ? ">" : "";     
    
@@ -320,22 +361,57 @@ module.exports = {
         finally {
             await session.close()
             await conn.close()          
-        }            
+        }          
     },
 
     /** */ 
     async addProperty( req, res ){
-        // For now, just "echo back" the header values:
-        const params = [];
-        params.push(req.headers.targetemail);
-        params.push(req.headers.propertyname);
-        params.push(req.headers.propertyvalue);
 
-        const paramsJson = JSON.stringify(params);
-        console.log (paramsJson );
+        if ( req.method=='POST' ){
+            console.log('This is a POST:\nUser should be logged in and priviledged');
+        }
+
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
         
-        res.writeHead(200, {'Content-Type':'application/json'});
-        res.end( paramsJson );
-    }
+        const memberEmail = urlArray[3] || req.headers.targetemail;
+        const propertyName = urlArray[4] || req.headers.propertyname;
+        const propertyValue = urlArray[5] || req.headers.propertyvalue;
+
+        const queryString = `
+        MATCH (p {email: '${memberEmail}'} )
+        SET p.${propertyName} = '${propertyValue}'
+        RETURN p
+        `  
+        console.log( `queryString:\n${queryString}`) ;
+        try {
+            const result = await session.run( 
+                queryString
+            );      
+            const singleRecord = result.records[0]
+            const node = singleRecord.get(0)
+        
+            console.log(node.properties.name)
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(node.properties));
+        }
+        catch( dbError){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }
+    },
+
+    /** */
+
 
 };// END of module

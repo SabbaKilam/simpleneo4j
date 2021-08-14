@@ -77,6 +77,7 @@ const c = { // the CONTROLLER object
       console.log(`createPair Error:\n${error}`)
     }
   },
+
   /** */
   async relateNewMember( eo ){
     if (v.relationshipNewMember.selectedIndex == 0){
@@ -116,6 +117,7 @@ const c = { // the CONTROLLER object
       console.log(error);
     }
   },
+
   /** */ 
   async addProperty( eo ){
     const data = [
@@ -147,6 +149,76 @@ const c = { // the CONTROLLER object
       console.log(error);
     }
   },
+
+  /** */ 
+  async createMember( eo ){
+    const data = [
+      v.singleNewFirstName.value.trim(),
+      v.singleNewLastName.value.trim(),
+    ];
+    if ( data.includes('') ){
+      console.log(`createMember says: "No blank fields allowed"`);
+      alert("No blank fields allowed");      
+      return;
+    }
+    const parameters = {
+      method: 'POST',
+      headers: {
+        firstname: v.singleNewFirstName.value.trim(),
+        lastname: v.singleNewLastName.value.trim(),
+      }
+    };
+    try{
+      const result = await fetch('./api/createMember', parameters).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
+        return response.text();
+      });
+      console.log(`Server response to createMember:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }    
+  },
+
+  /** */
+  async createRelationship( eo ){
+    
+    if (v.selectRelationship.selectedIndex == 0){
+      console.log("You need to select a relationship");
+      alert("You need to select a relationship");      
+      return;
+    }
+    const data = [
+      (v.relationSourceEmail.value.trim()).indexOf('@'),
+      (v.relationTargetEmail.value.trim()).indexOf('@'),
+    ];
+    if ( data.includes(0) ){
+      console.log(`createMember says: "Need full email addresses"`);
+      alert("Need full email addresses");      
+      return;
+    }
+    const parameters = {
+      method: 'POST',
+      headers: {
+        sourceemail: v.relationSourceEmail.value.trim(),
+        relationship: v.selectRelationship.value.trim(),
+        targetemail: v.relationTargetEmail.value.trim(),
+        directional: v.directional.checked ? "1" : "0"
+      }
+    };
+    try{
+      const result = await fetch('./api/createRelationshipAB', parameters)
+        .then( response => {
+          if ( response.status > 299 ){ throw new Error(`Trouble creating relationship: ${response.status}` )}
+          return response.text();
+        });
+      console.log(`Server response to createRelationship:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }    
+  },
+
   /** */
   showBigGraph( eo ){
     v.overlay.style.visibility = "visible";
@@ -170,6 +242,9 @@ h.IDsToView( m.IDs, v );
 v.btnCreatePair.on('click', c.createPair);
 v.btnRelateNewMember.on('click', c.relateNewMember);
 v.btnAddProperty.on('click', c.addProperty);
+v.btnCreateMember.on('click', c.createMember);
+v.btnCreateRelationship.on('click', c.createRelationship);
 
-v.familyGraph.on('click', c.showBigGraph);
+v.btnShowBigGraph.on('click', c.showBigGraph)
 v.overlay.on('click', c.hideBigGraph);
+

@@ -14,7 +14,13 @@ body{
     box-sizing: border-box;
     position: relative;
     text-align: center;
-    font-family: sans-serif; 
+    font-family: sans-serif;
+    /*
+    background-image: url("./assets/TheFamilyWithLastNames.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    */
 }
 button{
   font-weight: bold;
@@ -43,14 +49,26 @@ select, option {
 }
 
 #familyGraph{
+  position: realtive;
   background-image: url("./assets/TheFamilyWithLastNames.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: lightgray;
+  text-align: left;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.5s ease;  
+}
+#graphTitle{
+  position: absolute;
+  top:0;
+  margin: 0.125rem;
+  border-radius: 0.25rem;
+  padding: 0.125rem;
+  border: 1px solid;
+  background-color:bisque;
+  text-shadow: 0 1px 0 white;
 }
 #bottomDiv{
   position: absolute;
@@ -69,6 +87,11 @@ select, option {
 }
 
 #createMemberBox{
+  position: relative;
+  background-color: lightblue;
+}
+
+#createRelationshipBox{
   background-color: lightblue;
 }
 #addPropertyBox{

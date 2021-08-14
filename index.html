@@ -8,8 +8,8 @@
         <script src="script.js" defer></script>
     </head>
     <body id="body">
-       <h4>Login Page (?)</h4>
-        
+        <button id="btnShowBigGraph">SHOW GRAPH</button>
+         
         <div id="apiControls" class="box">
             <div class="leftBox">
                 Source First Name: <input id="sFirstName" class="apiControls"><br />
@@ -43,18 +43,40 @@
 
         </div>
         <div id="bottomDiv" >
-            <div id="createMemberBox" class="bottomBox">
-                <button id="btnCreateMember">CREATE NEW MEMBER</button>
-            </div>
+            <div id="createRelationshipBox" class="bottomBox">
+                <br /><br />
+                Source Email: <input id="relationSourceEmail" size="16" value="@kin-keepers.ai" />
+                <br /><br />
+                <select id="selectRelationship" class="apiControls">
+                    <option>Select Relationship</option>
+                    <option>IS_FRIEND_OF</option>
+                    <option>IS_SPOUSE_OF</option>
+                    <option>IS_PARENT_OF</option>
+                    <option>IS_CHILD_OF</option>
+                </select><br />
+                <input type="checkbox" id="directional" checked >
+                <label for="directional">Directed&#x279C;</label><br>
+                Target Email: <input id="relationTargetEmail" size="16" value="@kin-keepers.ai" /><br /><br />
+             
+                <button id="btnCreateRelationship">CREATE RELATIONSHIP</button>
+            </div>            
+
             <div id="addPropertyBox" class="bottomBox">
                 <br /><br /><br />
-                Member Email:&nbsp; <input id="emailAddProperty" size="12" class="apiControls" value="@kin-keepers.ai"><br />
-                Property Name: <input id="txtNewPropertyName" size="12" class="apiControls"><br />
-                Property Value: <input id="txtNewPropertyValue" size="12" class="apiControls"><br /><br />
+                Member Email:&nbsp; <input id="emailAddProperty" size="13" class="apiControls" value="@kin-keepers.ai"><br />
+                Property Name: <input id="txtNewPropertyName" size="13" class="apiControls"><br />
+                Property Value: <input id="txtNewPropertyValue" size="13" class="apiControls"><br /><br />
 
                 <button id="btnAddProperty">ADD NEW PROPERTY</button>
             </div>            
-            <div id="familyGraph" class="bottomBox" title="Click to Enlarge">Click to Enlarge</div>
+            <!--<div id="familyGraph" class="bottomBox" title="Click to Enlarge"><span id="graphTitle">Click to Enlarge</span></div>-->
+
+            <div id="createMemberBox" class="bottomBox">
+                <br /><br /><br /><br />
+                First Name: <input id="singleNewFirstName" size="13" class="apiControls"><br />
+                Last Name: <input id="singleNewLastName" size="13" class="apiControls"><br /><br /> 
+                <button id="btnCreateMember">CREATE NEW MEMBER</button>
+            </div>            
         </div>
 
         <div id="overlay" >TEST FAMILY GRAPH<br/> (<b>click to close</b>)</div>
