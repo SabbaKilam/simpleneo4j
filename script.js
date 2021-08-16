@@ -244,7 +244,7 @@ v.btnRelateNewMember.on('click', c.relateNewMember);
 v.btnAddProperty.on('click', c.addProperty);
 v.btnCreateMember.on('click', c.createMember);
 v.btnCreateRelationship.on('click', c.createRelationship);
+v.btnShowBigGraph.on('click', c.showBigGraph);
 
-v.btnShowBigGraph.on('click', c.showBigGraph)
 v.overlay.on('click', c.hideBigGraph);
 
