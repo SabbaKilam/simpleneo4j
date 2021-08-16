@@ -16,7 +16,8 @@ const mimeTypes = {
 const forbiddenFiles = [
     './',
     './server.js',
-    '.package.json'
+    '.package.json',
+    '.env'
 ];
 
 http.createServer( ( req, res )=>{
