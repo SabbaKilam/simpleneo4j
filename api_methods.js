@@ -115,7 +115,7 @@ module.exports = {
     },
 
     /** */ 
-    getMember( req, res ){
+    async getMember( req, res ){
         const conn = neo4j.driver( uri, auth );
         const session = conn.session();
 
@@ -124,7 +124,7 @@ module.exports = {
 
         const urlArray =  url.split('/') ;
         const email = urlArray[3] || req.headers.email;
-               
+
         const queryString = `MATCH (p:Person {email: '${email}'})
         RETURN p`;
         
