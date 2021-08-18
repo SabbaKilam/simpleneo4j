@@ -3,7 +3,7 @@ const fs = require('fs');
 const api = require('./api_methods.js');
 
 //const host = 'localhost';
-const port = 3000;
+const port = process.env.PORT;
 
 const mimeTypes = {
     html: 'text/html',
