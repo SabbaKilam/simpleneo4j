@@ -32,6 +32,7 @@ const h = { // the HELPER object
       view[id].on = view[id].addEventListener;
     });
 	IDs.forEach( id => console.log(id) );
+  console.log(`(${IDs.length} id elements)`)
   },
 };
 

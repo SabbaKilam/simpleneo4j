@@ -17,7 +17,7 @@ const forbiddenFiles = [
     './',
     './server.js',
     './package.json',
-    './env'
+    './.env'
 ];
 
 http.createServer( ( req, res )=>{

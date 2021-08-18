@@ -11,5 +11,7 @@ An Expanding list of database methods in module api_methods.js:
     addProperty (has a front end button)
     createMember (has a front end button)
     createRelationship (has a front end button)
+    myGrandchildren (not yet coded) (webapp/api/myGrandchildren/Sarah.Burns@kin-keepers.ai)
+  
 
 
