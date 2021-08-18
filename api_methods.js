@@ -114,6 +114,40 @@ module.exports = {
         }        
     },
 
+    /** */ 
+    getMember( req, res ){
+        const conn = neo4j.driver( uri, auth );
+        const session = conn.session();
+
+        let url = decodeURI(req.url);
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') ;
+        const email = urlArray[3] || req.headers.email;
+               
+        const queryString = `MATCH (p:Person {email: '${email}'})
+        RETURN p`;
+        
+        try {
+            const result = await session.run( queryString )     
+            const singleRecord = result.records[0]
+            const node = singleRecord.get(0)
+        
+            console.log(node.properties.name)
+            res.writeHead( 200, {'Content-Type':'application/json'})
+            res.end(JSON.stringify(node.properties));
+        }
+        catch( dbError){
+            console.error( dbError )
+            res.writeHead( 500, {'Content-Type':'text/plain'})
+            res.end('Trouble executing API');            
+        }
+        finally {
+            await session.close()
+            await conn.close()          
+        }        
+    },    
+
     /**/
     async createPair( req, res ){
 
