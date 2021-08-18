@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const api = require('./api_methods.js');
 
-const host = 'localhost';
+//const host = 'localhost';
 const port = 3000;
 
 const mimeTypes = {
@@ -70,6 +70,6 @@ http.createServer( ( req, res )=>{
     }    
 
 
-}).listen(port, host, ()=>{
-    console.log(`Server running at http://${host}:${port}`);
+}).listen(port, ()=>{
+    console.log(`Server running at ${port}`);
 });
