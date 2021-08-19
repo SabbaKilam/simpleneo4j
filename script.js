@@ -220,6 +220,33 @@ const c = { // the CONTROLLER object
     }    
   },
 
+  /** */ 
+  async login( eo ){
+    //eo.preventDefault();
+    const keyCode = eo.keyCode || eo.keyCode;
+    const enter = 13;
+    console.log (keyCode);
+    if (keyCode != enter){ return }
+    const possiblePassword = v.passwordInput.value.trim();
+    v.passwordInput.value = '';
+    try{
+      const parameters = {
+        method: 'POST',
+        headers: {
+          password: possiblePassword
+        }
+      };
+      const result = await fetch('./login', parameters).then( response => {
+        if (response.status > 299){ throw new Error(`Password error: ${response.status}`)}
+        return response.json();
+      });
+      if (result === true ){ v.loginCover.style.visibility = "hidden" }
+    }
+    catch(error){
+      console.log(`password error:\n${error}`)
+    }
+  },
+
   /** */
   showBigGraph( eo ){
     v.overlay.style.visibility = "visible";
@@ -247,5 +274,6 @@ v.btnCreateMember.on('click', c.createMember);
 v.btnCreateRelationship.on('click', c.createRelationship);
 v.btnShowBigGraph.on('click', c.showBigGraph);
 
+v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
 

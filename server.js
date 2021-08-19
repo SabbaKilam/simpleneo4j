@@ -1,8 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const api = require('./api_methods.js');
+require( 'dotenv' ).config();
 
-//const host = 'localhost';
 const port = process.env.PORT;
 
 const mimeTypes = {
@@ -43,8 +43,15 @@ http.createServer( ( req, res )=>{
         }
     }
     else if ( isLoginRequest ){
-        res.writeHead( 200, {'Content-Type': 'text/plain'});
-        res.end('Login code: work in progress');   
+        const possiblePassword = req.headers.password;
+        if ( possiblePassword == process.env.PASSWORD ){
+            res.writeHead( 200, {'Content-Type': 'application/json'});
+            res.end(JSON.stringify(true)); 
+        }
+        else{
+            res.writeHead( 200, {'Content-Type': 'application/json'});
+            res.end(JSON.stringify(false));  
+        }
     }
     else if ( req.method =='GET' ){
         const extension = url.split('.').reverse()[0];
@@ -67,9 +74,7 @@ http.createServer( ( req, res )=>{
     else {
         res.writeHead( 500, {'Content-Type': 'text/plain'});
         res.end('Bad or Malformed request.')
-    }    
-
-
+    }
 }).listen(port, ()=>{
     console.log(`Server running at ${port}`);
 });
