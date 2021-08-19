@@ -239,7 +239,7 @@ const c = { // the CONTROLLER object
         if (response.status > 299){ throw new Error(`Password error: ${response.status}`)}
         return response.json();
       });
-      if (result === true ){ v.loginCover.style.visibility = "hidden" }
+      if ( result === true ){ v.loginCover.style.visibility = "hidden" }
     }
     catch(error){
       console.log(`password error:\n${error}`)
