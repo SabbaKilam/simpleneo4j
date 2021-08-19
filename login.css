@@ -1,4 +1,5 @@
 html{
+  position: absolute;
   user-select: none;
   font-size: calc(0.7vw + 0.7vh + 7px);
 }
@@ -10,17 +11,11 @@ html, body {
     overflow: hidden; 
     background-color: lightgray; 
 }
-body{
-    box-sizing: border-box;
+body {
     position: relative;
+    box-sizing: border-box;
     text-align: center;
     font-family: sans-serif;
-    /*
-    background-image: url("./assets/TheFamilyWithLastNames.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    */
 }
 button{
   font-weight: bold;
@@ -146,4 +141,29 @@ select, option {
   bottom: 0;
   color: rgb(127, 127, 127);
   z-index: 2;
+}
+
+#loginCover{
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  z-index: 3;
+  height: 100%;
+  width: 100vw;
+  background-color: lightgray;
+}
+#passwordForm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  font-size: 1.25rem;
+  background-color: gray;
+  color: white;
+}
+#passwordForm input{
+  font-size: 1.25rem;
 }
