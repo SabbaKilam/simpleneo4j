@@ -225,7 +225,6 @@ const c = { // the CONTROLLER object
     //eo.preventDefault();
     const keyCode = eo.keyCode || eo.keyCode;
     const enter = 13;
-    console.log (keyCode);
     if (keyCode != enter){ return }
     const possiblePassword = v.passwordInput.value.trim();
     v.passwordInput.value = '';
