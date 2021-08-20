@@ -262,6 +262,7 @@ const c = { // the CONTROLLER object
 /////////| initialization: |////////
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
+v.passwordInput.focus();
 
 ////////////////////////////////////
 //////| establish listeners: |/////

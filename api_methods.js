@@ -1,12 +1,17 @@
 const fs = require('fs');
-const { url } = require('inspector');
 require( 'dotenv' ).config();
+const {
+   returnOneVariable,
+   returnTwoVariables,
+   returnOneVariableArray
+} = require('./helper_methods');
 
 const uri = process.env.DB_URI;
 const user = process.env.DB_USER;
 const password = process.env.DB_PSWD;
 
-const neo4j = require( 'neo4j-driver' )
+const neo4j = require( 'neo4j-driver' );
+const helper_methods = require('./helper_methods');
 const auth = neo4j.auth.basic( user, password )
 
 module.exports = {
@@ -65,53 +70,27 @@ module.exports = {
         
         const queryString = `MERGE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai'})
         RETURN p`;
-        
-        try {
-            const result = await session.run( queryString )     
-            const singleRecord = result.records[0]
-            const node = singleRecord.get(0)
-        
-            console.log(node.properties.name)
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(node.properties));
+        const argObject = {
+            res,
+            session,
+            conn,
+            queryString
         }
-        catch( dbError){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }
+        returnOneVariable( argObject );
     },
 
     /** */
     async getAllMembers( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session()
-        
-        try {
-            const result = await session.run(
-                'MATCH (a:Person) RETURN a'
-            )
-            let arrayOfNodeProperties = [];
-            for (let record of result.records){
-                let properties = record.get(0).properties;
-                arrayOfNodeProperties.push( properties );
-            }
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(arrayOfNodeProperties));
-        }
-        catch( dbError){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }        
+        const queryString = 'MATCH (a:Person) RETURN a'
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString,
+        };
+        returnOneVariableArray( argObject );        
     },
 
     /** */ 
@@ -127,25 +106,13 @@ module.exports = {
 
         const queryString = `MATCH (p:Person {email: '${email}'})
         RETURN p`;
-        
-        try {
-            const result = await session.run( queryString )     
-            const singleRecord = result.records[0]
-            const node = singleRecord.get(0)
-        
-            console.log(node.properties.name)
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(node.properties));
-        }
-        catch( dbError){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }        
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString
+        };
+        returnOneVariable( argObject );      
     },    
 
     /**/
@@ -165,49 +132,34 @@ module.exports = {
         const relationship =  urlArray[4] || req.headers['relationship'];
         const targetName = urlArray[5] || req.headers['targetname'];
         const relationshipComponent = `-[:${relationship.toUpperCase()}]->`;
+
         console.log(`sourceName: ${req.headers['sourceName']}`)
         console.log(`relationship:${req.headers['relationship']}`)
-        try {
-            const sourceFirstName = sourceName.split('.')[0]
-            const sourceLastName = sourceName.split('.')[1]
-            const targetFirstName = targetName.split('.')[0]
-            const targetLastName = targetName.split('.')[1]            
-      
-            const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
-            ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
-            RETURN s, t`;
 
-            const result = await session.run(
-                queryString,
-                {
-                    sln: sourceLastName,
-                    sfn: sourceFirstName,
-                    tln: targetLastName,
-                    tfn: targetFirstName,
-                    semail: `${sourceFirstName}.${sourceLastName}@kin-keepers.ai`,
-                    temail: `${targetFirstName}.${targetLastName}@kin-keepers.ai`
-                }        
-            )        
-            let arrayOfNodeProperties = [];
-            let records = result.records;
+        const sourceFirstName = sourceName.split('.')[0]
+        const sourceLastName = sourceName.split('.')[1]
+        const targetFirstName = targetName.split('.')[0]
+        const targetLastName = targetName.split('.')[1]            
+  
+        const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
+        ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
+        RETURN s, t`;
 
-            console.log(`createPair : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
-            for ( let i=0; i < 2; i++ ){
-                let properties = records[0]['_fields'][i].properties;
-                arrayOfNodeProperties.push( properties );
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString,
+            arg2: {
+                sln: sourceLastName,
+                sfn: sourceFirstName,
+                tln: targetLastName,
+                tfn: targetFirstName,
+                semail: `${sourceFirstName}.${sourceLastName}@kin-keepers.ai`,
+                temail: `${targetFirstName}.${targetLastName}@kin-keepers.ai`
             }
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(arrayOfNodeProperties));
-        }
-        catch( dbError){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'} )
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }
+        };
+        returnTwoVariables( argObject );
     },
 
     /** */
@@ -284,39 +236,22 @@ module.exports = {
         const sourceEmail = urlArray[3] || req.headers.sourceemail;
         const targetEmail = urlArray[4] || req.headers.targetemail;
    
-        try {
-            const queryString = `MATCH (s:Person {email: $sEmail })-[r]-(t:Person {email: $tEmail})
-            DELETE r
-            RETURN s, t`
-            const result = await session.run(
-                queryString,
-                { sEmail: sourceEmail, tEmail: targetEmail }
-            )        
-            let arrayOfNodeProperties = [];
-            let records = result.records;
-            
-            console.log(`dropAllRelationsAB : ${JSON.stringify(records[0]['_fields'][0].properties)}`)
-            for ( let i = 0; i < 2; i++ ){
-                let properties = records[0]['_fields'][i].properties;
-                arrayOfNodeProperties.push( properties );
-            }
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(arrayOfNodeProperties));            
+        const queryString = `MATCH (s:Person {email: $sEmail })-[r]-(t:Person {email: $tEmail})
+        DELETE r
+        RETURN s, t`;
 
-        }
-        catch( dbError ){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString,
+            arg2: { sEmail: sourceEmail, tEmail: targetEmail }
+        };
+        returnTwoVariables( argObject );
     },
 
     /** */
-    async deleteAllMembers( req, res){
+    async deleteAllMembers( req, res ){
         //https://neo4j.com/docs/cypher-manual/current/clauses/delete/
         
         if ( req.method=='POST' ){
@@ -422,27 +357,13 @@ module.exports = {
         SET p.${propertyName} = '${propertyValue}'
         RETURN p
         `  
-        console.log( `queryString:\n${queryString}`) ;
-        try {
-            const result = await session.run( 
-                queryString
-            );      
-            const singleRecord = result.records[0]
-            const node = singleRecord.get(0)
-        
-            console.log(node.properties.name)
-            res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(node.properties));
-        }
-        catch( dbError){
-            console.error( dbError )
-            res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
-        }
-        finally {
-            await session.close()
-            await conn.close()          
-        }
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString
+        };
+        returnOneVariable( argObject );
     },
 
     /** */
