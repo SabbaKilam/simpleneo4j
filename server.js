@@ -56,8 +56,8 @@ http.createServer( ( req, res )=>{
     else if ( req.method =='GET' ){
         const extension = url.split('.').reverse()[0];
         const mimeType = mimeTypes[extension] || 'application/octet-stream'
-        fs.readFile( url, (error, content)=>{
-            if(!error){
+        fs.readFile( url, (error, content) => {
+            if (!error){
                 res.writeHead( 200, {'Content-Type': mimeType} );
                 res.end(content);
             }

@@ -11,8 +11,7 @@ const user = process.env.DB_USER;
 const password = process.env.DB_PSWD;
 
 const neo4j = require( 'neo4j-driver' );
-const helper_methods = require('./helper_methods');
-const auth = neo4j.auth.basic( user, password )
+const auth = neo4j.auth.basic( user, password );
 
 module.exports = {
     /** */
@@ -41,7 +40,7 @@ module.exports = {
             res.writeHead( 200, {'Content-Type':'application/json'})
             res.end(JSON.stringify(node.properties));
         }
-        catch( dbError){
+        catch( dbError ){
             console.error( dbError )
             res.writeHead( 500, {'Content-Type':'text/plain'})
             res.end('Trouble executing API');            
