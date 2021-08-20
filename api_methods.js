@@ -93,6 +93,8 @@ module.exports = {
         returnOneVariableArray( argObject );        
     },
 
+    allMembers: function(req, res){this.getAllMembers(req, res)},
+
     /** */ 
     async getMember( req, res ){
         const conn = neo4j.driver( uri, auth );
@@ -366,7 +368,152 @@ module.exports = {
         returnOneVariable( argObject );
     },
 
+    /** */  
+    async myGrandchildren( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        MATCH (c)-[:IS_PARENT_OF]->(g)
+        RETURN g`;
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
+    /** */
+    async myGranddaughters( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        MATCH (c)-[:IS_PARENT_OF]->(g)
+        WHERE g.sex = 'f'
+        RETURN g`;
+
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
+    /** */ 
+    async myGrandsons( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        MATCH (c)-[:IS_PARENT_OF]->(g)
+        WHERE g.sex = 'm'
+        RETURN g`;
+
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
+    /** */
+    async myChildren( req, res){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        RETURN c`;
+
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
+    /** */ 
+    async mySons( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        WHERE c.sex = 'm'
+        RETURN c`;
+
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
+    /** */ 
+    async myDaughters( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_PARENT_OF]->(c)
+        WHERE c.sex = 'f'
+        RETURN c`;
+
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    },
+
     /** */
 
+    
 
 };// END of module
