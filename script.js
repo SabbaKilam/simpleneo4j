@@ -262,7 +262,7 @@ const c = { // the CONTROLLER object
 /////////| initialization: |////////
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
-if ( self.location.protocol === "http" ) {
+if ( self.location.protocol == "http:" ) {
   self.location.assign(`https://${location.host}`)
 }
 console.log(self.location.protocol);
