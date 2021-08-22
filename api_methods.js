@@ -512,6 +512,27 @@ module.exports = {
     },
 
     /** */
+    async myGrandparents( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p)-[:IS_PARENT_OF]->(m {email: '${email}'})
+        MATCH (pp)-[:IS_PARENT_OF]->(p)
+        RETURN pp`;
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );
+    }
 
     
 
