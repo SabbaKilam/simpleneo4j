@@ -18,7 +18,8 @@ An Expanding list of database methods in module api_methods.js:
     myGranddaughters
     myChildren 
     mySons 
-    myDaughters 
+    myDaughters
+    myGrandparents
     
     
   
