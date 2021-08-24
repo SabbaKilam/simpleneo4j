@@ -532,7 +532,54 @@ module.exports = {
             queryString           
         }
         returnOneVariableArray( argObject );
-    }
+    },
+
+    /** */
+    async possibleGrandchildren( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p {email: '${email}'})-[:IS_SPOUSE_OF]-(s)
+        MATCH (s)-[:IS_PARENT_OF]->(c)
+        MATCH (c)-[:IS_PARENT_OF]->(g)
+        RETURN g`;
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject ); 
+    },
+
+    async possibleGrandparents( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
+
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const email = urlArray[3] || req.headers['email']
+
+        const queryString = `MATCH (p)-[:IS_PARENT_OF]->(m {email: '${email}'})
+        MATCH (gp)-[:IS_PARENT_OF]->(p)
+        MATCH (gp)-[:IS_SPOUSE_OF]-(q)
+        RETURN q`;
+        const argObject = {
+            res,
+            conn,
+            session,
+            queryString           
+        }
+        returnOneVariableArray( argObject );        
+    },
 
     
 

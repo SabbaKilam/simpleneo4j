@@ -122,7 +122,7 @@ select, option {
   position: absolute;  
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
+  z-index: 4;
   height: 100%;
   width: 100%;
   top: 0;
@@ -166,4 +166,12 @@ select, option {
 }
 #passwordForm input{
   font-size: 1.25rem;
+}
+
+#btnShowBigGraph {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 4;
 }
