@@ -13,6 +13,22 @@ const mimeTypes = {
     jpg: `image/jpg`,
 }
 
+const apiList = [
+    'getMember',
+    'getAllMembers',
+    'allMembers',
+    'myGrandchildren',
+    'myGrandsons',
+    'myGranddaughters',
+    'myChildren',
+    'mySons',
+    'myDaughters',
+    'myGrandparents',
+    'possibleGrandchildren',
+    'possibleGrandparents',
+    
+];
+
 const forbiddenFiles = [
     './',
     './server.js',
@@ -37,9 +53,15 @@ http.createServer( ( req, res )=>{
         if ( apiType && api[apiType] ){
             api[apiType]( req, res );
         }
+        else if ( apiType == '' || apiType == undefined ){
+            apiList.sort();
+            const verticalApiList = apiList.join('\n');
+            res.writeHead( 200, {'Content-Type': 'text/plain'});
+            res.end(verticalApiList);
+        }
         else {
             res.writeHead( 500, {'Content-Type': 'text/plain'});
-            res.end('Missing or Bad API Type.');       
+            res.end('Bad or malformed API Type.');       
         }
     }
     else if ( isLoginRequest ){

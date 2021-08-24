@@ -2,8 +2,8 @@ Attempt an as-simple-as-possible api for the family circle graph database.
 
 An Expanding list of database methods in module api_methods.js:
     tryNeo
-    getMember (not yet coded) (webapp/api/getMember/Sarah.Burns@kin-keepers.ai)
-    getAllMembers
+    getMember 
+    getAllMembers or allMembers
     createPair (has a front end button)
     newMemberRelationship (has a front end button)
     createRelationshipAB
@@ -20,6 +20,8 @@ An Expanding list of database methods in module api_methods.js:
     mySons 
     myDaughters
     myGrandparents
+    possibleGrandchildren
+    possibleGrandparents
     
     
   
