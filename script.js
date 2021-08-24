@@ -251,6 +251,7 @@ const c = { // the CONTROLLER object
     v.overlay.style.visibility = "visible";
     v.overlay.style.opacity = "1";    
   },
+  
   /** */
   hideBigGraph( eo ){
     v.overlay.style.visibility = "hidden";
