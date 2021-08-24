@@ -174,4 +174,8 @@ select, option {
   left: 50%;
   transform: translate(-50%);
   z-index: 4;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: gray;
+  color: white;
 }
