@@ -605,6 +605,10 @@ module.exports = {
     /** */  
     async returnOneVariable( req, res ){
         console.log( req.headers.cypherquery);
+        //allow cors:
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET');
+                
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
