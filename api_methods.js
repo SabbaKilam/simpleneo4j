@@ -5,7 +5,27 @@ const {
    returnTwoVariables,
    returnOneVariableArray
 } = require('./helper_methods');
-
+const forbiddenWords = [
+    'MERGE',
+    'CREATE',
+    'DROP',
+    'DELETE',
+    'UNION',
+    'SET',
+    'REMOVE',
+    'ASSIGN',
+    'ALTER',
+    'REPLACE',
+    'CHANGE',
+    'EXECUTE',
+    'DENY',
+    'DROP',
+    'DROP',
+    'ACCESS',
+    'STOP',
+    'START',
+    'WRITE',    
+];
 const uri = process.env.DB_URI;
 const user = process.env.DB_USER;
 const password = process.env.DB_PSWD;
@@ -553,11 +573,12 @@ module.exports = {
             res,
             conn,
             session,
-            queryString           
+            queryString,                      
         }
         returnOneVariableArray( argObject ); 
     },
 
+    /** */  
     async possibleGrandparents( req, res ){
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
@@ -581,6 +602,32 @@ module.exports = {
         returnOneVariableArray( argObject );        
     },
 
-    
+    /** */  
+    async returnOneVariable( req, res ){
+        const conn = neo4j.driver( uri, auth )
+        const session = conn.session();
 
+        let url = decodeURI(req.url)
+        url = `.${url}`;
+
+        const urlArray =  url.split('/') 
+        const queryString = urlArray[3] || req.headers['cypherquery'];
+        const jsonArgs = urlArray[4] + "" || req.headers['jsonargs'];
+        
+        const queryOk = forbiddenWords.every( word => queryString.toUpperCase().indexOf(word) == -1 ) 
+        if  ( queryOk ) {
+            const argObject = {
+                res,
+                conn,
+                session,
+                queryString,
+                arg2: JSON.parse(jsonArgs)
+            }
+            returnOneVariableArray( argObject ); 
+        }
+        else {
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');
+        }
+    }
 };// END of module

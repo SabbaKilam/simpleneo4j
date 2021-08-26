@@ -26,7 +26,7 @@ const apiList = [
     'myGrandparents',
     'possibleGrandchildren',
     'possibleGrandparents',
-    
+    'returnOneVariable'
 ];
 
 const forbiddenFiles = [

@@ -64,7 +64,7 @@ module.exports = {
         catch( dbError){
             console.error( dbError )
             res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
+            res.end(`'Trouble executing API':\n${queryString}`);            
         }
         finally {
             await session.close()

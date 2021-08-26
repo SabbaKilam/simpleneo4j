@@ -22,6 +22,7 @@ An Expanding list of database methods in module api_methods.js:
     myGrandparents
     possibleGrandchildren
     possibleGrandparents
+    returnOneVariable
     
     
   
