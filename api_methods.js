@@ -604,6 +604,7 @@ module.exports = {
 
     /** */  
     async returnOneVariable( req, res ){
+        console.log( req.headers.cypherquery);
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -612,8 +613,10 @@ module.exports = {
 
         const urlArray =  url.split('/') 
         const queryString = urlArray[3] || req.headers['cypherquery'];
-        const jsonArgs = urlArray[4] + "" || req.headers['jsonargs'];
+        const jsonArgs = urlArray[4]  || req.headers['jsonargs'];
         
+        console.log( req.headers['jsonargs'] );
+
         const queryOk = forbiddenWords.every( word => queryString.toUpperCase().indexOf(word) == -1 ) 
         if  ( queryOk ) {
             const argObject = {

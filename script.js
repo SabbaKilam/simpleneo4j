@@ -268,6 +268,39 @@ if ( self.location.protocol == "http:" ) {
 }
 console.log(self.location.protocol);
 v.passwordInput.focus();
+async function customQuery( URL, cypherquery, jsonargs ){ 
+  const metadata = { 
+    method: "GET", 
+    headers: { 
+      cypherquery: cypherquery,
+      jsonargs: jsonargs
+    }
+  };
+  try{
+    const result = await fetch( "./api/returnOneVariable/", metadata ).then( response => {
+      if (response.status > 299){ throw new Error("Custom query error: " + response.status)}      
+      return response.text();
+      
+    }); 
+    return result;
+  }
+  catch(error){
+    console.log(error)
+  } 
+
+    
+} 
+var URL = "kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
+var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
+var jsonargs = JSON.stringify({param1: "Burns"});
+var jsonargs = '{"param1": "Burns"}';
+
+console.log(JSON.parse(jsonargs)); 
+console.log(cypherquery);
+var result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
+result.then( response => {
+  console.log( response )
+}); //view the result
 
 ////////////////////////////////////
 //////| establish listeners: |/////
