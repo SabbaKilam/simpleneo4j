@@ -58,6 +58,9 @@ module.exports = {
                 let properties = record.get(0).properties;
                 arrayOfNodeProperties.push( properties );
             }
+            //allow cors:
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET');
             res.writeHead( 200, {'Content-Type':'application/json'})
             res.end(JSON.stringify(arrayOfNodeProperties));
         }
