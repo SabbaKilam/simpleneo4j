@@ -266,21 +266,22 @@ h.IDsToView( m.IDs, v );
 if ( self.location.protocol == "http:" ) {
   self.location.assign(`https://${location.host}`)
 }
-console.log(self.location.protocol);
 v.passwordInput.focus();
+
 async function customQuery( URL, cypherquery, jsonargs ){ 
   const metadata = { 
     method: "GET", 
     headers: { 
-      cypherquery: cypherquery,
-      jsonargs: jsonargs
+      cypherquery,
+      jsonargs
     }
   };
   try{
     const result = await fetch( URL, metadata ).then( response => {
-      if (response.status > 299){ throw new Error("Custom query error: " + response.status)}      
-      return response.text();
-      
+      if (response.status > 299){
+         throw Error("Custom query error: " + response.status)
+      }      
+      return response.json();      
     }); 
     return result;
   }
@@ -288,17 +289,11 @@ async function customQuery( URL, cypherquery, jsonargs ){
     console.log(error)
   }
 } 
-var URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
-var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
-var jsonargs = JSON.stringify({param1: "Burns"});
-var jsonargs = '{"param1": "Burns"}';
-
-console.log(JSON.parse(jsonargs)); 
-console.log(cypherquery);
-var result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
-result.then( response => {
-  console.log( response )
-}); //view the result
+const URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
+const cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
+const jsonargs = JSON.stringify({param1: "Burns"});
+const result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
+result.then(console.log); //view the result
 
 ////////////////////////////////////
 //////| establish listeners: |/////

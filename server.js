@@ -38,18 +38,6 @@ const forbiddenFiles = [
 
 http.createServer( ( req, res )=>{
     //allow cors:
-    /*
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-    */
-    const headers = {
-        "Access-Control-Allow-Origin": "https://abbas411.com",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "OPTIONS, GET",
-        "Access-Control-Allow-Headers": "cypherquery, jsonargs, email, origin"
-    };
     if (req.method === "OPTIONS") {
       res.setHeader("Access-Control-Allow-Origin", "*");
       res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -62,7 +50,6 @@ http.createServer( ( req, res )=>{
     res.setHeader("Access-Control-Allow-Credentials", "true");
     res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
     res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email"); 
- 
 
     let url = decodeURI(req.url)
     url = `.${url}`;
