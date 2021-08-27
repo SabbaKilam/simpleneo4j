@@ -52,13 +52,13 @@ http.createServer( ( req, res )=>{
     };
     if (req.method === "OPTIONS") {
       //res.writeHead(204, headers);
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader("Access-Control-Allow-Credentials", "true");
-      res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
-      res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");      
+      res.setHeader("Access-Control-Allow-Origin", "*");     
       res.end();
       return;
-    }  
+    } 
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");  
 
     let url = decodeURI(req.url)
     url = `.${url}`;
