@@ -10,6 +10,7 @@ const forbiddenWords = [
     'CREATE',
     'DROP',
     'DELETE',
+    'DETACH',
     'UNION',
     'SET',
     'REMOVE',

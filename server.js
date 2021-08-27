@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const { CorsMiddleware } = require('./helper_methods');
 const api = require('./api_methods.js');
 require( 'dotenv' ).config();
 
@@ -38,18 +39,7 @@ const forbiddenFiles = [
 
 http.createServer( ( req, res )=>{
     //allow cors:
-    if (req.method === "OPTIONS") {
-      res.setHeader("Access-Control-Allow-Origin", "*");
-      res.setHeader("Access-Control-Allow-Credentials", "true");
-      res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
-      res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");          
-      res.end();
-      return;
-    } 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
-    res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email"); 
+    CorsMiddleware( req, res );
 
     let url = decodeURI(req.url)
     url = `.${url}`;

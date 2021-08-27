@@ -72,4 +72,25 @@ module.exports = {
             await conn.close()          
         }
     },
+
+    /** */ 
+    CorsMiddleware( req, res ){
+        if (req.method === "OPTIONS") {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
+            res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
+            res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");          
+            res.end();
+            return;
+          }
+          else {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Allow-Credentials", "true");
+            res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
+            res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");
+          }
+    },
+
+    /** */  
+
 };
