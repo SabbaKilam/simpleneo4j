@@ -61,6 +61,8 @@ module.exports = {
             //allow cors:
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', 'GET');
+            res.setHeader('Access-Control-Max-Age', 2592000);
+            
             res.writeHead( 200, {'Content-Type':'application/json'})
             res.end(JSON.stringify(arrayOfNodeProperties));
         }

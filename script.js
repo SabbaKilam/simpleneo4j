@@ -264,7 +264,7 @@ const c = { // the CONTROLLER object
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
 if ( self.location.protocol == "http:" ) {
-  self.location.assign(`https://${location.host}`)
+  //self.location.assign(`https://${location.host}`)
 }
 console.log(self.location.protocol);
 v.passwordInput.focus();
