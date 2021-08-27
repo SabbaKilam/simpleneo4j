@@ -288,7 +288,7 @@ async function customQuery( URL, cypherquery, jsonargs ){
     console.log(error)
   }
 } 
-var URL = "kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
+var URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
 var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
 var jsonargs = JSON.stringify({param1: "Burns"});
 var jsonargs = '{"param1": "Burns"}';
