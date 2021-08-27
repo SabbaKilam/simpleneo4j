@@ -290,7 +290,6 @@ async function customQuery( URL, cypherquery, jsonargs ){
   }
 } 
 const URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
-//const URL = "./api/returnOneVariable";
 const cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
 const jsonargs = JSON.stringify({param1: "Burns"});
 const result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
