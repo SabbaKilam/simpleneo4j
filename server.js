@@ -49,7 +49,7 @@ http.createServer( ( req, res )=>{
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Methods": "OPTIONS, GET",
         "Access-Control-Max-Age": 2592000,
-        "Access-Control-Allow-Headers": "*"
+        "Access-Control-Allow-Headers": "cypherquery, jsonargs, email"
     };
     if (req.method === "OPTIONS") {
       res.writeHead(204, headers);
