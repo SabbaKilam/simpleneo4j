@@ -277,7 +277,7 @@ async function customQuery( URL, cypherquery, jsonargs ){
     }
   };
   try{
-    const result = await fetch( "./api/returnOneVariable/", metadata ).then( response => {
+    const result = await fetch( URL, metadata ).then( response => {
       if (response.status > 299){ throw new Error("Custom query error: " + response.status)}      
       return response.text();
       
