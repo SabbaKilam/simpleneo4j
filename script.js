@@ -264,7 +264,7 @@ const c = { // the CONTROLLER object
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
 if ( self.location.protocol == "http:" ) {
-  //self.location.assign(`https://${location.host}`)
+  self.location.assign(`https://${location.host}`)
 }
 console.log(self.location.protocol);
 v.passwordInput.focus();
@@ -286,9 +286,7 @@ async function customQuery( URL, cypherquery, jsonargs ){
   }
   catch(error){
     console.log(error)
-  } 
-
-    
+  }
 } 
 var URL = "kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
 var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
