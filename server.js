@@ -45,7 +45,7 @@ http.createServer( ( req, res )=>{
     res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     */
     const headers = {
-        "Access-Control-Allow-Origin": req.headers.origin,
+        "Access-Control-Allow-Origin": "https://abbas411.com",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Methods": "OPTIONS, GET",
         "Access-Control-Allow-Headers": "cypherquery, jsonargs, email, origin"
