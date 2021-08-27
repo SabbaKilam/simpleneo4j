@@ -39,9 +39,11 @@ const forbiddenFiles = [
 http.createServer( ( req, res )=>{
     //allow cors:
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Max-Age', 2592000);
-
+    res.setHeader('Access-Control-Max-Age', 2592000);  
+    res.setHeader('Access-Control-Allow-Headers', req.headers.origin); 
+    
     let url = decodeURI(req.url)
     url = `.${url}`;
     if ( forbiddenFiles.includes(url) ){
