@@ -687,7 +687,7 @@ module.exports = {
         url = `.${url}`;
 
         const urlArray =  url.split('/') 
-        const queryString = urlArray[3] || req.headers['cypherquery'];
+        const queryString = urlArray[3] || req.headers['cypherquery'] || "MATCH (f:Foobar) RETURN f";
         const jsonArgs = urlArray[4] || req.headers['jsonargs'] || "{}";
         
         console.log( req.headers['jsonargs'] );
