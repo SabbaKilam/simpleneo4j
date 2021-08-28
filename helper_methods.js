@@ -75,6 +75,7 @@ module.exports = {
 
     /** */ 
     CorsMiddleware( req, res ){
+        //pre-flight
         if (req.method === "OPTIONS") {
             res.setHeader("Access-Control-Allow-Origin", "*");
             res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -83,6 +84,7 @@ module.exports = {
             res.end();
             return;
           }
+          //post-flight
           else {
             res.setHeader("Access-Control-Allow-Origin", "*");
             res.setHeader("Access-Control-Allow-Credentials", "true");
