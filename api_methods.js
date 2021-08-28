@@ -74,10 +74,12 @@ module.exports = {
 
     /** */ 
     async createMember( req, res ){
-        if ( req.method=='POST' ){
-            console.log('This is a POST:\nUser should be logged in and priviledged');
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
         }
-
+        
         const conn = neo4j.driver( uri, auth );
         const session = conn.session();
 
@@ -606,7 +608,11 @@ module.exports = {
     /** */  
     async returnOneVariable( req, res ){
         console.log( req.headers.cypherquery);
-        
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
