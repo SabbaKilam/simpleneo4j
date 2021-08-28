@@ -392,6 +392,13 @@ module.exports = {
 
     /** */  
     async myGrandchildren( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -415,6 +422,13 @@ module.exports = {
 
     /** */
     async myGranddaughters( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -440,6 +454,13 @@ module.exports = {
 
     /** */ 
     async myGrandsons( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -465,6 +486,13 @@ module.exports = {
 
     /** */
     async myChildren( req, res){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -488,6 +516,13 @@ module.exports = {
 
     /** */ 
     async mySons( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -512,6 +547,13 @@ module.exports = {
 
     /** */ 
     async myDaughters( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -536,6 +578,13 @@ module.exports = {
 
     /** */
     async myGrandparents( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -559,6 +608,13 @@ module.exports = {
 
     /** */
     async possibleGrandchildren( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
@@ -583,6 +639,13 @@ module.exports = {
 
     /** */  
     async possibleGrandparents( req, res ){
+        console.log( req.headers.cypherquery);
+        const prohibitedMethod = req.method !== 'GET' ? true : false;
+        if ( prohibitedMethod ){
+            res.writeHead( 500, {'Content-Type': 'text/plain'} );
+            res.end('Forbidden or Malformed request.');            
+        }
+
         const conn = neo4j.driver( uri, auth )
         const session = conn.session();
 
