@@ -4,7 +4,7 @@ const {
    returnOneVariable,
    returnTwoVariables,
    returnOneVariableArray
-} = require('./helper_methods');
+} = require('./helper_methods.js');
 const forbiddenWords = [
     'MERGE',
     'CREATE',

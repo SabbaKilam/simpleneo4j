@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-const { CorsMiddleware } = require('./helper_methods');
+const { CorsMiddleware } = require('./helper_methods.js');
 const api = require('./api_methods.js');
 require( 'dotenv' ).config();
 
