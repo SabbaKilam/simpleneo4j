@@ -688,7 +688,7 @@ module.exports = {
 
         const urlArray =  url.split('/') 
         const queryString = urlArray[3] || req.headers['cypherquery'];
-        const jsonArgs = urlArray[4] || req.headers['jsonargs'];
+        const jsonArgs = urlArray[4] || req.headers['jsonargs'] || "{}";
         
         console.log( req.headers['jsonargs'] );
 
