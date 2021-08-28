@@ -289,10 +289,10 @@ async function customQuery( URL, cypherquery, jsonargs ){
     console.log(error)
   }
 } 
-const URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
-const cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
-const jsonargs = JSON.stringify({param1: "Burns"});
-const result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
+var URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
+var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
+var jsonargs = JSON.stringify({param1: "Burns"});
+var result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
 result.then(console.log); //view the result
 
 ////////////////////////////////////
