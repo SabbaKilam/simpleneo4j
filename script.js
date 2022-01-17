@@ -34,6 +34,12 @@ const h = { // the HELPER object
 	IDs.forEach( id => console.log(id) );
   console.log(`(${IDs.length} id elements)`)
   },
+
+  async createBurnsPollerFamily(){
+    let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv');
+    let burnsPollerMembers = burnsPollerCSV.split(`\n`);
+    alert( burnsPollerMembers);
+  }
 };
 
 /////////////////////////////////////
