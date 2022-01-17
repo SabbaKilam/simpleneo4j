@@ -176,6 +176,8 @@ const c = { // the CONTROLLER object
       headers: {
         firstname: v.singleNewFirstName.value.trim(),
         lastname: v.singleNewLastName.value.trim(),
+        dob: v.singleDOB.value.trim(),
+        sex: v.singleSex.value.trim(),
       }
     };
     try{

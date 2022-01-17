@@ -89,8 +89,10 @@ module.exports = {
         const urlArray =  url.split('/') ;
         const firstName = urlArray[3] || req.headers.firstname;
         const lastName = urlArray[4] || req.headers.lastname;
+        const DOB = urlArray[5] || req.headers.dob;
+        const sex = urlArray[6] || req.headers.sex;        
         
-        const queryString = `MERGE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai'})
+        const queryString = `MERGE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai', DOB: '${DOB}, sex: '${sex}','})
         RETURN p`;
         const argObject = {
             res,
