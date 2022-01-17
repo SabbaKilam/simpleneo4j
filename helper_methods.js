@@ -84,13 +84,13 @@ module.exports = {
             res.end();
             return;
           }
-          //post-flight
-          else {
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setHeader("Access-Control-Allow-Credentials", "true");
-            res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
-            res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");
-          }
+        //post-flight
+        else {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");      
+        res.setHeader("Access-Control-Allow-Headers", "cypherquery, jsonargs, email");
+        }
     },
 
     /** */  
