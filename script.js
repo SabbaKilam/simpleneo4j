@@ -36,9 +36,12 @@ const h = { // the HELPER object
   },
 
   async createBurnsPollerFamily(){
-    let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv');
+    let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv')
+        .then( response => response.text());
     let burnsPollerMembers = burnsPollerCSV.split(`\n`);
     alert( burnsPollerMembers);
+    console.log( burnsPollerMembers);
+    
   }
 };
 
