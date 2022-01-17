@@ -9,7 +9,7 @@ const port = process.env.PORT;
 const mimeTypes = {
     html: 'text/html',
     css: 'text/css',
-    csv: `text/csv`,
+    csv: `text/plain`,
     js: 'text/javascript',
     ico: 'image/icon',
     jpg: `image/jpg`,
