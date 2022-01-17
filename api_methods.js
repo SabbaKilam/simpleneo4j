@@ -74,12 +74,13 @@ module.exports = {
 
     /** */ 
     async createMember( req, res ){
+        /* allow POST for now
         const prohibitedMethod = req.method !== 'GET' ? true : false;
         if ( prohibitedMethod ){
             res.writeHead( 500, {'Content-Type': 'text/plain'} );
             res.end('Forbidden or Malformed request.');            
         }
-        
+        */
         const conn = neo4j.driver( uri, auth );
         const session = conn.session();
 
