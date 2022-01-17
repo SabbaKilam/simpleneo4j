@@ -180,6 +180,12 @@ const c = { // the CONTROLLER object
         sex: v.singleSex.value.trim(),
       }
     };
+    // clear fields after data is copied
+    v.singleNewFirstName.value = '';
+    v.singleNewLastName.value = '';
+    v.singleDOB.value = '';
+    v.singleSex.value = '';
+
     try{
       const result = await fetch('./api/createMember', parameters).then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
