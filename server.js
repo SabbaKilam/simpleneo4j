@@ -9,9 +9,11 @@ const port = process.env.PORT;
 const mimeTypes = {
     html: 'text/html',
     css: 'text/css',
+    csv: `text/csv`,
     js: 'text/javascript',
     ico: 'image/icon',
     jpg: `image/jpg`,
+
 }
 
 const apiList = [
