@@ -192,7 +192,10 @@ select, option {
   z-index: 4;
 }
 #burgerHolder{
+  position: absolute;
   top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   height: 6vh;
   width: 6vh;
