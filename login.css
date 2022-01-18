@@ -187,4 +187,5 @@ select, option {
   height: 5%;
   width: 5%;
   border: 1px solid black;
+  z-index: 4;
 }
