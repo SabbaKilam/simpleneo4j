@@ -301,11 +301,17 @@ const c = { // the CONTROLLER object
     else { rotateMenuClosed() }
     /////| local helpers |/////
     function rotateMenuOpen(){
+      v.topBun.css(`
+        transform: rotateZ(90deg);
+      `);
       v.middleBurger.css(`
         transform: translateY( -50% ) rotateY( 90deg );
       `)
     }
     function rotateMenuClosed(){
+      v.topBun.css(`
+        transform: rotateZ(0deg);
+      `);      
       v.middleBurger.css(`
         transform: translateY( -50% ) rotateY( 0deg );
       `)
