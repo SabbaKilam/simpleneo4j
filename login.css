@@ -179,3 +179,12 @@ select, option {
   background-color: gray;
   color: white;
 }
+
+/************MENU STYLE****************/
+#menuCover{
+  position: absolute;
+  top: 0;
+  height: 5%;
+  width: 5%;
+  border: 1px solid black;
+}
