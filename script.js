@@ -301,8 +301,16 @@ const c = { // the CONTROLLER object
     else { rotateMenuClosed }
     alert(m.menuOpen);
     /////| local helpers |/////
-    function rotateMenuOpen(){}
-    function rotateMenuClosed(){}
+    function rotateMenuOpen(){
+      v.middleBurger.css(`
+        transform: translateY( -50% ) rotateY( 90deg );
+      `)
+    }
+    function rotateMenuClosed(){
+      v.middleBurger.css(`
+        transform: translateY( -50% ) rotateY( 0deg );
+      `)
+    }
   }
 };
 
