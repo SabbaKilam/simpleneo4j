@@ -185,8 +185,8 @@ select, option {
   position: absolute;
   top: 0;
   right: 0;
-  height: 7h;
-  width: 7h;
+  height: 7vh;
+  width: 7vh;
   margin: 1% 1%;
   border: 1px solid black;
   z-index: 4;
@@ -194,8 +194,8 @@ select, option {
 #burgerHolder{
   top: 0;
   right: 0;
-  height: 6h;
-  width: 6h;
+  height: 6vh;
+  width: 6vh;
   margin: 1% 1%;
   border: 1px solid green;
   z-index: 3;
