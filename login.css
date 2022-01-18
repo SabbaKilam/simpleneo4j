@@ -213,6 +213,7 @@ select, option {
   position: absolute;
   top: 50%;
   transform: translateY( -50% ) rotateY( 90deg );
+  transition: transform 0.25s ease;
   height: 0.4rem;
   width: 100%;
   background-color: black;
