@@ -36,15 +36,19 @@ const h = { // the HELPER object
     });
     ////| CSS helper /////
     function css( styles ){
+      let propetyValuesArray = [];
 			let cleanStyles = styles.replace( /\/\*.*\//g, `` );//delete multi-line comments		
 			let stylesArray = cleanStyles.split(`;`);
 			stylesArray.forEach( styleDeclaration => {
 				let property_value = styleDeclaration.split(`:`);
 				if ( property_value[0] && property_value[1] ){
-					this.style[property_value[0].trim()] = property_value[1].trim();	    	
+					this.style[property_value[0].trim()] = property_value[1].trim();
+          let propertyValue = `${property_value[0].trim()} : ${property_value[1].trim()}`;
+          propetyValuesArray.push( propertyValue );    	
 				}
 			});
-			return window.getComputedStyle( this );
+			//return window.getComputedStyle( this );
+      return propetyValuesArray;
 		}
 
     //////| show IDs |////
