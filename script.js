@@ -47,7 +47,6 @@ const h = { // the HELPER object
           propetyValuesArray.push( propertyValue );    	
 				}
 			});
-			//return window.getComputedStyle( this );
       return propetyValuesArray;
 		}
 

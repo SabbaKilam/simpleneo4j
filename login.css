@@ -206,6 +206,7 @@ select, option {
   height: 0.4rem;
   width: 100%;
   background-color: black;
+  transform-origin: bottom left;
 }
 
 #middleBurger{
@@ -215,6 +216,7 @@ select, option {
   height: 0.4rem;
   width: 100%;
   background-color: black;
+  transform: rotateY(90);
 }
 
 #bottomBun{
@@ -223,4 +225,5 @@ select, option {
   height: 0.4rem;
   width: 100%;
   background-color: black;
+  transform-origin: top left;  
 }
