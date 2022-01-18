@@ -187,8 +187,8 @@ select, option {
   right: 0;
 	display: grid;
 	place-content: center;
-  height: 1rem;
-  width: 1rem;
+  height: 3rem;
+  width: 3rem;
   margin: 1% 1%;
   /*border: 1px solid black;*/
   cursor: pointer;
@@ -211,21 +211,21 @@ select, option {
   position: absolute;
   top: 50%;
   transform: translateY( -50% );
-  height: 1.15vh;
+  height: 0.5rem;
   width: 100%;
   background-color: black;
 }
 #topBun{
   position: absolute;
   top: 0;
-  height: 1.15vh;
+  height: 0.5rem;
   width: 100%;
   background-color: black;
 }
 #bottomBun{
   position: absolute;
   bottom: 0;
-  height: 1.15vh;
+  height: 0.5rem;
   width: 100%;
   background-color: black;
 }
