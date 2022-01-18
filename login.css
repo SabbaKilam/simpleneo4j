@@ -190,7 +190,8 @@ select, option {
   height: 7vh;
   width: 7vh;
   margin: 1% 1%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  cursor: pointer;
   z-index: 4;
 }
 #burgerHolder{
@@ -203,13 +204,27 @@ select, option {
   */
   height: 100%;
   width: 100%;
-  border: 1px solid green;
+  /*border: 1px solid green;*/
   z-index: 3;
 }
 #middleBurger{
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY( -50% );
+  height: 1.15vh;
+  width: 100%;
+  background-color: black;
+}
+#topBun{
+  position: absolute;
+  top: 0;
+  height: 1.15vh;
+  width: 100%;
+  background-color: black;
+}
+#bottomBun{
+  position: absolute;
+  bottom: 0;
   height: 1.15vh;
   width: 100%;
   background-color: black;
