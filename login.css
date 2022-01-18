@@ -199,6 +199,15 @@ select, option {
   width: 100%;
   z-index: 3;
 }
+
+#topBun{
+  position: absolute;
+  top: 0;
+  height: 0.4rem;
+  width: 100%;
+  background-color: black;
+}
+
 #middleBurger{
   position: absolute;
   top: 50%;
@@ -207,13 +216,7 @@ select, option {
   width: 100%;
   background-color: black;
 }
-#topBun{
-  position: absolute;
-  top: 0;
-  height: 0.4rem;
-  width: 100%;
-  background-color: black;
-}
+
 #bottomBun{
   position: absolute;
   bottom: 0;

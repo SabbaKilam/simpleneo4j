@@ -13,6 +13,7 @@
 ////////////////////////////////////
 let m = { // the MODEL object
   username: "",
+  menuOpen: false,
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
@@ -273,6 +274,10 @@ const c = { // the CONTROLLER object
   hideBigGraph( eo ){
     v.overlay.style.visibility = "hidden";
     v.overlay.style.opacity = "0";    
+  },
+  /** */
+  toggleMenu( eo ){
+    alert();
   }
 };
 
@@ -324,4 +329,5 @@ v.btnShowBigGraph.on('click', c.showBigGraph);
 
 v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
+v.menuCover.on('click', c.toggleMenu)
 
