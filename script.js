@@ -298,8 +298,7 @@ const c = { // the CONTROLLER object
   toggleMenu( eo ){
     m.menuOpen = !m.menuOpen;
     if ( m.menuOpen ){ rotateMenuOpen() }
-    else { rotateMenuClosed }
-    alert(m.menuOpen);
+    else { rotateMenuClosed() }
     /////| local helpers |/////
     function rotateMenuOpen(){
       v.middleBurger.css(`
