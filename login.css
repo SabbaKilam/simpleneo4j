@@ -208,10 +208,8 @@ select, option {
 }
 #middleBurger{
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   height: 1.15vh;
   width: 100%;
   background-color: black;
