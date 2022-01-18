@@ -188,7 +188,7 @@ select, option {
 	display: grid;
 	place-content: center;
   height: 2.25rem;
-  width: 2.35rem;
+  width: 2.45rem;
   margin: 1% 1%;
   cursor: pointer;
   z-index: 4;
