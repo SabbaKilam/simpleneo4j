@@ -302,11 +302,14 @@ const c = { // the CONTROLLER object
     /////| local helpers |/////
     function rotateMenuOpen(){
       v.topBun.css(`
-        transform: rotateZ(90deg);
+        transform: rotateZ( 45deg );
       `);
       v.middleBurger.css(`
         transform: translateY( -50% ) rotateY( 90deg );
       `)
+      v.bottomBun.css(`
+      transform: rotateZ( -45deg );
+      `);
     }
     function rotateMenuClosed(){
       v.topBun.css(`
@@ -314,7 +317,10 @@ const c = { // the CONTROLLER object
       `);      
       v.middleBurger.css(`
         transform: translateY( -50% ) rotateY( 0deg );
-      `)
+      `);
+      v.bottomBun.css(`
+      transform: rotateZ( 0deg );
+      `);      
     }
   }
 };
