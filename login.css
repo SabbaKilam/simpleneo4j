@@ -183,8 +183,8 @@ select, option {
 /************MENU STYLE****************/
 #menuCover{
   position: absolute;
-  top: 0;
-  right: 0;
+	display: grid;
+	place-content: center;
   height: 7vh;
   width: 7vh;
   margin: 1% 1%;
@@ -193,8 +193,10 @@ select, option {
 }
 #burgerHolder{
   position: absolute;
-	display: grid;
-	place-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 90%;
   width: 90%;
   border: 1px solid green;
