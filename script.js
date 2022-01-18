@@ -32,7 +32,7 @@ const h = { // the HELPER object
     IDs.forEach( id => {
       view[id] = document.getElementById(id);
       view[id].on = view[id].addEventListener;
-      view[id].css = css.bind( element ); //see inner helper css below
+      view[id].css = css.bind( view[id] ); //see inner helper css below
     });
     ////| CSS helper /////
     function css( styles ){
