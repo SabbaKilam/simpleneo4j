@@ -191,7 +191,10 @@ select, option {
   width: 2.45rem;
   margin: 1% 1%;
   cursor: pointer;
-  z-index: 4;
+  z-index: 4;  
+}
+#menuCover:hover{
+  background-color:rgba(230, 255, 255, 0.2);
 }
 #burgerHolder{
   position: absolute;
