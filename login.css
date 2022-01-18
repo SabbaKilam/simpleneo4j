@@ -187,45 +187,37 @@ select, option {
   right: 0;
 	display: grid;
 	place-content: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
   margin: 1% 1%;
-  /*border: 1px solid black;*/
   cursor: pointer;
   z-index: 4;
 }
 #burgerHolder{
   position: absolute;
-  /*
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  */
   height: 100%;
   width: 100%;
-  /*border: 1px solid green;*/
   z-index: 3;
 }
 #middleBurger{
   position: absolute;
   top: 50%;
   transform: translateY( -50% );
-  height: 0.5rem;
+  height: 0.25rem;
   width: 100%;
   background-color: black;
 }
 #topBun{
   position: absolute;
   top: 0;
-  height: 0.5rem;
+  height: 0.25rem;
   width: 100%;
   background-color: black;
 }
 #bottomBun{
   position: absolute;
   bottom: 0;
-  height: 0.5rem;
+  height: 0.25rem;
   width: 100%;
   background-color: black;
 }
