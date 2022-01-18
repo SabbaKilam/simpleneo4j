@@ -297,7 +297,7 @@ const c = { // the CONTROLLER object
   /** */
   toggleMenu( eo ){
     m.menuOpen = !m.menuOpen;
-    if ( menuOpen ){ rotateMenuOpen() }
+    if ( m.menuOpen ){ rotateMenuOpen() }
     else { rotateMenuClosed }
     alert(m.menuOpen);
     /////| local helpers |/////
