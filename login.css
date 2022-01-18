@@ -182,7 +182,7 @@ select, option {
 
 /************MENU STYLE****************/
 #menuCover{
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
 	display: grid;
