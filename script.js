@@ -27,15 +27,31 @@ const v = {}; // the VIEW object
 //| define helper functions: |////
 ////////////////////////////////////
 const h = { // the HELPER object
+  /** */
   IDsToView( IDs, view ){
     IDs.forEach( id => {
       view[id] = document.getElementById(id);
       view[id].on = view[id].addEventListener;
+      view[id].css = css.bind( element ); //see inner helper css below
     });
-	IDs.forEach( id => console.log(id) );
-  console.log(`(${IDs.length} id elements)`)
-  },
+    ////| CSS helper /////
+    function css( styles ){
+			let cleanStyles = styles.replace( /\/\*.*\//g, `` );//delete multi-line comments		
+			let stylesArray = cleanStyles.split(`;`);
+			stylesArray.forEach( styleDeclaration => {
+				let property_value = styleDeclaration.split(`:`);
+				if ( property_value[0] && property_value[1] ){
+					this.style[property_value[0].trim()] = property_value[1].trim();	    	
+				}
+			});
+			return window.getComputedStyle( this );
+		}
 
+    //////| show IDs |////
+    IDs.forEach( id => console.log(id) );
+    console.log(`(${IDs.length} id elements)`)
+  },
+  /** */
   async createBurnsPollerFamily(){
     let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv')
         .then( response => response.text());
@@ -278,7 +294,12 @@ const c = { // the CONTROLLER object
   /** */
   toggleMenu( eo ){
     m.menuOpen = !m.menuOpen;
+    if ( menuOpen ){ rotateMenuOpen() }
+    else { rotateMenuClosed }
     alert(m.menuOpen);
+    /////| local helpers |/////
+    function rotateMenuOpen(){}
+    function rotateMenuClosed(){}
   }
 };
 
