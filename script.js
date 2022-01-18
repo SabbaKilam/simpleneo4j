@@ -277,7 +277,8 @@ const c = { // the CONTROLLER object
   },
   /** */
   toggleMenu( eo ){
-    alert();
+    m.menuOpen = !m.menuOpen;
+    alert(m.menuOpen);
   }
 };
 
