@@ -184,8 +184,9 @@ select, option {
 #menuCover{
   position: absolute;
   top: 0;
-  height: 100px;
-  width: 100px;
+  right: 0;
+  height: 5%;
+  width: 5%;
   border: 1px solid black;
   z-index: 4;
 }
