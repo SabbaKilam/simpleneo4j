@@ -212,7 +212,7 @@ select, option {
 #middleBurger{
   position: absolute;
   top: 50%;
-  transform: translateY( -50% )
+  transform: translateY( -50% );
   transition: transform 0.25s ease;
   height: 0.4rem;
   width: 100%;
