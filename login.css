@@ -181,8 +181,9 @@ select, option {
   background-color: gray;
   color: white;
 }
-
-/************MENU STYLE****************/
+/*********************************************/
+/************BURGER MENU STYLE****************/
+/*********************************************/
 #menuCover{
   position: absolute;
   top: 0;
@@ -222,9 +223,9 @@ select, option {
   height: 0.32rem;
   width: 100%;
   background-color: black;
-  border-radius: 0.15rem;
- 
+  border-radius: 0.15rem; 
 }
+
 #bottomBun{
   position: absolute;
   bottom: 0;
@@ -234,4 +235,14 @@ select, option {
   background-color: black;
   transform-origin: top left;
   border-radius: 0.15rem;  
+}
+/*********************************************/
+/**************MENU PAGE STYLE****************/
+/*********************************************/
+#menu{
+  position: absolute;
+  top: 8%;
+  bottom: 0;
+  width: 50vw;
+  border: 1px solid black;
 }
