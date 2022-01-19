@@ -70,18 +70,26 @@ const h = { // the HELPER object
     if ( m.menuOpen ){
       if ( self.innerWidth > self.innerHeight ){
         v.menu.css(`
-           left: 25vw;
+           /*left: 25vw;*/
+           left: 50%;
+           transform: translateX(-50%);
+           top: 9%;
         `);
       }
       else {
-        v.menu.css(`      
-          left: 7.5vw;          
+        v.menu.css(` 
+          left: 50%;
+          transform: translateX(-50%);
+          top: 9%;     
+          /*left: 7.5vw;*/
+  
         `);
       }
     }
     else {
       v.menu.css(`
-        left: calc( 100vw + 1px );
+        /*left: calc( 100vw + 1px );*/
+        top: calc( -100vh - 5px );   
       `);
     }
   },
