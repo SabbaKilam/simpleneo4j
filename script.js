@@ -58,24 +58,24 @@ const h = { // the HELPER object
   adjustMenuPage(){
     if( self.innerWidth > self.innerHeight){
       v.menu.css(`
-        width: 33vw;
+        width: 50vw;
       `);
     }
     else{
       v.menu.css(`
-        width: 50vw;
+        width: 75vw;
       `);
     }
     ///////| move the left |/////
     if ( m.menuOpen ){
       if ( self.innerWidth > self.innerHeight ){
         v.menu.css(`
-           left: 67vw;
+           left: 25vw;
         `);
       }
       else {
         v.menu.css(`      
-          left: 50vw;          
+          left: 12.5vw;          
         `);
       }
     }
