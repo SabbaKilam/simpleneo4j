@@ -49,10 +49,23 @@ const h = { // the HELPER object
 			});
       return propetyValuesArray;
 		}
-
     //////| show IDs |////
     IDs.forEach( id => console.log(id) );
     console.log(`(${IDs.length} id elements)`)
+  },
+
+  /** */ 
+  adjustMenuWidth(){
+    if( self.innerWidth > self.innerHeight){
+      v.menu.css(`
+        width: 33vw;
+      `);
+    }
+    else{
+      v.menu.css(`
+        width: 67vw;
+      `);
+    }
   },
   /** */
   async createBurnsPollerFamily(){
@@ -310,6 +323,8 @@ const c = { // the CONTROLLER object
       v.bottomBun.css(`
       transform: rotateZ( -45deg );
       `);
+      ///////| menu page |////////
+      h.adjustMenuWidth();
     }
     function rotateMenuClosed(){
       v.topBun.css(`
