@@ -79,6 +79,7 @@ const h = { // the HELPER object
       `);
     }
   },
+
   /** */
   async createBurnsPollerFamily(){
     let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv')
@@ -88,6 +89,7 @@ const h = { // the HELPER object
     console.log( burnsPollerMembers);
     
   },
+
   /** */
   rotateMenuOpen(){
     v.topBun.css(`
@@ -101,6 +103,7 @@ const h = { // the HELPER object
     `);
     h.adjustMenuPage();
   },
+
   /** */
   rotateMenuClosed(){
     v.topBun.css(`
@@ -113,6 +116,15 @@ const h = { // the HELPER object
       transform: rotateZ( 0deg );
     `); 
     h.adjustMenuPage();     
+  },
+
+  /** */
+  showDbForm( dbForm = v.createMemberBox ){
+    console.log('form to show:', dbForm.id);
+    let dbForms = document.querySelectorAll('.dbForm');
+    Array.from(dbForms).forEach(dbForm => {
+      console.log(dbForm.id)
+    });
   }
 };
 
