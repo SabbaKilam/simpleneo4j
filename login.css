@@ -194,7 +194,7 @@ select, option {
 	place-content: center;
   height: 1.5rem;
   width: 1.53rem;
-  margin: 1.25% 1%;
+  margin: 1% 1%;
   cursor: pointer;
   z-index: 5;  
 }
@@ -262,11 +262,23 @@ select, option {
 /*********************************************/
 #logoHeader {
   position: absolute;
+  /*
   display: grid;
   place-content: left;
+  */
   top: 0;
   width: 100vw;
-  height: 9%;
+  height: 11%;
   background-color: blue;
   color: white;
+}
+#logoDiv{
+  position: absolute;
+  left: 0;
+  margin-left: 2%;
+  height: 100%;
+  background-image: url('assets/kin-keepers-logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
