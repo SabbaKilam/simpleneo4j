@@ -262,6 +262,8 @@ select, option {
 /*********************************************/
 #logoHeader {
   position: absolute;
+  display: grid;
+  place-content: left;
   top: 0;
   width: 100vw;
   height: 9%;
