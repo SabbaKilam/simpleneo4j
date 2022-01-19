@@ -63,7 +63,7 @@ const h = { // the HELPER object
     }
     else{
       v.menu.css(`
-        width: 75vw;
+        width: 85vw;
       `);
     }
     ///////| move the left |/////
@@ -75,7 +75,7 @@ const h = { // the HELPER object
       }
       else {
         v.menu.css(`      
-          left: 12.5vw;          
+          left: 7.5vw;          
         `);
       }
     }
