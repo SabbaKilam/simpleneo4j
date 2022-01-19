@@ -70,20 +70,17 @@ const h = { // the HELPER object
     if ( m.menuOpen ){
       if ( self.innerWidth > self.innerHeight ){
         v.menu.css(`
-          transition: left 0.4s ease;
-          left: 67vw;
+           left: 67vw;
         `);
       }
       else {
-        v.menu.css(`
-          transition: left 0.4s ease;        
+        v.menu.css(`      
           left: 50vw;          
         `);
       }
     }
     else {
       v.menu.css(`
-        /*transition: left 0s ease;*/
         left: calc( 100vw + 1px );
       `);
     }
