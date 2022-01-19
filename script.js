@@ -87,6 +87,32 @@ const h = { // the HELPER object
     alert( burnsPollerMembers);
     console.log( burnsPollerMembers);
     
+  },
+  /** */
+  rotateMenuOpen(){
+    v.topBun.css(`
+      transform: rotateZ( 45deg );
+    `);
+    v.middleBurger.css(`
+      transform: translateY( -50% ) rotateY( 90deg );
+    `)
+    v.bottomBun.css(`
+      transform: rotateZ( -45deg );
+    `);
+    h.adjustMenuPage();
+  },
+  /** */
+  rotateMenuClosed(){
+    v.topBun.css(`
+      transform: rotateZ(0deg);
+    `);      
+    v.middleBurger.css(`
+      transform: translateY( -50% ) rotateY( 0deg );
+    `);
+    v.bottomBun.css(`
+      transform: rotateZ( 0deg );
+    `); 
+    h.adjustMenuPage();     
   }
 };
 
@@ -310,6 +336,9 @@ const c = { // the CONTROLLER object
 
   /** */
   showBigGraph( eo ){
+    m.menuOpen = false;
+    h.toggleMenu();
+    h.adjustMenuPage();
     v.overlay.style.visibility = "visible";
     v.overlay.style.opacity = "1";    
   },
@@ -322,35 +351,11 @@ const c = { // the CONTROLLER object
   /** */
   toggleMenu( eo ){
     m.menuOpen = !m.menuOpen;
-    if ( m.menuOpen ){ rotateMenuOpen() }
-    else { rotateMenuClosed() }
-    /////| local helpers |/////
-    function rotateMenuOpen(){
-      v.topBun.css(`
-        transform: rotateZ( 45deg );
-      `);
-      v.middleBurger.css(`
-        transform: translateY( -50% ) rotateY( 90deg );
-      `)
-      v.bottomBun.css(`
-        transform: rotateZ( -45deg );
-      `);
-      h.adjustMenuPage();
-    }
-    function rotateMenuClosed(){
-      v.topBun.css(`
-        transform: rotateZ(0deg);
-      `);      
-      v.middleBurger.css(`
-        transform: translateY( -50% ) rotateY( 0deg );
-      `);
-      v.bottomBun.css(`
-        transform: rotateZ( 0deg );
-      `); 
-      h.adjustMenuPage();     
-    }
+    if ( m.menuOpen ){ h.rotateMenuOpen() }
+    else { h.rotateMenuClosed() }
   }
-};
+  
+};//////| END of c Handlers |/////
 
 ////////////////////////////////////
 /////////| initialization: |////////
@@ -364,6 +369,8 @@ v.passwordInput.focus();
 v.createMemberBox.css(`
   visibility: visible;
 `);
+
+
 
 async function customQuery( URL, cypherquery, jsonargs ){ 
   const metadata = { 
