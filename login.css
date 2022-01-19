@@ -16,7 +16,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-family: sans-serif;
-  overflow: auto;
+  overflow: hidden;
 }
 button{
   font-weight: bold;
@@ -245,7 +245,7 @@ select, option {
   position: absolute;
   /*top: 9%;*/
   top: calc( -100vh - 5px );
-  height: 100vh;
+  height: 100%;
   left: 50%;
   transform: translateX( -50% );
   /*width: 33vw;*/
