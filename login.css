@@ -194,7 +194,7 @@ select, option {
 	place-content: center;
   height: 1.5rem;
   width: 1.53rem;
-  margin: 0.5% 1%;
+  margin: 1.25% 1%;
   cursor: pointer;
   z-index: 5;  
 }
