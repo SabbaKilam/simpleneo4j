@@ -72,6 +72,7 @@ select, option {
   height: 45%;
   width: 100%;
   text-align: center;
+  visibility: hidden;
   /*border: 1px solid black;*/
 }
 .bottomBox{
