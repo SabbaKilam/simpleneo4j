@@ -55,7 +55,7 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  adjustMenuWidth(){
+  adjustMenuPage(){
     if( self.innerWidth > self.innerHeight){
       v.menu.css(`
         width: 33vw;
@@ -63,7 +63,25 @@ const h = { // the HELPER object
     }
     else{
       v.menu.css(`
-        width: 67vw;
+        width: 50vw;
+      `);
+    }
+    ///////| move the left |/////
+    if ( m.menuOpen ){
+      if ( self.innerWidth > self.innerHeight ){
+        v.menu.css(`
+          left: 33vw;
+        `);
+      }
+      else {
+        v.menu.css(`
+          left: 50vw;          
+        `);
+      }
+    }
+    else {
+      v.menu.css(`
+        left: calc( 100vw + 1 );
       `);
     }
   },
@@ -321,27 +339,9 @@ const c = { // the CONTROLLER object
         transform: translateY( -50% ) rotateY( 90deg );
       `)
       v.bottomBun.css(`
-      transform: rotateZ( -45deg );
+        transform: rotateZ( -45deg );
       `);
-      ///////| menu page |////////
-      h.adjustMenuWidth();
-      if ( m.menuOpen ){
-        if ( self.innerWidth > self.innerHeight ){
-          v.menu.css(`
-            left: 67vw;
-          `);
-        }
-        else {
-          v.menu.css(`
-            left: 50vw;          
-          `);
-        }
-      }
-      else {
-        v.menu.css(`
-          left: calc( 100vw + 1 );
-        `);
-      }
+      h.adjustMenuPage();
     }
     function rotateMenuClosed(){
       v.topBun.css(`
@@ -351,8 +351,9 @@ const c = { // the CONTROLLER object
         transform: translateY( -50% ) rotateY( 0deg );
       `);
       v.bottomBun.css(`
-      transform: rotateZ( 0deg );
-      `);      
+        transform: rotateZ( 0deg );
+      `); 
+      h.adjustMenuPage();     
     }
   }
 };
@@ -407,8 +408,6 @@ v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
 v.menuCover.on('click', c.toggleMenu);
 
-self.addEventListener('resize', h.adjustMenuWidth);
-self.addEventListener('orientationchange', h.adjustMenuWidth);
-self.addEventListener('DOMContentLoaded', h.adjustMenuWidth);
-
-
+self.addEventListener('resize', h.adjustMenuPage);
+self.addEventListener('orientationchange', h.adjustMenuPage);
+self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
