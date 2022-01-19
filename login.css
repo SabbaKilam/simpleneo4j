@@ -283,3 +283,25 @@ select, option {
   background-size: contain;
   background-position: center;
 }
+
+
+#middleFormHolder{
+  position: absolute;
+  display: grid;
+  place-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );  
+  height: 40vh;
+  width: 60vw;
+  border-radius: 1rem;
+  background-color: lightblue;
+
+}
+
+.dbForm{
+  position: absolute;
+  visibility: hidden
+  height: 100%;
+  width: 100%;
+}
