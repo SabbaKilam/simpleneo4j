@@ -190,7 +190,7 @@ select, option {
 	place-content: center;
   height: 1.5rem;
   width: 1.53rem;
-  margin: 1% 1%;
+  margin: 0.5% 1%;
   cursor: pointer;
   z-index: 4;  
 }
