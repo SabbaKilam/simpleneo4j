@@ -152,7 +152,7 @@ select, option {
   height: 100%;
   width: 100vw;
   background-color: lightgray;
-  visibility: hidden;
+  visibility: visible;
 }
 #passwordForm{
   position: absolute;
