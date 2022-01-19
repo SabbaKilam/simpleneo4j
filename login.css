@@ -273,8 +273,8 @@ select, option {
   position: absolute;
   left: 0;
   margin-left: 2%;
-  height: 10vw;
-  width: 10vw;
+  height: 10vh;
+  width: 10vh;
   border-radius: 50%;
   top: 50%;
   transform: translateY( -50% );
