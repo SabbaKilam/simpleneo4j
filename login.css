@@ -245,6 +245,8 @@ select, option {
 /*********************************************/
 #menu{
   position: absolute;
+  display: grid;
+  place-content: center;
   top: calc( -100vh - 5px );
   height: 100%;
   left: 50%;
@@ -255,7 +257,10 @@ select, option {
   border-radius: 0.5rem;
   z-index: 4;
 }
-
+#menuTable{
+  width: 85%;
+  border: 1px solid black;
+}
 /*********************************************/
 /****************LOGO HEADER******************/
 /*********************************************/
