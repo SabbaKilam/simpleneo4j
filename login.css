@@ -246,6 +246,6 @@ select, option {
   left: calc(100vw + 1px);
   width: 33vw;
   border: 1px solid black;
-  transition: all 0.5 ease;
+  transition: all 0.75 ease;
   border-radius: 0.5rem;
 }
