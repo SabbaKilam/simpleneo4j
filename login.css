@@ -249,4 +249,5 @@ select, option {
   background-color: lightgray;
   transition: all 0.4s ease;
   border-radius: 0.5rem;
+  z-index: 4;
 }
