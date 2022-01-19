@@ -69,13 +69,12 @@ const h = { // the HELPER object
     ///////| move the left |/////
     if ( m.menuOpen ){
       v.menu.css(`
-        top: 9%;                   
+        top: 0;                   
         bottom: 0;
       `);
     }
     else {
-      v.menu.css(`
-        /*left: calc( 100vw + 1px );*/        
+      v.menu.css(`    
         top: calc( -100vh - 5px );   
       `);
     }
