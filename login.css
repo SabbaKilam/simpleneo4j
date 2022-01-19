@@ -213,7 +213,7 @@ select, option {
   height: 0.32rem;
   width: 100%;
   transition: transform 0.25s ease;
-  background-color: gray;
+  background-color: white;
   transform-origin: bottom left;
   border-radius: 0.15rem;
 }
@@ -225,7 +225,7 @@ select, option {
   transition: transform 0.25s ease;
   height: 0.32rem;
   width: 100%;
-  background-color: gray;
+  background-color: white;
   border-radius: 0.15rem; 
 }
 
@@ -235,7 +235,7 @@ select, option {
   height: 0.32rem;
   width: 100%;
   transition: transform 0.25s ease;
-  background-color: gray;
+  background-color: white;
   transform-origin: top left;
   border-radius: 0.15rem;  
 }
