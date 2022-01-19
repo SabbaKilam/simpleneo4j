@@ -194,7 +194,7 @@ select, option {
 	place-content: center;
   height: 1.5rem;
   width: 1.53rem;
-  margin: 1% 1%;
+  margin: 2% 1%;
   cursor: pointer;
   z-index: 5;  
 }
@@ -277,6 +277,7 @@ select, option {
   left: 0;
   margin-left: 2%;
   height: 100%;
+  width: 10vw;
   background-image: url('assets/kin-keepers-logo.png');
   background-repeat: no-repeat;
   background-size: cover;
