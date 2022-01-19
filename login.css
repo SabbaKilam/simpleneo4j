@@ -305,6 +305,8 @@ select, option {
   height: 100%;
   width: 100%;
 }
+/* do this in JS initialization code
 #createMemberBox{
   visibility: visible; 
 }
+*/

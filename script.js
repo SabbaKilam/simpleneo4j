@@ -361,6 +361,10 @@ if ( self.location.protocol == "http:" ) {
 }
 v.passwordInput.focus();
 
+v.createMemberBox.css(`
+  visibility: visible;
+`);
+
 async function customQuery( URL, cypherquery, jsonargs ){ 
   const metadata = { 
     method: "GET", 
