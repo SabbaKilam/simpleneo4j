@@ -293,7 +293,7 @@ select, option {
   left: 50%;
   transform: translate( -50%, -50% );  
   height: 40vh;
-  width: 60vw;
+  width: 75vw;
   border-radius: 1rem;
   background-color: lightblue;
 
@@ -301,7 +301,7 @@ select, option {
 
 .dbForm{
   position: absolute;
-  visibility: hidden
+  visibility: hidden;
   height: 100%;
   width: 100%;
 }
