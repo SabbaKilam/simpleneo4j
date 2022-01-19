@@ -68,29 +68,15 @@ const h = { // the HELPER object
     }
     ///////| move the left |/////
     if ( m.menuOpen ){
-      if ( self.innerWidth > self.innerHeight ){
-        v.menu.css(`
-           /*left: 25vw;*/
-           left: 50%;
-           transform: translateX(-50%);
-           top: 9%;
-           bottom: 0;
-        `);
-      }
-      else {
-        v.menu.css(` 
-          left: 50%;
-          transform: translateX(-50%);
-          top: 9%;
-          bottom: 0;     
-          /*left: 7.5vw;*/  
-        `);
-      }
+      v.menu.css(`
+        top: 9%;                   
+        bottom: 0;
+      `);
     }
     else {
       v.menu.css(`
-        /*left: calc( 100vw + 1px );*/
-        bottom: calc( -100vh - 5px );   
+        /*left: calc( 100vw + 1px );*/        
+        top: calc( -100vh - 5px );   
       `);
     }
   },

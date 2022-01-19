@@ -244,11 +244,11 @@ select, option {
 #menu{
   position: absolute;
   /*top: 9%;*/
-  bottom: calc( -100vh - 5px );
+  top: calc( -100vh - 5px );
   height: 100vh;
   left: 50%;
   transform: translateX( -50% );
-  width: 33vw;
+  /*width: 33vw;*/
   border: 1px solid black;
   background-color: lightgray;
   transition: all 0.4s ease;
