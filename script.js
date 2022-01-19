@@ -435,3 +435,7 @@ v.menuCover.on('click', c.toggleMenu);
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
+
+v.menuTable.on( 'click', eo => {
+  alert(eo.target['data-menu']);
+});
