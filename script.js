@@ -70,7 +70,7 @@ const h = { // the HELPER object
     if ( m.menuOpen ){
       if ( self.innerWidth > self.innerHeight ){
         v.menu.css(`
-          left: 33vw;
+          left: 67vw;
         `);
       }
       else {
