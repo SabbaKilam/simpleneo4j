@@ -188,13 +188,14 @@ select, option {
 /*********************************************/
 #menuCover{
   position: absolute;
-  top: 0;
+  top: 6%;
+  transform: translateY( -50% );
   right: 0;
 	display: grid;
 	place-content: center;
   height: 1.5rem;
   width: 1.53rem;
-  margin: 2% 1%;
+  margin-right: 1%;
   cursor: pointer;
   z-index: 5;  
 }
@@ -262,13 +263,9 @@ select, option {
 /*********************************************/
 #logoHeader {
   position: absolute;
-  /*
-  display: grid;
-  place-content: left;
-  */
   top: 0;
   width: 100vw;
-  height: 11%;
+  height: 12%;
   background-color: blue;
   color: white;
 }
@@ -276,10 +273,10 @@ select, option {
   position: absolute;
   left: 0;
   margin-left: 2%;
-  height: 100%;
+  height: 80%;
   width: 10vw;
   background-image: url('assets/kin-keepers-logo.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 }
