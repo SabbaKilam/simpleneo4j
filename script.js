@@ -81,7 +81,7 @@ const h = { // the HELPER object
     }
     else {
       v.menu.css(`
-        left: calc( 100vw + 1 );
+        left: calc( 100vw + 1px );
       `);
     }
   },
