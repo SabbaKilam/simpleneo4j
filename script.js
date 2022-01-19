@@ -325,6 +325,23 @@ const c = { // the CONTROLLER object
       `);
       ///////| menu page |////////
       h.adjustMenuWidth();
+      if ( m.menuOpen ){
+        if ( self.innerWidth > self.innerHeight ){
+          v.menu.css(`
+            left: 67vw;
+          `);
+        }
+        else {
+          v.menu.css(`
+            left: 50vw;          
+          `);
+        }
+      }
+      else {
+        v.menu.css(`
+          left: calc( 100vw + 1 );
+        `);
+      }
     }
     function rotateMenuClosed(){
       v.topBun.css(`
@@ -388,5 +405,10 @@ v.btnShowBigGraph.on('click', c.showBigGraph);
 
 v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
-v.menuCover.on('click', c.toggleMenu)
+v.menuCover.on('click', c.toggleMenu);
+
+self.addEventListener('resize', h.adjustMenuWidth);
+self.addEventListener('orientationchange', h.adjustMenuWidth);
+self.addEventListener('DOMContentLoaded', h.adjustMenuWidth);
+
 
