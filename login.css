@@ -258,7 +258,8 @@ select, option {
   z-index: 4;
 }
 #menuTable{
-  width: 85%;
+  width: 100%;
+  margin: 1rem;
   border: 1px solid black;
 }
 /*********************************************/
