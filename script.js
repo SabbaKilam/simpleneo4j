@@ -70,11 +70,13 @@ const h = { // the HELPER object
     if ( m.menuOpen ){
       if ( self.innerWidth > self.innerHeight ){
         v.menu.css(`
+          transition: left 0.4s ease;
           left: 67vw;
         `);
       }
       else {
         v.menu.css(`
+          transition: left 0.4s ease;        
           left: 50vw;          
         `);
       }
