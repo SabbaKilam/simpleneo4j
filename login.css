@@ -174,9 +174,9 @@ select, option {
 
 #btnShowBigGraph {
   position: absolute;
-  top: 10px;
+  top: 6%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   z-index: 4;
   padding: 0.25rem;
   border-radius: 0.25rem;
