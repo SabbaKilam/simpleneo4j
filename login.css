@@ -241,8 +241,9 @@ select, option {
 /*********************************************/
 #menu{
   position: absolute;
-  top: 8%;
+  top: 9%;
   bottom: 0;
-  width: 50vw;
+  right: 0;
+  width: 33vw;
   border: 1px solid black;
 }
