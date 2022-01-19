@@ -127,10 +127,10 @@ const h = { // the HELPER object
       dbForm.css(`
         visibility: hidden;
       `);
-      dbForm.css(`
-        visibility: visible;
-      `);
     });
+    dbForm.css(`
+    visibility: visible;
+  `);
   }
 };
 
