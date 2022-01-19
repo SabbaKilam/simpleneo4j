@@ -246,4 +246,5 @@ select, option {
   right: 0;
   width: 33vw;
   border: 1px solid black;
+  transition: right 0.7s ease;
 }
