@@ -193,9 +193,7 @@ select, option {
   cursor: pointer;
   z-index: 4;  
 }
-#menuCover:hover{
-  background-color:rgba(255, 235, 235, 0.5);
-}
+
 #burgerHolder{
   position: absolute;
   height: 100%;
@@ -211,6 +209,7 @@ select, option {
   transition: transform 0.25s ease;
   background-color: black;
   transform-origin: bottom left;
+  border-radius: 0.1rem;
 }
 
 #middleBurger{
@@ -221,6 +220,7 @@ select, option {
   height: 0.4rem;
   width: 100%;
   background-color: black;
+  border-radius: 0.1rem;
  
 }
 
@@ -231,5 +231,6 @@ select, option {
   width: 100%;
   transition: transform 0.25s ease;
   background-color: black;
-  transform-origin: top left;  
+  transform-origin: top left;
+  border-radius: 0.1rem;  
 }
