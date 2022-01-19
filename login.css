@@ -209,7 +209,7 @@ select, option {
   transition: transform 0.25s ease;
   background-color: black;
   transform-origin: bottom left;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
 }
 
 #middleBurger{
@@ -220,10 +220,9 @@ select, option {
   height: 0.4rem;
   width: 100%;
   background-color: black;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
  
 }
-
 #bottomBun{
   position: absolute;
   bottom: 0;
@@ -232,5 +231,5 @@ select, option {
   transition: transform 0.25s ease;
   background-color: black;
   transform-origin: top left;
-  border-radius: 0.1rem;  
+  border-radius: 0.2rem;  
 }
