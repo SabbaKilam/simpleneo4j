@@ -123,16 +123,16 @@ const h = { // the HELPER object
     console.log('form to show:', dbForm.id);
     let dbForms = document.querySelectorAll('.dbForm');
     Array.from(dbForms).forEach(form => {
-      console.log(dbForm.id);
+      console.log(form.id);
       form.css(`
         visibility: hidden;
       `);
     });
     dbForm.css(`
-    visibility: visible;
-  `);
-  }
-};
+      visibility: visible;
+    `);
+  },
+};/////| END of h Helpers |///////
 
 /////////////////////////////////////
 //| define handler functions: |//////
