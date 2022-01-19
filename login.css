@@ -273,8 +273,9 @@ select, option {
   position: absolute;
   left: 0;
   margin-left: 2%;
-  height: 80%;
+  height: 10vw;
   width: 10vw;
+  border-radius: 50%;
   top: 50%;
   transform: translateY( -50% );
   background-image: url('assets/kin-keepers-logo.png');
