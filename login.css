@@ -195,7 +195,7 @@ select, option {
   width: 1.53rem;
   margin: 0.5% 1%;
   cursor: pointer;
-  z-index: 4;  
+  z-index: 5;  
 }
 
 #burgerHolder{
