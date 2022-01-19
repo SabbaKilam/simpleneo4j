@@ -292,7 +292,7 @@ select, option {
   top: 50%;
   left: 50%;
   transform: translate( -50%, -50% );  
-  height: 40vh;
+  height: 75vh;
   width: 75vw;
   border-radius: 1rem;
   background-color: lightblue;
@@ -304,4 +304,7 @@ select, option {
   visibility: hidden;
   height: 100%;
   width: 100%;
+}
+#createMemberBox{
+  visibility: visible; 
 }
