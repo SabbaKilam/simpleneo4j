@@ -276,7 +276,7 @@ select, option {
   height: 80%;
   width: 10vw;
   top: 6%;
-  transform: translateY( -5% );
+  transform: translateY( -50% );
   background-image: url('assets/kin-keepers-logo.png');
   background-repeat: no-repeat;
   background-size: contain;
