@@ -123,7 +123,13 @@ const h = { // the HELPER object
     console.log('form to show:', dbForm.id);
     let dbForms = document.querySelectorAll('.dbForm');
     Array.from(dbForms).forEach(dbForm => {
-      console.log(dbForm.id)
+      console.log(dbForm.id);
+      dbForm.css(`
+        visibility: hidden;
+      `);
+      dbForm.css(`
+        visibility: visible;
+      `);
     });
   }
 };
