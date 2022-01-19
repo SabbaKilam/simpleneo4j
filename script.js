@@ -122,9 +122,9 @@ const h = { // the HELPER object
   showDbForm( dbForm = v.createMemberBox ){
     console.log('form to show:', dbForm.id);
     let dbForms = document.querySelectorAll('.dbForm');
-    Array.from(dbForms).forEach(dbForm => {
+    Array.from(dbForms).forEach(form => {
       console.log(dbForm.id);
-      dbForm.css(`
+      form.css(`
         visibility: hidden;
       `);
     });
