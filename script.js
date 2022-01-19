@@ -336,8 +336,9 @@ const c = { // the CONTROLLER object
 
   /** */
   showBigGraph( eo ){
-    m.menuOpen = true;
-    c.toggleMenu();
+    m.menuOpen = false;
+    h.rotateMenuClosed()
+
     h.adjustMenuPage();
     v.overlay.style.visibility = "visible";
     v.overlay.style.opacity = "1";    
