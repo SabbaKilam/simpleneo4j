@@ -69,7 +69,7 @@ const h = { // the HELPER object
     ///////| move the left |/////
     if ( m.menuOpen ){
       v.menu.css(`
-        top: 0;                   
+        top: 12%;                   
         bottom: 0;
       `);
     }
