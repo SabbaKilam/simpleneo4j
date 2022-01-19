@@ -238,6 +238,7 @@ select, option {
   transform-origin: top left;
   border-radius: 0.15rem;  
 }
+
 /*********************************************/
 /**************MENU PAGE STYLE****************/
 /*********************************************/
@@ -254,4 +255,16 @@ select, option {
   transition: all 0.4s ease;
   border-radius: 0.5rem;
   z-index: 4;
+}
+
+/*********************************************/
+/****************LOGO HEADER******************/
+/*********************************************/
+#logoHeader {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 9%;
+  background-color: blue;
+  color: white;
 }
