@@ -38,6 +38,7 @@ button{
   height: 32%;
   padding: 1rem;
   width: 98.5%;
+  visibility: hidden;
 }
 select, option {
   font-weight: bold;
