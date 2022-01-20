@@ -133,6 +133,18 @@ const h = { // the HELPER object
       visibility: visible;
     `);
   },
+
+  /** */
+  async deleteAll(){
+    try{
+      let result = await fetch( "./api/deleteAllMembers", {method: "POST"} )
+        .then( response => response.text() );
+      alert( result );
+    }
+    catch(error){
+      alert(`Error\n${error}`)
+    }      
+  },
 };/////| END of h Helpers |///////
 
 /////////////////////////////////////

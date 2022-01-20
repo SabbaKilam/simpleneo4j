@@ -274,6 +274,12 @@ select, option {
   color: white;
   background-color: rgb(175, 175, 175);
 }
+#clearDataSpan{
+  color: red;
+}
+#logoutSpan{
+  color: teal;
+}
 
 /*********************************************/
 /****************LOGO HEADER******************/
