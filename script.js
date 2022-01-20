@@ -377,7 +377,6 @@ const c = { // the CONTROLLER object
   chooseInputForm( eo ){
     let possibleForm = eo.target.dataset['menu']
     if ( possibleForm ){
-      alert(possibleForm);
       h.showDbForm(v[possibleForm]);
       m.menuOpen = false;
       h.rotateMenuClosed();

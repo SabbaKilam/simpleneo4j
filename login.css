@@ -264,6 +264,9 @@ select, option {
   padding: 1rem;
   border: 1px solid black;
 }
+#menuTable span{
+  cursor: pointer;
+}
 /*********************************************/
 /****************LOGO HEADER******************/
 /*********************************************/
