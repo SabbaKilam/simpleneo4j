@@ -270,6 +270,9 @@ select, option {
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+#separatorSpan{
+  padding: 0.15rem;  
+}
 #menuTable span:hover{
   color: white;
   background-color: rgb(175, 175, 175);
