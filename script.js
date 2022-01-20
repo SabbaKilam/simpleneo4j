@@ -438,7 +438,8 @@ self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
 v.menuTable.on( 'click', eo => {
   let possibleForm = eo.target.dataset['menu']
-  if (possibleForm){
+  if ( possibleForm ){
     alert(possibleForm);
+    h.showDbForm(v[possibleForm]);
   }
 });
