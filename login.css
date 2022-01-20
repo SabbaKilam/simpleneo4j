@@ -267,6 +267,7 @@ select, option {
 }
 #menuTable span{
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 tr{
