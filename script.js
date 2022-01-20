@@ -388,13 +388,23 @@ const c = { // the CONTROLLER object
   },
   /** */
   chooseInputForm( eo ){
+    let nonForms = ["separator", "clearData", "logout"];
     let possibleForm = eo.target.dataset['menu']
     if ( possibleForm ){
+      if ( nonForms.includes( possibleForm ) ){ alert( possibleForm ) }
+      if( possibleForm === 'logout'){
+        v.loginCover.css(`
+          visibility: visible;
+        `);
+        return;
+      }
       h.showDbForm(v[possibleForm]);
       m.menuOpen = false;
-      h.rotateMenuClosed();
-    }    
-  }
+      h.rotateMenuClosed();      
+    }
+    /////| internal helpers |//////
+    function handleNonForms(){}
+  },
   
 };//////| END of c Handlers |/////
 
