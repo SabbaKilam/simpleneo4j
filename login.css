@@ -257,7 +257,7 @@ select, option {
 }
 #menuTable{
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate( -50%, -50% );
   width: 95%;
@@ -268,7 +268,11 @@ select, option {
 #menuTable span{
   display: inline-block;
   cursor: pointer;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+#menuTable span:hover{
+  color: white;
+  background-color: blue;
 }
 
 
