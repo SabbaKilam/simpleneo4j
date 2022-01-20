@@ -494,6 +494,7 @@ v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
 v.menuCover.on('click', c.toggleMenu);
 v.menu.on( 'click', eo => {
+  console.log(`target of menu click:`, eo.target);
   if (eo.target == v.menu){ c.toggleMenu }
 });
 
@@ -501,4 +502,4 @@ self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
-v.menuTable.on( 'click', c.chooseInputForm);
+v.menuTable.on('click', c.chooseInputForm);
