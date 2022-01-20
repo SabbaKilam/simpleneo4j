@@ -372,6 +372,16 @@ const c = { // the CONTROLLER object
     m.menuOpen = !m.menuOpen;
     if ( m.menuOpen ){ h.rotateMenuOpen() }
     else { h.rotateMenuClosed() }
+  },
+  /** */
+  chooseInputForm( eo ){
+    let possibleForm = eo.target.dataset['menu']
+    if ( possibleForm ){
+      alert(possibleForm);
+      h.showDbForm(v[possibleForm]);
+      m.menuOpen = false;
+      h.rotateMenuClosed();
+    }    
   }
   
 };//////| END of c Handlers |/////
@@ -436,6 +446,8 @@ self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
+v.menuTable.on( 'click', c.chooseInputForm);
+/*
 v.menuTable.on( 'click', eo => {
   let possibleForm = eo.target.dataset['menu']
   if ( possibleForm ){
@@ -445,3 +457,4 @@ v.menuTable.on( 'click', eo => {
     h.rotateMenuClosed();
   }
 });
+*/
