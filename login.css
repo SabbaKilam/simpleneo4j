@@ -249,7 +249,7 @@ select, option {
   height: 100%;
   left: 50%;
   transform: translateX( -50% );
-  background-color: gray;  
+  background-color: rgb(175, 175, 175);  
   transition: all 0.4s ease;
   z-index: 4;
 }
@@ -272,7 +272,7 @@ select, option {
 }
 #menuTable span:hover{
   color: white;
-  background-color: gray;
+  background-color: rgb(175, 175, 175);
 }
 
 /*********************************************/
@@ -283,9 +283,7 @@ select, option {
   top: 0;
   width: 100vw;
   height: 12%;
-  background-color: gray;
-  /*background-color: hsl(197, 100%, 50%);*/
-  
+  background-color: rgb(175, 175, 175);
   color: white;
 }
 #logoDiv{
