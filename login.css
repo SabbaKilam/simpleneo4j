@@ -272,10 +272,11 @@ select, option {
   display: inline-block;
   cursor: pointer;
   padding: 0.5rem;
+  border-radius: 0.25rem;
 }
 #menuTable span:hover{
   color: white;
-  background-color: blue;
+  background-color: gray;
 }
 
 /*********************************************/
