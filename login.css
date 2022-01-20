@@ -263,6 +263,7 @@ select, option {
   width: 95%;
   padding: 1rem;
   border: 1px solid black;
+  background-color: white;
   border-radius: 0.5rem;
 }
 #menuTable span{
