@@ -493,10 +493,12 @@ v.btnShowBigGraph.on('click', c.showBigGraph);
 v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
 v.menuCover.on('click', c.toggleMenu);
+v.menu.on( 'click', eo => {
+  if (eo.target == v.menu){ c.toggleMenu }
+});
 
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
 v.menuTable.on( 'click', c.chooseInputForm);
-v.menu.on( 'click', c.toggleMenu);
