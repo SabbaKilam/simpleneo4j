@@ -419,7 +419,7 @@ const c = { // the CONTROLLER object
         m.loginActive = true;
       }
       if ( possibleForm == 'clearData'){
-        let confirmed = confirm(`OK to CLEAR the Database?\n(Otherwise, Cancel)`);
+        let confirmed = confirm(`Are you sure it's OK to CLEAR the Database??\n    ( Otherwise, Cancel! )`);
         if ( confirmed ){ 
           alert(`This action requires login credentials`)
           v.loginCover.css(`
