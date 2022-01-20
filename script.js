@@ -441,5 +441,7 @@ v.menuTable.on( 'click', eo => {
   if ( possibleForm ){
     alert(possibleForm);
     h.showDbForm(v[possibleForm]);
+    m.menuOpen = false;
+    h.rotateMenuClosed();
   }
 });
