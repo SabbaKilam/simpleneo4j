@@ -267,6 +267,12 @@ select, option {
 #menuTable span{
   cursor: pointer;
 }
+
+tr{
+  margin: 0.25rem;
+  width: 100%;
+}
+
 /*********************************************/
 /****************LOGO HEADER******************/
 /*********************************************/
@@ -307,7 +313,6 @@ select, option {
   background-color: lightblue;
 
 }
-
 .dbForm{
   position: absolute;
   visibility: hidden;
