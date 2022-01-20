@@ -101,6 +101,7 @@ const h = { // the HELPER object
     v.bottomBun.css(`
       transform: rotateZ( -45deg );
     `);
+    c.hideBigGraph();
     h.adjustMenuPage();
   },
 
@@ -446,14 +447,4 @@ self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
 v.menuTable.on( 'click', c.chooseInputForm);
-/*
-v.menuTable.on( 'click', eo => {
-  let possibleForm = eo.target.dataset['menu']
-  if ( possibleForm ){
-    alert(possibleForm);
-    h.showDbForm(v[possibleForm]);
-    m.menuOpen = false;
-    h.rotateMenuClosed();
-  }
-});
-*/
+
