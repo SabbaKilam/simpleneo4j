@@ -396,6 +396,8 @@ const c = { // the CONTROLLER object
         v.loginCover.css(`
           visibility: visible;
         `);
+        m.menuOpen = false;
+        h.rotateMenuClosed();        
         return;
       }
       h.showDbForm(v[possibleForm]);
