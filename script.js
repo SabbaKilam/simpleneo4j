@@ -14,7 +14,7 @@
 let m = { // the MODEL object
   username: "",
   menuOpen: false,
-  loginActive = false,
+  loginActive: false,
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
