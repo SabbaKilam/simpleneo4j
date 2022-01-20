@@ -420,7 +420,13 @@ const c = { // the CONTROLLER object
       }
       if ( possibleForm == 'clearData'){
         let confirmed = confirm(`OK to CLEAR the Database?\n(Otherwise, Cancel)`);
-        if ( confirmed ){ alert(`OK, will CLEAR Database!`)}
+        if ( confirmed ){ 
+          alert(`This action requires login credentials`)
+          v.loginCover.css(`
+            visibility: visible;
+          `);
+          m.loginActive = true;          
+        }
         else { alert(`Will NOT clear database data`) }
       }
       m.menuOpen = false;
