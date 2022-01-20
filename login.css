@@ -270,7 +270,7 @@ select, option {
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
-#separatorSpan{
+#menuTable #separatorSpan{
   padding: 0;  
 }
 #menuTable span:hover{
