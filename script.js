@@ -391,21 +391,35 @@ const c = { // the CONTROLLER object
     let nonForms = ["separator", "clearData", "logout"];
     let possibleForm = eo.target.dataset['menu']
     if ( possibleForm ){
-      if ( nonForms.includes( possibleForm ) ){ alert( possibleForm ) }
+      if ( nonForms.includes( possibleForm ) ){ 
+        handleNonForms( possibleForm );
+      }
+      else{
+        h.showDbForm(v[possibleForm]);
+        m.menuOpen = false;
+        h.rotateMenuClosed();
+      }      
+    }
+    /////| internal helpers |//////
+    function handleNonForms( possibleForm ){
+      let nonForms = ["separator", "clearData", "logout"];
+      if( possibleForm === 'separator'){
+        return;
+      }
       if( possibleForm === 'logout'){
         v.loginCover.css(`
           visibility: visible;
         `);
-        m.menuOpen = false;
-        h.rotateMenuClosed();        
-        return;
       }
-      h.showDbForm(v[possibleForm]);
+      if ( possibleForm == 'clearData'){
+        let confirmed = confirm(`Ok to CLEAR the Database?\(Otherwise, Cancel)`);
+        if ( confirmed ){ alert(`Ok, will CLEAR Database`)}
+        else { alert(`Will NOT clear database data`) }
+      }
       m.menuOpen = false;
-      h.rotateMenuClosed();      
+      h.rotateMenuClosed();        
+      return;      
     }
-    /////| internal helpers |//////
-    function handleNonForms(){}
   },
   
 };//////| END of c Handlers |/////
