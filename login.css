@@ -271,7 +271,8 @@ select, option {
   border-radius: 0.5rem;
 }
 #menuTable #separatorSpan{
-  padding: 0;  
+  padding: 0;
+  border-radius: 0.25rem;  
 }
 #menuTable span:hover{
   color: white;
