@@ -395,7 +395,7 @@ if ( self.location.protocol == "http:" ) {
 }
 v.passwordInput.focus();
 
-v.createMemberBox.css(`
+v.createNewPairBox.css(`
   visibility: visible;
 `);
 
