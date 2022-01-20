@@ -494,10 +494,11 @@ v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
 v.menuCover.on('click', c.toggleMenu);
 v.menu.on( 'click', eo => {
-  eo.stopPropagation();
-  console.log(`target of menu click:`, eo.target.id);
-  if (eo.target.id === "menu"){ c.toggleMenu }
-}, true);
+  if ( eo.target.id === 'menu '){
+    m.menuOpen = false;
+    h.rotateMenuClosed();
+  }
+});
 
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
