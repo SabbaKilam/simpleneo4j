@@ -266,14 +266,12 @@ select, option {
   border-radius: 0.5rem;
 }
 #menuTable span{
+  display: inline-block;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
-tr{
-  margin: 0.5rem;
-  width: 100%;
-}
+
 
 /*********************************************/
 /****************LOGO HEADER******************/
