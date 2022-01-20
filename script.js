@@ -499,4 +499,4 @@ self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
 v.menuTable.on( 'click', c.chooseInputForm);
-
+v.menu.on( 'click', c.toggleMenu);
