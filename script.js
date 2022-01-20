@@ -437,5 +437,8 @@ self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
 v.menuTable.on( 'click', eo => {
-  alert(eo.target.dataset['menu']);
+  let possibleForm = eo.target.dataset['menu']
+  if (possibleForm){
+    alert(possibleForm);
+  }
 });
