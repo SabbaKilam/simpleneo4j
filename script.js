@@ -14,6 +14,7 @@
 let m = { // the MODEL object
   username: "",
   menuOpen: false,
+  loginActive = false,
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
@@ -358,7 +359,10 @@ const c = { // the CONTROLLER object
         if (response.status > 299){ throw new Error(`Password error: ${response.status}`)}
         return response.json();
       });
-      if ( result === true ){ v.loginCover.style.visibility = "hidden" }
+      if ( result === true ){ 
+        v.loginCover.style.visibility = "hidden";
+        m.loginActive = false;
+      }
     }
     catch(error){
       console.log(`password error:\n${error}`)
@@ -382,9 +386,11 @@ const c = { // the CONTROLLER object
   },
   /** */
   toggleMenu( eo ){
-    m.menuOpen = !m.menuOpen;
-    if ( m.menuOpen ){ h.rotateMenuOpen() }
-    else { h.rotateMenuClosed() }
+    if( ! m.loginActive ){
+      m.menuOpen = !m.menuOpen;
+      if ( m.menuOpen ){ h.rotateMenuOpen() }
+      else { h.rotateMenuClosed() }
+    }
   },
   /** */
   chooseInputForm( eo ){
@@ -410,10 +416,11 @@ const c = { // the CONTROLLER object
         v.loginCover.css(`
           visibility: visible;
         `);
+        m.loginActive = true;
       }
       if ( possibleForm == 'clearData'){
-        let confirmed = confirm(`Ok to CLEAR the Database?\(Otherwise, Cancel)`);
-        if ( confirmed ){ alert(`Ok, will CLEAR Database`)}
+        let confirmed = confirm(`OK to CLEAR the Database?\n(Otherwise, Cancel)`);
+        if ( confirmed ){ alert(`OK, will CLEAR Database!`)}
         else { alert(`Will NOT clear database data`) }
       }
       m.menuOpen = false;
@@ -431,12 +438,13 @@ h.IDsToView( m.IDs, v );
 if ( self.location.protocol == "http:" ) {
   self.location.assign(`https://${location.host}`)
 }
+
+m.loginCover.css(`visibility: ${ m.loginActive ? "visible" : "hidden" };`);
 v.passwordInput.focus();
 
 v.createNewPairBox.css(`
   visibility: visible;
 `);
-
 
 
 async function customQuery( URL, cypherquery, jsonargs ){ 
