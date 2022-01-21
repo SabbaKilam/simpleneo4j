@@ -91,6 +91,10 @@ select, option {
 #createMemberBox .apiControls{
   Margin: 0.25rem;
 }
+#addPropertyBox .apiControls{
+  Margin: 0.25rem;
+}
+
 #createRelationshipBox{
   background-color: lightblue;
 }
