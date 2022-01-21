@@ -425,10 +425,13 @@ const c = { // the CONTROLLER object
           v.loginCover.css(`
             visibility: visible;
           `);
-          m.loginActive = true;          
+          m.loginActive = true;
+          return;       
         }
-        //else { alert(`Will NOT clear database data`) }
-        else { return; }
+        else {
+          v.clearDataSpan.blur();
+          return; 
+        }
         
       }
       m.menuOpen = false;
