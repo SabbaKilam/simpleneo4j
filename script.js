@@ -425,14 +425,12 @@ const c = { // the CONTROLLER object
           v.loginCover.css(`
             visibility: visible;
           `);
-          m.loginActive = true;
-          return;       
+          m.loginActive = true;    
         }
         else {
           v.clearDataSpan.blur();
           return; 
-        }
-        
+        }        
       }
       m.menuOpen = false;
       h.rotateMenuClosed();        
