@@ -427,7 +427,9 @@ const c = { // the CONTROLLER object
           `);
           m.loginActive = true;          
         }
-        else { alert(`Will NOT clear database data`) }
+        //else { alert(`Will NOT clear database data`) }
+        else { return; }
+        
       }
       m.menuOpen = false;
       h.rotateMenuClosed();        
