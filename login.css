@@ -88,7 +88,9 @@ select, option {
   position: relative;
   background-color: lightblue;
 }
-
+#createMemberBox .apiControls{
+  Margin: 0.125rem;
+}
 #createRelationshipBox{
   background-color: lightblue;
 }
