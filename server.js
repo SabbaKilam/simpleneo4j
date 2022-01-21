@@ -13,7 +13,6 @@ const mimeTypes = {
     js: 'text/javascript',
     ico: 'image/icon',
     jpg: `image/jpg`,
-
 }
 
 const apiList = [
