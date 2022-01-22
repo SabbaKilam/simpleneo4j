@@ -87,6 +87,7 @@ const h = { // the HELPER object
         .then( response => response.text());
     let arrayMembers = membersCSV.split(`\n`);
     let headings = arrayMembers.splice(0,1);
+    headings = String(headings);
     console.log( `headings: ${headings}`);
     console.log( `typeof headings: ${typeof headings}`)
     let count = 6;//headings.split(',').length;
