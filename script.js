@@ -88,10 +88,13 @@ const h = { // the HELPER object
     let arrayMembers = membersCSV.split(`\n`);
     let headings = arrayMembers.splice(0,1);
     console.log( `headings: ${headings}`);
-    
+    let count = headings.split(',').length;
     let arrayOfArrays = [];
     for ( let member of arrayMembers ){
-      arrayOfArrays.push( member.split(`,`) );
+      let memberArray = member.split(`,`);
+      memberArray.splice( count-1, 1 );
+      memberArray.splice( 2, 1 );      
+      arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
     
