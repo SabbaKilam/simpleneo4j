@@ -94,7 +94,7 @@ const h = { // the HELPER object
     let arrayOfArrays = [];
     let slashPosition = 2;
     for ( let member of arrayMembers ){
-      member.replace('/', '-');      
+      member = member.replace('/', '-');      
       let memberArray = member.split(`,`);
       memberArray.splice( count-1, 1 ); // remove email
       memberArray.splice( 2, 1 ); // remove name      
