@@ -313,7 +313,7 @@ select, option {
   border-radius: 50%;
   top: 50%;
   transform: translateY( -50% );
-  background-image: url('assets/kin-keepers-logo.png');
+  background-image: url('assets/transparent-logo.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
