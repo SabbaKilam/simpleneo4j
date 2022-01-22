@@ -82,8 +82,8 @@ const h = { // the HELPER object
   },
 
   /** */
-  async restoreDefaultDb( csvFile = './assets/BurnsPollerFamily.csv' ){
-    let membersCSV = await fetch( csvFile )
+  async restoreDefaultDb( csvFile = 'BurnsPollerFamily.csv' ){
+    let membersCSV = await fetch( `./assets/${csvFile}` )
         .then( response => response.text());
     let arrayMembers = membersCSV.split(`\n`);
     let headings = arrayMembers.splice(0,1);
