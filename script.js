@@ -442,7 +442,7 @@ const c = { // the CONTROLLER object
   },
 
   /** */
-  deleteAllMembers( eo ){
+  async deleteAllMembers( eo ){
     try{
       const result = await fetch('./api/deleteAllMembers', {method: 'POST'} ).then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble deleting all members: ${response.status}` )}
