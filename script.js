@@ -88,12 +88,13 @@ const h = { // the HELPER object
     let arrayMembers = membersCSV.split(`\n`);
     let headings = arrayMembers.splice(0,1);
     console.log( `headings: ${headings}`);
-    let count = headings.split(',').length;
+    console.log( `typeof headings: ${typeof headings}`)
+    let count = 6;//headings.split(',').length;
     let arrayOfArrays = [];
     for ( let member of arrayMembers ){
       let memberArray = member.split(`,`);
-      memberArray.splice( count-1, 1 );
-      memberArray.splice( 2, 1 );      
+      memberArray.splice( count-1, 1 ); // remove email
+      memberArray.splice( 2, 1 ); // remove name      
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
