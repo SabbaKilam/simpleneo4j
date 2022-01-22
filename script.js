@@ -90,7 +90,7 @@ const h = { // the HELPER object
     headings = String(headings);
     console.log( `headings: ${headings}`);
     console.log( `typeof headings: ${typeof headings}`)
-    let count = 6;//headings.split(',').length;
+    let count = headings.split(',').length;
     let arrayOfArrays = [];
     for ( let member of arrayMembers ){
       let memberArray = member.split(`,`);
