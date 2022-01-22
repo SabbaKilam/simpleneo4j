@@ -82,7 +82,7 @@ const h = { // the HELPER object
   },
 
   /** */
-  async createBurnsPollerFamily(){
+  async restoreDefaultDb(){
     let burnsPollerCSV = await fetch( './assets/BurnsPollerFamily.csv')
         .then( response => response.text());
     let burnsPollerMembers = burnsPollerCSV.split(`\n`);
@@ -420,12 +420,15 @@ const c = { // the CONTROLLER object
       }
       if ( possibleForm == 'clearData'){
         let confirmed = confirm(`Are you sure it's OK to CLEAR the Database??\n    ( Otherwise, Cancel! )`);
-        if ( confirmed ){ 
+        if ( confirmed ){
+          c.deleteAllMembers();
+          /*
           alert(`This action requires login credentials`)
           v.loginCover.css(`
             visibility: visible;
           `);
-          m.loginActive = true;    
+          m.loginActive = true;
+          */    
         }
         else {
           v.clearDataSpan.blur();
@@ -437,8 +440,22 @@ const c = { // the CONTROLLER object
       return;      
     }
   },
+
+  /** */
+  deleteAllMembers( eo ){
+    try{
+      const result = await fetch('./api/deleteAllMembers', {method: 'POST'} ).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble deleting all members: ${response.status}` )}
+        return response.text();
+      });
+      console.log(`Server response to deleteAllMembers:\n${result}`);
+    }
+    catch(error){
+      console.log(`Error response to deleteAllMembers:\n${error}`);
+    }   
+  },
   
-};//////| END of c Handlers |/////
+};//////| END of c Controller Event Handlers |/////
 
 ////////////////////////////////////
 /////////| initialization: |////////
