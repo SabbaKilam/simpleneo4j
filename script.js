@@ -94,16 +94,46 @@ const h = { // the HELPER object
     let arrayOfArrays = [];
     let slashPosition = 2;
     for ( let member of arrayMembers ){
-      member = member.replace(/\//g, '-');      
+      member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
       let memberArray = member.split(`,`);
       memberArray.splice( count-1, 1 ); // remove email
       memberArray.splice( 2, 1 ); // remove name      
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
-    
+    for await (array of arrayOfArrays){
+      let parameters = {
+        firstname: array[0],
+        lastname: array[1],
+        dob: array[2],
+        sex: array[3],
+      };
+      h.createMember( parameters );
+    }
   },
 
+  /** */  
+  async createMember( {firstname, lastname, dob, sex} ){
+      const parameters = {
+      method: 'POST',
+      headers: {
+        firstname,
+        lastname,
+        dob,
+        sex,
+      }
+    };
+    try{
+      const result = await fetch('./api/createMember', parameters).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
+        return response.text();
+      });
+      console.log(`Server response to createMember:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }    
+  },
   /** */
   rotateMenuOpen(){
     v.topBun.css(`
@@ -281,6 +311,8 @@ const c = { // the CONTROLLER object
     const data = [
       v.singleNewFirstName.value.trim(),
       v.singleNewLastName.value.trim(),
+      v.singleDOB.value.trim(),
+      v.singleSex.value.trim()
     ];
     if ( data.includes('') ){
       console.log(`createMember says: "No blank fields allowed"`);
