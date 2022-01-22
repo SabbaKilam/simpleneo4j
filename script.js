@@ -85,11 +85,15 @@ const h = { // the HELPER object
   async restoreDefaultDb(){
     let membersCSV = await fetch( './assets/BurnsPollerFamily.csv')
         .then( response => response.text());
-    let ArrayMembers = membersCSV.split(`\n`);
-    //alert( ArrayMembers );    
-    let headings = ArrayMembers.splice(0,1);
-    console.log( `headings: ${headings}`)
-    console.log( ArrayMembers);
+    let arrayMembers = membersCSV.split(`\n`);
+    let headings = arrayMembers.splice(0,1);
+    console.log( `headings: ${headings}`);
+    
+    let arrayOfArrays = [];
+    for ( let member of arrayMembers ){
+      arrayOfArrays.push( member.split(`,`) );
+    }
+    console.log( arrayOfArrays );
     
   },
 
