@@ -92,7 +92,6 @@ const h = { // the HELPER object
     console.log( `typeof headings: ${typeof headings}`)
     let count = headings.split(',').length;
     let arrayOfArrays = [];
-    let slashPosition = 2;
     for ( let member of arrayMembers ){
       member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
       let memberArray = member.split(`,`);
@@ -134,6 +133,30 @@ const h = { // the HELPER object
       console.log(error);
     }    
   },
+  /** */ 
+  async createParentChild( {parent, child} ){
+    const parameters = {
+      method: 'POST',
+      headers: {
+        sourceemail: `${parent}@kin-keepers.ai`,
+        relationship: 'IS_PARENT_OF',
+        targetemail: `${child}@kin-keepers.ai`,
+        directional: '1'
+      }
+    };
+    try{
+      const result = await fetch('./api/createRelationshipAB', parameters)
+        .then( response => {
+          if ( response.status > 299 ){ throw new Error(`Trouble creating parent child: ${response.status}` )}
+          return response.text();
+        });
+      console.log(`Server response to creating parent child:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }
+  },
+
   /** */
   rotateMenuOpen(){
     v.topBun.css(`

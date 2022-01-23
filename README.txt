@@ -24,7 +24,23 @@ An Expanding list of database methods in module api_methods.js:
     possibleGrandparents
     returnOneVariable
     
-    
-  
+    ----------Breakdown of Relationships----------
+    MARRIED
+        Tom Burns, Sarah Burns
+        Frank West, Josephine West
+        Kurt Poller, Julie Poller
+        Tom Burns, Helen Burns
 
+    PARENT of
+        Juile Poller: Natalie Poller, Billy Poller
+        Kurt Poller: Natalie Poller, Billy Poller
+
+        Peter Burns: Victoria Poller, Tom Burns
+        Sarah Burns: Victoria Poller, Tom Burns
+
+        Victoria Poller: Mark Poller, Alice Poller
+        Billy Poller: Mark Poller, Alice Poller
+  
+        FRIEND
+            Sarah Burns: Samuel Adams, Richard Boomsma
 
