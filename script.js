@@ -15,6 +15,7 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: true,
+  
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
     ["Abbas","Abdulmalik"],
@@ -159,6 +160,7 @@ const h = { // the HELPER object
     }    
   },
 
+  /** */ 
   async batchCreateSpouse( arrayOfArrays ){
     for await (let array of arrayOfArrays){
       h.createSpouse( array );
