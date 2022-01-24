@@ -101,6 +101,14 @@ const h = { // the HELPER object
     }
   },
 
+  /** */   
+  async reloadAbdulmalikFamily(){
+    h.batchDeleteOneMember( m.abdulmalikFamily );
+    h.createMembersFromCsv( 'AbdulmalikFamily.csv' );
+    h.batchParentChild( m.abdulmalikParentChild );
+    h.batchCreateSpouse( m.abdulmalikSpouses );
+  },
+
   /** */ 
   async createSpouse( [spouse1, spouse2] ){
     const parameters = {
@@ -297,6 +305,14 @@ const h = { // the HELPER object
     catch(error){
       alert(`Error\n${error}`)
     }      
+  },
+
+  /** */ 
+  async pause( seconds ){
+    return new Promise( (yea, nay)=>{
+      self.setTimeout(yea, 1000*seconds, `${seconds} seconds`)
+    });
+
   },
 };/////| END of h Helpers |///////
 
