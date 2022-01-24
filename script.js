@@ -136,7 +136,7 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async batchParentChild( parentChildArray =[{parent: child }]){
+  async batchParentChild( parentChildArray =[ ["Linda.Melendez", "Sharif.Abdulmalik"], ["Sharif.Abdulmalik", "Aylan.Malik"] ] ){
     for await ( let parentChild of parentChildArray){
       h.createParentChild( parentChild );
     }
