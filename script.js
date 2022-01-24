@@ -82,7 +82,7 @@ const h = { // the HELPER object
   },
 
   /** */
-  async restoreDefaultDb( csvFile = 'BurnsPollerFamily.csv' ){
+  async createMembersFromCsv( csvFile = 'BurnsPollerFamily.csv' ){
     let membersCSV = await fetch( `./assets/${csvFile}` )
         .then( response => response.text());
     let arrayMembers = membersCSV.split(`\n`);
@@ -100,6 +100,7 @@ const h = { // the HELPER object
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
+
     for await (array of arrayOfArrays){
       let parameters = {
         firstname: array[0],
