@@ -101,6 +101,30 @@ const h = { // the HELPER object
     }
   },
 
+  /** */ 
+  async createSpouse( [spouse1, spouse2] ){
+    const parameters = {
+      method: 'POST',
+      headers: {
+        sourceemail: `${spouse1}@kin-keepers.ai`,
+        relationship: 'IS_SPOUSE_OF',
+        targetemail: `${spouse2}@kin-keepers.ai`,
+        directional: '0'
+      }
+    };
+    try{
+      const result = await fetch('./api/createRelationshipAB', parameters)
+        .then( response => {
+          if ( response.status > 299 ){ throw new Error(`Trouble creating spouse: ${response.status}` )}
+          return response.text();
+        });
+      console.log(`Server response to creating spouse:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }    
+  },
+
   /** */
   async createMembersFromCsv( csvFile = 'BurnsPollerFamily.csv' ){
     let membersCSV = await fetch( `./assets/${csvFile}` )
