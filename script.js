@@ -23,7 +23,10 @@ let m = { // the MODEL object
     ["Sharif.Abdulmalik", "Aylan.Malik"],
     ["Lucy.Pistilli", "Aylan.Malik"]
   ],
-
+  abdulmalikSpouses:[
+    ["Abbas.Abdulmalik","Linda.Melendez"],
+    ["Sharif.Abdulmalik","Lucy.Pistilli"],
+  ],
   abdulmalikFamily: [
     ["Abbas","Abdulmalik"],
     ["Linda","Melendez"],
