@@ -22,6 +22,14 @@ let m = { // the MODEL object
     ["Linda.Melendez", "Anwar.Abdulmalik"],
     ["Sharif.Abdulmalik", "Aylan.Malik"],
   ],
+
+  abdulmalikFamily: [
+    ["Abbas","Abdulmalik"],
+    ["Linda","Melendez"],
+    ["Sharif","Abdulmalik"],
+    ["Anwar","Abdulmalik"],
+    ["Aylan","Malik"],    
+  ],
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
@@ -217,6 +225,14 @@ const h = { // the HELPER object
     `);
   },
 
+  /** */
+  async batchDeleteOneMember( arrayOfArrays ){
+    for await (let array of arrayOfArrays){
+      h.deleteOneMember( array );
+    }
+  },
+
+  /** */  
   async deleteOneMember( [firstname, lastname] ){
     const parameters = {
       method: 'POST',
