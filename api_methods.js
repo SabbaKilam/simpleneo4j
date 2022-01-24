@@ -306,7 +306,7 @@ module.exports = {
 
         try {
             const result = await session.run(
-                `MATCH ( s:Person {email: "${email}"} ) DETACH DELETE s`
+                `MATCH ( s:Person {email: "${email}"} ) DETACH DELETE s RETURN s`
             )        
             const singleRecord = result.records[0]
             const node = singleRecord.get(0)
