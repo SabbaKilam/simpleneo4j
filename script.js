@@ -308,11 +308,10 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async pause( seconds ){
+  async pause( sec ){
     return new Promise( (yea, nay)=>{
-      self.setTimeout(yea, 1000*seconds, `${seconds} seconds`)
+      self.setTimeout(yea, 1000*seconds, `${sec} second${parseFloat(sec) == 1.0 ? '' : 's' }`)
     });
-
   },
 };/////| END of h Helpers |///////
 
