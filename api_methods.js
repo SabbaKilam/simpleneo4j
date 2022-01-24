@@ -303,7 +303,7 @@ module.exports = {
         url = `.${url}`;
         const urlArray =  url.split('/');
         const email = urlArray[3] || req.headers.email;
-
+        let returnValue = null;
         try {
             const result = await session.run(
                 `MATCH ( s:Person {email: "${email}"} ) DETACH DELETE s RETURN s`
@@ -311,6 +311,8 @@ module.exports = {
             const singleRecord = result.records[0]
             const node = singleRecord.get(0)
         
+            returnValue = node.properties;
+
             console.log(node.properties.name)
             res.writeHead( 200, {'Content-Type':'application/json'})
             res.end(JSON.stringify(node.properties));
@@ -324,6 +326,7 @@ module.exports = {
             await session.close()
             await conn.close()          
         }
+        return returnValue;
     },
 
     /** */
