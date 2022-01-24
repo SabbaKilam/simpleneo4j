@@ -15,6 +15,13 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: true,
+  malikParentChild: [
+    ["Abbas.Abdulmalik", "Sharif.Abdulmalik"],
+    ["Abbas.Abdulmalik", "Anwar.Abdulmalik"],
+    ["Linda.Melendez", "Sharif.Abdulmalik"],
+    ["Linda.Melendez", "Anwar.Abdulmalik"],
+    ["Sharif.Abdulmalik", "Aylan.Malik"],
+  ],
   
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
@@ -218,7 +225,7 @@ const h = { // the HELPER object
       }
     };
     try{
-      let result = await fetch( "./api/deleteOneMembers", parameters )
+      let result = await fetch( "./api/deleteOneMember", parameters )
         .then( response => response.text() );
       alert( result );
       console.log( result );
