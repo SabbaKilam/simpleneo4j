@@ -15,6 +15,15 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: true,
+  //////////| AbdulmallikFamily |/////////////////
+  abdulmalikFamily: [
+    ["Abbas","Abdulmalik"],
+    ["Linda","Melendez"],
+    ["Sharif","Abdulmalik"],
+    ["Lucy", "Pistilli"],
+    ["Anwar","Abdulmalik"],
+    ["Aylan","Malik"],    
+  ],  
   abdulmalikParentChild: [
     ["Abbas.Abdulmalik", "Sharif.Abdulmalik"],
     ["Abbas.Abdulmalik", "Anwar.Abdulmalik"],
@@ -27,15 +36,18 @@ let m = { // the MODEL object
     ["Abbas.Abdulmalik","Linda.Melendez"],
     ["Sharif.Abdulmalik","Lucy.Pistilli"],
   ],
-  abdulmalikFamily: [
-    ["Abbas","Abdulmalik"],
-    ["Linda","Melendez"],
-    ["Sharif","Abdulmalik"],
-    ["Lucy", "Pistilli"],
-    ["Anwar","Abdulmalik"],
-    ["Aylan","Malik"],    
+
+  /////////////| BurnsPoller Family |/////////
+  burnsPollerFamily: [
+
   ],
-  
+  burnsPollerParentChild: [
+
+  ],
+  burnsPollerSpouses: [
+
+  ],
+
   IDs: Array.from( document.getElementsByTagName('*') )
   .filter( element => !!element.id )
   .map( element => element.id )
@@ -106,10 +118,21 @@ const h = { // the HELPER object
     h.batchDeleteOneMember( m.abdulmalikFamily );
     await h.pause(0.5);
     h.createMembersFromCsv( 'AbdulmalikFamily.csv' );
-    await h.pause(0.5);    
+    await h.pause(1.5);    
     h.batchParentChild( m.abdulmalikParentChild );
     await h.pause(0.5);    
     h.batchCreateSpouse( m.abdulmalikSpouses );
+  },
+
+  /** */ 
+  async reloadBurnsPollerFamily(){
+    h.batchDeleteOneMember( m.burnsPollerFamily );
+    await h.pause(0.5);
+    h.createMembersFromCsv( 'BurnsPollerFamily.csv' );
+    await h.pause(1.5);    
+    h.batchParentChild( m.burnsPollerParentChild );
+    await h.pause(0.5);    
+    h.batchCreateSpouse( m.burnsPollerSpouses );
   },
 
   /** */ 
