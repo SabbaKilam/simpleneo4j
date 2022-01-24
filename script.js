@@ -134,8 +134,16 @@ const h = { // the HELPER object
       console.log(error);
     }    
   },
+
   /** */ 
-  async createParentChild( {parent, child} ){
+  async batchParentChild( parentChildArray =[{parent: child }]){
+    for await ( let parentChild of parentChildArray){
+      h.createParentChild( parentChild);
+    }
+  },
+
+  /** */ 
+  async createParentChild( {parent: child} ){
     const parameters = {
       method: 'POST',
       headers: {
