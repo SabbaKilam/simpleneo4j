@@ -298,7 +298,7 @@ module.exports = {
 
         const conn = neo4j.driver( uri, auth );
         const session = conn.session();
-        
+
         let url = decodeURI(req.url);
         url = `.${url}`;
         const urlArray =  url.split('/');
@@ -306,7 +306,7 @@ module.exports = {
 
         try {
             const result = await session.run(
-                `MATCH (s:Person {email: "${email}" }) DETACH DELETE s`
+                `MATCH ( s:Person {email: "${email}"} ) DETACH DELETE s`
             )        
             const singleRecord = result.records[0]
             const node = singleRecord.get(0)
@@ -318,7 +318,7 @@ module.exports = {
         catch( dbError){
             console.error( dbError )
             res.writeHead( 500, {'Content-Type':'text/plain'})
-            res.end('Trouble executing API');            
+            res.end('Possible trouble executing API');            
         }
         finally {
             await session.close()

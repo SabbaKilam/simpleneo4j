@@ -227,11 +227,9 @@ const h = { // the HELPER object
     try{
       let result = await fetch( "./api/deleteOneMember", parameters )
         .then( response => response.text() );
-      alert( result );
       console.log( result );
     }
     catch(error){
-      alert(`Error\n${error}`);
       console.log( result );      
     }     
   },
