@@ -15,7 +15,7 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: true,
-  malikParentChild: [
+  abdulmalikParentChild: [
     ["Abbas.Abdulmalik", "Sharif.Abdulmalik"],
     ["Abbas.Abdulmalik", "Anwar.Abdulmalik"],
     ["Linda.Melendez", "Sharif.Abdulmalik"],
