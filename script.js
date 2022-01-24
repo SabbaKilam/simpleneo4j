@@ -210,6 +210,25 @@ const h = { // the HELPER object
     `);
   },
 
+  async deleteOneMember( [firstname, lastname] ){
+    const parameters = {
+      method: 'POST',
+      headers: {
+        email: `${firstname}.${lastname}@kin-keepers.ai`
+      }
+    };
+    try{
+      let result = await fetch( "./api/deleteOneMembers", parameters )
+        .then( response => response.text() );
+      alert( result );
+      console.log( result );
+    }
+    catch(error){
+      alert(`Error\n${error}`);
+      console.log( result );      
+    }     
+  },
+
   /** */
   async deleteAll(){
     try{
