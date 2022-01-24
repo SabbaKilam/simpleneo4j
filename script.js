@@ -104,8 +104,11 @@ const h = { // the HELPER object
   /** */   
   async reloadAbdulmalikFamily(){
     h.batchDeleteOneMember( m.abdulmalikFamily );
+    await h.pause(0.5);
     h.createMembersFromCsv( 'AbdulmalikFamily.csv' );
+    await h.pause(0.5);    
     h.batchParentChild( m.abdulmalikParentChild );
+    await h.pause(0.5);    
     h.batchCreateSpouse( m.abdulmalikSpouses );
   },
 
