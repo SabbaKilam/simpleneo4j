@@ -125,6 +125,12 @@ const h = { // the HELPER object
     }    
   },
 
+  async batchCreateSpouse( arrayOfArrays ){
+    for await (let array of arrayOfArrays){
+      h.createSpouse( array );
+    }    
+  },
+
   /** */
   async createMembersFromCsv( csvFile = 'BurnsPollerFamily.csv' ){
     let membersCSV = await fetch( `./assets/${csvFile}` )
