@@ -359,7 +359,6 @@ module.exports = {
         }
     },
 
-
     /** */
     async newMemberRelationship( req, res ){
 
