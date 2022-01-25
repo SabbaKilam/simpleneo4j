@@ -31,7 +31,7 @@ let m = { // the MODEL object
     ["Linda.Melendez", "Sharif.Abdulmalik"],
     ["Linda.Melendez", "Anwar.Abdulmalik"],
     ["Sharif.Abdulmalik", "Aylan.Malik"],
-    ["Lucy.Pistilli", "Aylan.Malik"]
+    ["Lucy.Pistilli", "Aylan.Malik"],
   ],
   abdulmalikSpouses:[
     ["Abbas.Abdulmalik","Linda.Melendez"],
@@ -40,13 +40,45 @@ let m = { // the MODEL object
 
   /////////////| BurnsPoller Family |/////////
   burnsPollerFamily: [
-
+    ["Peter", "Burns"],
+    ["Sarah", "Burns"],
+    ["Tom", "Burns"],
+    ["Helen", "Burns"],
+    ["Kurt", "Poller"],
+    ["Julie", "Poller"],
+    ["Billy", "Poller"],
+    ["Natalie", "Poller"],
+    ["Mark", "Poller"],
+    ["Alice", "Poller"],
+    ["Victoria", "Poller"],
+    ["Frank", "West"],
+    ["Josephine", "West"],
+    ["Samuel", "Adams"],
+    ["Richard", "Boomsma"],    
   ],
   burnsPollerParentChild: [
-
+    ["Julie.Poller", "Natalie.Poller"],
+    ["Julie.Poller", "Billy.Poller"],
+    ["Kurt.Poller", "Natalie.Poller"],
+    ["Kurt.Poller", "Billy.Poller"],
+    ["Peter.Burns", "Victoria.Poller"],
+    ["Peter.Burns", "Tom.Burns"],
+    ["Sarah.Burns", "Victoria.Poller"],
+    ["Sarah.Burns", "Tom.Burns"],
+    ["Victoria.Poller", "Mark.Poller"],
+    ["Victoria.Poller", "Alice.Poller"],    
+    ["Billy.Poller", "Mark.Poller"],
+    ["Billy.Poller", "Alice.Poller"],    
   ],
   burnsPollerSpouses: [
-
+    ["Tom.Burns", "Sarah.Burns"],
+    ["Frank.West", "Josephine.West"],
+    ["Kurt.Poller", "Julie.Poller"],
+    ["Tom.Burns", "Helen.Burns"],    
+  ],  
+  burnsPollerFriends: [
+    ["Sarah.Burns", "Samuel.Adams"],
+    ["Sarah.Burns", "Richard.Boomsma"],  
   ],
 
   IDs: Array.from( document.getElementsByTagName('*') )
@@ -134,6 +166,8 @@ const h = { // the HELPER object
     h.batchParentChild( m.burnsPollerParentChild );
     await h.pause(0.5);    
     h.batchCreateSpouse( m.burnsPollerSpouses );
+    await h.pause(0.5); 
+    h.batchCreateFriend( m.burnsPollerFriends );
   },
 
   /** */ 
@@ -157,7 +191,7 @@ const h = { // the HELPER object
     }
     catch(error){
       console.log(error);
-    }    
+    }
   },
 
   /** */ 
@@ -250,6 +284,37 @@ const h = { // the HELPER object
     catch(error){
       console.log(error);
     }
+  },
+
+  /** */ 
+  async batchCreateFriend( arrayOfArrays ){
+    for await (let array of arrayOfArrays){
+      h.createFriend( array );
+    } 
+  },
+
+  /** */ 
+  async createFriend( [friend1, friend2] ){
+    const parameters = {
+      method: 'POST',
+      headers: {
+        sourceemail: `${friend1}@kin-keepers.ai`,
+        relationship: 'IS_FRIEND_OF',
+        targetemail: `${friend2}@kin-keepers.ai`,
+        directional: '0'
+      }
+    };
+    try{
+      const result = await fetch('./api/createRelationshipAB', parameters)
+        .then( response => {
+          if ( response.status > 299 ){ throw new Error(`Trouble creating friend: ${response.status}` )}
+          return response.text();
+        });
+      console.log(`Server response to creating friend:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }    
   },
 
   /** */
