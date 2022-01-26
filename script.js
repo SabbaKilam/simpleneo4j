@@ -367,6 +367,7 @@ const h = { // the HELPER object
   async batchDeleteOneMember( arrayOfArrays ){
     for await (let array of arrayOfArrays){
       h.deleteOneMember( array );
+      h.pause(0.5);
     }
   },
 
