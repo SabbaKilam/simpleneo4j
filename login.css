@@ -149,7 +149,7 @@ select, option {
   right: 0;
   bottom: 0;
   color: rgb(127, 127, 127);
-  z-index: 2;
+  z-index: 7;
 }
 
 #loginCover{
@@ -344,6 +344,7 @@ select, option {
   visibility: visible; 
 }
 */
+
 /*///////////| api div |//////////////*/
 #apiDiv{
   position: absolute;
@@ -361,4 +362,14 @@ select, option {
   border-radius: 0.25rem;
   background-color: gray;
   color: white;
+}
+
+/*///////////| popup div |/////////*/
+#popupDiv{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-content: center;
 }
