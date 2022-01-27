@@ -427,6 +427,11 @@ const h = { // the HELPER object
   /** */ 
   async showApiOptions(){
     v.apiSelector.innerHTML = '';
+
+    let option = document.createElement('option');
+    option.innerText = 'SELECT API OPTION';
+    v.apiSelector.appendChild(option);
+
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
     await h.pause(2);
@@ -743,6 +748,8 @@ const c = { // the CONTROLLER object
 
   /** */
   async callApi( eo ){
+    if ( v.apiSelector.selectedIndex === 0){ return; }
+    
     //construct API string:
     let apiOption = v.apiSelector.value.trim();
     let apiParameters = v.apiInput.value.trim();
