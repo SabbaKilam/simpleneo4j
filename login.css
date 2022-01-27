@@ -388,3 +388,10 @@ select, option {
   border-radius: 50%;
   border: 1px solid black;
 }
+#apiResults{
+  display: grid;
+  place-content: center
+  width 90%;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
