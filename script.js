@@ -413,7 +413,7 @@ const h = { // the HELPER object
   /** */ 
   async showApiOptions(){ 
     try{
-      const result = await fetch('./api/', parameters).then( response => {
+      const result = await fetch('./api/').then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
         return response.text();
       });
