@@ -411,18 +411,26 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async showApiOptions(){ 
+  async getApiOptions(){ 
     try{
       const result = await fetch('./api/').then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
         return response.text();
       });
-      console.log(`Server response to api:\n${result}`);
+      //console.log(`Server response to api:\n${result}`);
     }
     catch(error){
       console.log(error);
     }
-  }
+  },
+
+  /** */ 
+  async showApiOptions(){
+    let apiOptions = await h.getApiOptions();
+    let apiOptionsArray = apiOptions.split('\n');
+    console.log(apiOptionsArray);
+  },
+
 };/////| END of h Helpers |///////
 
 /////////////////////////////////////
