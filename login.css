@@ -395,4 +395,5 @@ select, option {
   border: 1px solid black;
   padding: 0.5rem;
   overflow: auto;
+  user-select: text;
 }
