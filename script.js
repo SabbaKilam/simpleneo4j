@@ -760,10 +760,12 @@ const c = { // the CONTROLLER object
         return response.text();
       })
       console.log( result );
+      v.apiResults.innerText = result;
       return result;
     }
     catch(error){
       console.log(error);
+      v.apiResults.innerText = error;
     }
   },
   
