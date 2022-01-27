@@ -766,7 +766,7 @@ v.createNewPairBox.css(`
   visibility: visible;
 `);
 
-
+h.showApiOptions();
 async function customQuery( URL, cypherquery, jsonargs ){ 
   const metadata = { 
     method: "GET", 
