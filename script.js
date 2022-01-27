@@ -744,13 +744,15 @@ if ( self.location.protocol == "http:" ) {
   self.location.assign(`https://${location.host}`)
 }
 
-//m.loginCover.css(`visibility: ${ m.loginActive ? "visible" : "hidden" };`);
+m.loginCover.css(`visibility: ${ m.loginActive ? "visible" : "hidden" };`);
+/*
 if ( m.loginActive ){
   v.loginCover.style.visibility = "visible";  
 }
 else{
   v.loginCover.style.visibility = "hidden";
 }
+*/
 v.passwordInput.focus();
 
 v.createNewPairBox.css(`
