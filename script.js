@@ -852,4 +852,9 @@ self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
-
+v.btnPopup.on( 'click', eo => {
+  v.popupDiv.css(`
+    opacity:0;
+    visibility: hidden
+  `);
+});
