@@ -372,7 +372,7 @@ select, option {
   width: 100%;
   display: grid;
   place-content: center;
-  visibility: visible;
+  visibility: hidden;
   opacity: 1;
   transition: all 1s ease;
   background-color:rgb(200, 200, 200);

@@ -761,6 +761,10 @@ const c = { // the CONTROLLER object
       })
       console.log( result );
       v.apiResults.innerText = result;
+      v.apiDiv.css(`
+        opacity: 1;
+        visibility: visible;
+      `);
       return result;
     }
     catch(error){
