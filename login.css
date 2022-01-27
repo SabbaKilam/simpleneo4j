@@ -350,4 +350,6 @@ select, option {
   bottom: 1.5%;
   width: 50%;
   border: 1ps soild teal;
+  left: 50%;
+  transform: translateX( -50% );
 }
