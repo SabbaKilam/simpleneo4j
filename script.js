@@ -426,9 +426,15 @@ const h = { // the HELPER object
 
   /** */ 
   async showApiOptions(){
+    v.apiSelector.innerHTML = '';
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
     console.log(apiOptionsArray);
+    for (let apiOption of apiOptionsArray){
+      let option = document.createElement('option');
+      option.innerText = apiOption;
+      v.apiSelector.appendChild(option);
+    }
   },
 
 };/////| END of h Helpers |///////
