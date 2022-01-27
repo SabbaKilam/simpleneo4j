@@ -375,6 +375,7 @@ select, option {
   visibility: visible;
   opacity: 1;
   transition: all 1s ease;
+  background-color:rgb(125, 125, 125)
 }
 #btnPopup{
   position: absolute;
