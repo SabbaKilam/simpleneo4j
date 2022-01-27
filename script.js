@@ -429,7 +429,6 @@ const h = { // the HELPER object
     v.apiSelector.innerHTML = '';
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
-    console.log(apiOptionsArray);
     await h.pause(2);
     for (let apiOption of apiOptionsArray){
       let option = document.createElement('option');
@@ -741,6 +740,25 @@ const c = { // the CONTROLLER object
       console.log(`Error response to deleteAllMembers:\n${error}`);
     }   
   },
+
+  /** */
+  async callApi( eo ){
+    //construct API string:
+    let apiOption = v.apiSelector.value.trim();
+    let apiParameters = v.apiInput.value.trim();
+    let apiString = `./api/${apiOption}/${apiParameters}`;
+    try{
+      const result = await fetch( apiString ).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble with API request: ${response.status}` )}
+        return response.text();
+      })
+      console.log( result );
+      return result;
+    }
+    catch(error){
+      console.log(error);
+    }
+  },
   
 };//////| END of c Controller Event Handlers |/////
 
@@ -813,9 +831,12 @@ v.menu.on( 'click', eo => {
     h.rotateMenuClosed();
   }
 });
+v.menuTable.on('click', c.chooseInputForm);
+
+v.btnApi.on( 'click', c.callApi );
 
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
 
-v.menuTable.on('click', c.chooseInputForm);
+
