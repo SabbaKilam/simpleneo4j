@@ -390,7 +390,7 @@ select, option {
 }
 #apiResults{
   display: grid;
-  place-content: center
+  place-content: left;
   width 90%;
   border: 1px solid black;
   padding: 0.5rem;

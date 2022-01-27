@@ -770,6 +770,10 @@ const c = { // the CONTROLLER object
     catch(error){
       console.log(error);
       v.apiResults.innerText = error;
+      v.popupDiv.css(`
+        opacity: 1;
+        visibility: visible;
+      `);      
     }
   },
   
