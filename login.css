@@ -391,7 +391,7 @@ select, option {
 #apiResults{
   display: grid;
   place-content: left;
-  width 90%;
+  /*width: 90%;*/
   border: 1px solid black;
   padding: 0.5rem;
 }
