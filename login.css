@@ -394,4 +394,5 @@ select, option {
   /*width: 90%;*/
   border: 1px solid black;
   padding: 0.5rem;
+  overflow: auto;
 }
