@@ -348,7 +348,7 @@ select, option {
 #apiDiv{
   position: absolute;
   bottom: 1.5%;
-  width: 50%;
+  width: 100%;
   border: 1ps soild teal;
   left: 50%;
   transform: translateX( -50% );
