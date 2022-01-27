@@ -429,7 +429,7 @@ const h = { // the HELPER object
     v.apiSelector.innerHTML = '';
 
     let option = document.createElement('option');
-    option.innerText = 'SELECT API OPTION';
+    option.innerText = 'API OPTIONS';
     v.apiSelector.appendChild(option);
 
     let apiOptions = await h.getApiOptions();
@@ -749,7 +749,7 @@ const c = { // the CONTROLLER object
   /** */
   async callApi( eo ){
     if ( v.apiSelector.selectedIndex === 0){ return; }
-    
+
     //construct API string:
     let apiOption = v.apiSelector.value.trim();
     let apiParameters = v.apiInput.value.trim();
