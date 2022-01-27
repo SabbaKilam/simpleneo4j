@@ -841,6 +841,12 @@ v.menu.on( 'click', eo => {
 v.menuTable.on('click', c.chooseInputForm);
 
 v.btnApi.on( 'click', c.callApi );
+v.apiInput.on( 'keyup', eo =>{
+  let keyCode = eo.keyCode || eo.code;
+  let enterKey = 13;
+  if ( keyCode != enterKey && keyCode != 'Enter'){ return }
+  c.callApi( eo );
+});
 
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
