@@ -372,14 +372,16 @@ select, option {
   width: 100%;
   display: grid;
   place-content: center;
+  visibility: visible;
+  opacity: 1;
 }
 #btnPopup{
   position: absolute;
   display: block;
-  top: 2%;
-  right: 2%;
-  height: 1.5rem;
-  width: 1.5rem;
+  top: 5%;
+  right: 5%;
+  height: 3.25rem;
+  width: 3.25rem;
   border-radius: 50%;
   border: 1px solid black;
 }
