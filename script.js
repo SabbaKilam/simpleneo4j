@@ -254,7 +254,7 @@ const h = { // the HELPER object
     }
     catch(error){
       console.log(error);
-    }    
+    }  
   },
 
   /** */ 
@@ -409,6 +409,20 @@ const h = { // the HELPER object
       self.setTimeout( yea, 1000*sec, `${sec} second${parseFloat(sec) == 1.0 ? '' : 's' }` );
     });
   },
+
+  /** */ 
+  async showApiOptions(){ 
+    try{
+      const result = await fetch('./api/', parameters).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble creating new member: ${response.status}` )}
+        return response.text();
+      });
+      console.log(`Server response to api:\n${result}`);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
 };/////| END of h Helpers |///////
 
 /////////////////////////////////////
