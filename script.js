@@ -430,6 +430,7 @@ const h = { // the HELPER object
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
     console.log(apiOptionsArray);
+    await h.pause(2);
     for (let apiOption of apiOptionsArray){
       let option = document.createElement('option');
       option.innerText = apiOption;
@@ -714,14 +715,7 @@ const c = { // the CONTROLLER object
       if ( possibleForm == 'clearData'){
         let confirmed = confirm(`Are you sure it's OK to CLEAR the Database??\n    ( Otherwise, Cancel! )`);
         if ( confirmed ){
-          c.deleteAllMembers();
-          /*
-          alert(`This action requires login credentials`)
-          v.loginCover.css(`
-            visibility: visible;
-          `);
-          m.loginActive = true;
-          */    
+          c.deleteAllMembers();  
         }
         else {
           v.clearDataSpan.blur();
