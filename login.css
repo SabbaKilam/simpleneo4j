@@ -354,6 +354,6 @@ select, option {
   transform: translateX( -50% );
 }
 .apiControl{
-  display: block;
+  display: inline-block;
   width: 10rem;
 }
