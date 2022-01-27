@@ -383,8 +383,8 @@ select, option {
   display: block;
   top: 5%;
   right: 5%;
-  height: 3.25rem;
-  width: 3.25rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   border: 1px solid black;
 }
@@ -396,4 +396,5 @@ select, option {
   padding: 0.5rem;
   overflow: auto;
   user-select: text;
+  font-size: 0.5rem;
 }
