@@ -344,3 +344,10 @@ select, option {
   visibility: visible; 
 }
 */
+/*///////////| api div |//////////////*/
+#apiDiv{
+  position: absolute;
+  bottom: 1.5%;
+  width: 50%;
+  border: 1ps soild teal;
+}

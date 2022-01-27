@@ -21,40 +21,7 @@
                 <div id="bottomBun"></div>                
             </div>
         </div> 
-        <div id="apiControls" class="box">
-            <!-- 
-            <div class="leftBox">
-                Source First Name: <input id="sFirstName" class="apiControls"><br />
-                source Last Name:&nbsp; <input id="sLastName" class="apiControls"><br /><br />
-                <select id="relationshipNewPair" class="apiControls">
-                    <option>Select Relationship</option>
-                    <option>IS_FRIEND_OF</option>
-                    <option>IS_SPOUSE_OF</option>
-                    <option>IS_PARENT_OF</option>
-                    <option>IS_CHILD_OF</option>
-                </select><br /><br />
-                Target First Name: <input id="tFirstName" class="apiControls"><br />
-                Target Last Name: <input id="tLastName" class="apiControls"><br />
-
-                <button id="btnCreatePair">CREATE NEW PAIR</button>
-            </div>
-            -->
-            <!--
-            <div class="rightBox">
-                Current Member Email: <input id="currentMemberEmail" value="@kin-keepers.ai" class="apiControls"><br /><br />
-                <select id="relationshipNewMember" class="apiControls">
-                    <option>Select Relationship</option>
-                    <option>IS_FRIEND_OF</option>
-                    <option>IS_SPOUSE_OF</option>
-                    <option>IS_PARENT_OF</option>
-                    <option>IS_CHILD_OF</option>
-                </select><br /><br />
-                New Member First Name: <input id="newFirstName" class="apiControls"><br />
-                New Member Last Name: <input id="newLastName" class="apiControls"><br /><br />                
-                <button id="btnRelateNewMember">RELATE NEW MEMBER</button>
-            </div>
-            -->
-        </div>
+        <div id="apiControls" class="box"></div>
 
         <!-- Holder for forms in the middle  -->
         <div id="middleFormHolder">
@@ -125,47 +92,7 @@
 
 
 
-        <div id="bottomDiv" >
-            <!--
-            <div id="createRelationshipBox" class="bottomBox">
-                <br /><br />
-                Source Email: <input id="relationSourceEmail" size="16" value="@kin-keepers.ai" />
-                <br /><br />
-                <select id="selectRelationship" class="apiControls">
-                    <option>Select Relationship</option>
-                    <option>IS_FRIEND_OF</option>
-                    <option>IS_SPOUSE_OF</option>
-                    <option>IS_PARENT_OF</option>
-                    <option>IS_CHILD_OF</option>
-                </select><br />
-                <input type="checkbox" id="directional" checked >
-                <label for="directional">Directed&#x279C;</label><br>
-                Target Email: <input id="relationTargetEmail" size="16" value="@kin-keepers.ai" /><br /><br />
-             
-                <button id="btnCreateRelationship">CREATE RELATIONSHIP</button>
-            </div>
-            -->         
-            <!--
-            <div id="addPropertyBox" class="bottomBox">
-                <br /><br /><br />
-                Member Email:&nbsp; <input id="emailAddProperty" size="13" class="apiControls" value="@kin-keepers.ai"><br />
-                Property Name: <input id="txtNewPropertyName" size="13" class="apiControls"><br />
-                Property Value: <input id="txtNewPropertyValue" size="13" class="apiControls"><br /><br />
-
-                <button id="btnAddProperty">ADD NEW PROPERTY</button>
-            </div>
-            -->
-            <!--
-            <div id="createMemberBox" class="bottomBox">
-                <br /><br />
-                First Name: <input id="singleNewFirstName" size="13" class="apiControls"><br />
-                Last Name: <input id="singleNewLastName" size="13" class="apiControls"><br />
-                Date of Birth:<input id="singleDOB" size="13" class="apiControls" placeholder="mm-dd-yyyy"><br /> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sex: <input id="singleSex" size="13" class="apiControls" placeholder="m, f, or o (for 'other')"><br /><br />
-                <button id="btnCreateMember">CREATE NEW MEMBER</button>
-            </div>  
-            -->          
-        </div>
+        <div id="bottomDiv" ></div>
 
         <div id="overlay" >SAMPLE FAMILY GRAPH<br/> (<b>click to close</b>)</div>
         <div id="loginCover">
@@ -208,7 +135,11 @@
             <embed src="https://joinedfamily.com/index.php" width="600" height="400"> </embed>
              Error: Embedded data could not be displayed. 
         </object>
-    -->   
+    -->
+    <div id="apiDiv" >
+        <select></select>
+        <input id="apiInput">
+    </div>
     </body>
     <footer class="version">v 0.0.22 </footer>
 </html>
