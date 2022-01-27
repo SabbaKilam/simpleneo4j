@@ -14,7 +14,7 @@
 let m = { // the MODEL object
   username: "",
   menuOpen: false,
-  loginActive: false,
+  loginActive: true,
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
