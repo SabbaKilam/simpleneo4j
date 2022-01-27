@@ -357,3 +357,8 @@ select, option {
   display: inline-block;
   width: 10rem;
 }
+#btnApi{
+  border-radius: 0.25rem;
+  background-color: gray;
+  color: white;
+}
