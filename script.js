@@ -641,9 +641,9 @@ const c = { // the CONTROLLER object
   /** */ 
   async login( eo ){
     //eo.preventDefault();
-    const keyCode = eo.keyCode || eo.keyCode;
+    const keyCode = eo.keyCode || eo.code;
     const enter = 13;
-    if (keyCode != enter){ return }
+    if (keyCode != enter && keyCode != 'Enter'){ return; }
     const possiblePassword = v.passwordInput.value.trim();
     v.passwordInput.value = '';
     try{
