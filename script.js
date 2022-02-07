@@ -785,7 +785,7 @@ const c = { // the CONTROLLER object
   restoreDefaultFamily( eo ){
     m.eventsArray.shift();
     m.eventsArray.push( eo );
-    let eventTypesArray = m.eventsArray.map( eo => eo.type );
+    let eventTypesArray = m.eventsArray.map( eo => eo.code );
     console.log(eventTypesArray);
   }
   
