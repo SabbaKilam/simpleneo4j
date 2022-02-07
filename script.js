@@ -711,10 +711,13 @@ const c = { // the CONTROLLER object
         return;
       }
       if( possibleForm === 'logout'){
+        
+        /*
         v.loginCover.css(`
           visibility: visible;
         `);
         m.loginActive = true;
+        */
       }
       if ( possibleForm == 'clearData'){
         let confirmed = confirm(`Are you sure it's OK to CLEAR the Database??\n    ( Otherwise, Cancel! )`);
