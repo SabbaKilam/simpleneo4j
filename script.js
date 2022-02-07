@@ -7,6 +7,10 @@
   In addition, there is one more object that is not part of the MVC
   architecture:
   h = HELPER: Object that holds all functions that are not event handlers
+  Note:
+    Restore default family database with this key combination:
+    Shift + Alt + arrowUp  ( in any order )
+
 */
 ////////////////////////////////////
 ///////| data and references: |/////
@@ -15,7 +19,7 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: false,
-  eventsArray: [ {}, {}, {} ],
+  eventsArray: [ {}, {}, {} ], /* looking for Shift + Alt + arrowUp for eo.code */ 
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
@@ -787,12 +791,13 @@ const c = { // the CONTROLLER object
     m.eventsArray.push( eo );
     let eventTypesArray = m.eventsArray.map( eo => eo.key );
     console.log(eventTypesArray);
+    /* Shift + Alt + arrowUp  ( in any order ) */
     let properKeyCombo = eventTypesArray.includes("Shift")
       && eventTypesArray.includes("ArrowUp")
       && eventTypesArray.includes("Alt")
     if ( properKeyCombo ){
-      m.eventsArray = [{},{},{}]; // guard against leftover keystrokes
-      h.reloadBurnsPollerFamily()
+      m.eventsArray = [{},{},{}]; // clear keystrokes
+      h.reloadBurnsPollerFamily();
     }
   }
   
