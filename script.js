@@ -800,7 +800,12 @@ else{
 
 v.passwordInput.focus();
 
+/*
 v.createNewPairBox.css(`
+  visibility: visible;
+`);
+*/
+v.createMemberBox.css(`
   visibility: visible;
 `);
 
