@@ -711,7 +711,7 @@ const c = { // the CONTROLLER object
         return;
       }
       if( possibleForm === 'logout'){
-        
+
         /*
         v.loginCover.css(`
           visibility: visible;
@@ -840,7 +840,11 @@ v.btnRelateNewMember.on('click', c.relateNewMember);
 v.btnAddProperty.on('click', c.addProperty);
 v.btnCreateMember.on('click', c.createMember);
 v.btnCreateRelationship.on('click', c.createRelationship);
-v.btnShowBigGraph.on('click', c.showBigGraph);
+/*v.btnShowBigGraph.on('click', c.showBigGraph);*/
+v.btnShowBigGraph.on('click', eo => {
+  v.apiSelector.selectedIndex = 1;
+  c.callApi( eo );
+});
 
 v.passwordInput.on( 'keydown', c.login);
 v.overlay.on('click', c.hideBigGraph);
