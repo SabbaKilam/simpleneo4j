@@ -15,7 +15,7 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: false,
-  eventsArray: [{}, {}],
+  eventsArray: [ {}, {}, {} ],
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
@@ -787,7 +787,10 @@ const c = { // the CONTROLLER object
     m.eventsArray.push( eo );
     let eventTypesArray = m.eventsArray.map( eo => eo.key );
     console.log(eventTypesArray);
-    if ( eventTypesArray.includes("Shift") &&eventTypesArray.includes("ArrowUp")){
+    let properKeyCombo = eventTypesArray.includes("Shift")
+      && eventTypesArray.includes("ArrowUp")
+      && eventTypesArray.includes("Alt")
+    if ( properKeyCombo ){
       alert("restore sample family");
     }
   }
