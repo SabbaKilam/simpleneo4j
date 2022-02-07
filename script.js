@@ -785,8 +785,11 @@ const c = { // the CONTROLLER object
   restoreDefaultFamily( eo ){
     m.eventsArray.shift();
     m.eventsArray.push( eo );
-    let eventTypesArray = m.eventsArray.map( eo => eo.code );
+    let eventTypesArray = m.eventsArray.map( eo => eo.key );
     console.log(eventTypesArray);
+    if ( eventTypesArray.includes("Shift") &&eventTypesArray.includes("ArrowUp")){
+      alert("restore sample family");
+    }
   }
   
 };//////| END of c Controller Event Handlers |/////
