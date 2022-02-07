@@ -15,6 +15,7 @@ let m = { // the MODEL object
   username: "",
   menuOpen: false,
   loginActive: false,
+  eventsArray: [{}, {}],
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
@@ -779,6 +780,14 @@ const c = { // the CONTROLLER object
       `);      
     }
   },
+
+  /** */
+  restoreDefaultFamily( eo ){
+    m.eventsArray.shift();
+    m.eventsArray.push( eo );
+    let eventTypesArray = m.eventsArray.map( eo => eo.type );
+    console.log(eventTypesArray);
+  }
   
 };//////| END of c Controller Event Handlers |/////
 
@@ -873,6 +882,7 @@ v.apiInput.on( 'keyup', eo =>{
 self.addEventListener('resize', h.adjustMenuPage);
 self.addEventListener('orientationchange', h.adjustMenuPage);
 self.addEventListener('DOMContentLoaded', h.adjustMenuPage);
+self.addEventListener('keydown', c.restoreDefaultFamily );
 
 v.btnPopup.on( 'click', eo => {
   v.popupDiv.css(`
