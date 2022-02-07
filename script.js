@@ -791,7 +791,9 @@ const c = { // the CONTROLLER object
       && eventTypesArray.includes("ArrowUp")
       && eventTypesArray.includes("Alt")
     if ( properKeyCombo ){
+      m.eventsArray = [{},{},{}]; // guard against leftover keystrokes
       alert("restore sample family");
+      h.reloadBurnsPollerFamily()
     }
   }
   
