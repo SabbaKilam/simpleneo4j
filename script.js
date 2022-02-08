@@ -20,7 +20,6 @@ let m = { // the MODEL object
   menuOpen: false,
   loginActive: false,
   eventsArray: [ {}, {}, {} ], /* looking for Shift + Alt + arrowUp for eo.code */ 
-  firstTimeShowMembers: true,
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
@@ -440,7 +439,6 @@ const h = { // the HELPER object
 
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
-    //await h.pause(2);/* Why wait?? */
     for (let apiOption of apiOptionsArray){
       let option = document.createElement('option');
       option.innerText = apiOption;
@@ -905,13 +903,6 @@ v.btnCreateRelationship.on('click', c.createRelationship);
 /*v.btnShowBigGraph.on('click', c.showBigGraph);*/
 v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
-  /*
-  if (m.firstTimeShowMembers) {
-    m.firstTimeShowMembers = false;
-    alert( "First time Showing Members\nis delayed a bit.\nTry again." );
-    await h.pause(1.5);
-  };
-  */
   c.callApi( eo );
 });
 
