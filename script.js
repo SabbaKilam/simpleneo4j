@@ -448,8 +448,23 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async beautifyResult( result=[{lastname: "Smith", firatname: "John"}]){
-    return result;
+  async beautifyResult( result=[{lastname: "Smith", firstname: "John"}]){
+    const resultDiv = document.createElement(`div`);
+    resultDiv.style.position = "absolute";
+    esultDiv.style.height = "100%";
+    esultDiv.style.width ="100%";    
+    result.forEach( member =>{
+      let circle = document.createElement(`div`);
+      circle.style.display ="inline-block";
+      circle.style.height = "1.5rem";
+      circle.style.width ="1.5rem";
+      circle.style.border ="1px solid white";
+      circle.style.borderRadius ="50%";
+      circle.innerText = `${member.firstname}\n${member.lastname}`
+      resultDiv.appendChild( circle )
+
+    });
+    return resultDiv;
   }
 
 };/////| END of h Helpers |///////
@@ -775,7 +790,7 @@ const c = { // the CONTROLLER object
       console.log( result );
       
       /*v.apiResults.innerText = result;*/
-      v.apiResults.innerText = await h.beautifyResult( result );
+      v.apiResults.innerHTML = await h.beautifyResult( result );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
