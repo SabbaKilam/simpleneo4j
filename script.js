@@ -458,11 +458,11 @@ const h = { // the HELPER object
     JSON.parse(result).forEach( member =>{
       let circle = document.createElement(`div`);
       circle.style.display ="inline-block";
-      circle.style.height = "3rem";
-      circle.style.width ="3rem";
+      circle.style.height = "4rem";
+      circle.style.width ="4rem";
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
-      circle.style.margin ="0.5rem";      
+      circle.style.margin ="0.75rem";      
       circle.style.color ="white";
       circle.style.backgroundColor ="teal";
       
