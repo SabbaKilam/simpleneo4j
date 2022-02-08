@@ -790,7 +790,9 @@ const c = { // the CONTROLLER object
     try{
       const result = await fetch( apiString ).then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble with API request: ${response.status}` )}
-        return response.text();
+        /*return response.text();*/
+        return response.json();
+        
       })
       console.log( result );
       
