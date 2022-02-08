@@ -452,6 +452,7 @@ const h = { // the HELPER object
     console.log(result);
     const resultDiv = document.createElement(`div`);
     resultDiv.style.position = "absolute";
+    resultDiv.style.top = "5%";    
     resultDiv.style.height = "100%";
     resultDiv.style.width ="100%";    
     JSON.parse(result).forEach( member =>{
@@ -461,7 +462,9 @@ const h = { // the HELPER object
       circle.style.width ="3rem";
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
-      circle.style.margin ="0.25rem";
+      circle.style.margin ="0.5rem";      
+      circle.style.color ="white";
+      circle.style.backgroundColor ="teal";
       
       circle.innerText = `${member.firstName}\n${member.lastName}`
       resultDiv.appendChild( circle );
