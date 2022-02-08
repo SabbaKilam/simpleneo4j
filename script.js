@@ -798,6 +798,7 @@ const c = { // the CONTROLLER object
       console.log( result );
       
       /*v.apiResults.innerText = result;*/
+      v.apiResults.innerHTML = ``;
       v.apiResults.appendChild( await h.beautifyResult( result ) );
       v.popupDiv.css(`
         opacity: 1;
