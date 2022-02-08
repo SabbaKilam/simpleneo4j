@@ -447,6 +447,11 @@ const h = { // the HELPER object
     }
   },
 
+  /** */ 
+  async beautifyResult( result=[{lastname: "Smith", firatname: "John"}]){
+    return result;
+  }
+
 };/////| END of h Helpers |///////
 
 /////////////////////////////////////
@@ -768,7 +773,9 @@ const c = { // the CONTROLLER object
         return response.text();
       })
       console.log( result );
-      v.apiResults.innerText = result;
+      
+      /*v.apiResults.innerText = result;*/
+      v.apiResults.innerText = await h.beautifyResult( result );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
