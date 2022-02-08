@@ -448,7 +448,7 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async beautifyResult( result=[{"lastname": "Smith", "firstname": "John"}]){
+  async beautifyResult( result=[{"lastName": "Smith", "firstName": "John"}]){
     console.log(result);
     const resultDiv = document.createElement(`div`);
     resultDiv.style.position = "absolute";
@@ -457,11 +457,13 @@ const h = { // the HELPER object
     JSON.parse(result).forEach( member =>{
       let circle = document.createElement(`div`);
       circle.style.display ="inline-block";
-      circle.style.height = "1.5rem";
-      circle.style.width ="1.5rem";
+      circle.style.height = "3rem";
+      circle.style.width ="3rem";
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
-      circle.innerText = `${member.firstname}\n${member.lastname}`
+      circle.style.margin ="0.25rem";
+      
+      circle.innerText = `${member.firstName}\n${member.lastName}`
       resultDiv.appendChild( circle );
     });
     return resultDiv;
