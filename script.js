@@ -455,7 +455,7 @@ const h = { // the HELPER object
     resultDiv.style.top = "10%";    
     resultDiv.style.height = "100%";
     resultDiv.style.width ="100%";    
-    Array.from(JSON.parse(result)).forEach( member =>{
+    JSON.parse(result).forEach( member =>{
       let circle = document.createElement(`div`);
       circle.style.display ="inline-block";
       circle.style.placeContent ="center";      
@@ -800,7 +800,7 @@ const c = { // the CONTROLLER object
       
       /*v.apiResults.innerText = result;*/
       v.apiResults.innerHTML = ``;
-      v.apiResults.appendChild( await h.beautifyResult( result ) );
+      v.apiResults.appendChild( await h.beautifyResult( [...result] ) );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
