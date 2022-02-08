@@ -789,7 +789,7 @@ const c = { // the CONTROLLER object
       console.log( result );
       
       /*v.apiResults.innerText = result;*/
-      v.apiResults.innerHTML = await h.beautifyResult( result );
+      v.apiResults.innerText = await h.beautifyResult( result );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
