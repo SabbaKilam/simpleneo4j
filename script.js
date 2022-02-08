@@ -20,6 +20,7 @@ let m = { // the MODEL object
   menuOpen: false,
   loginActive: false,
   eventsArray: [ {}, {}, {} ], /* looking for Shift + Alt + arrowUp for eo.code */ 
+  firstTimeShowMembers: true,
   
   //////////| AbdulmallikFamily |/////////////////
   abdulmalikFamily: [
@@ -903,7 +904,11 @@ v.btnCreateRelationship.on('click', c.createRelationship);
 /*v.btnShowBigGraph.on('click', c.showBigGraph);*/
 v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
-  await h.pause(0.75);
+  if (m.firstTimeShowMembers{
+    alert( "First time showing members\nis dealyed a bit.\nTry again." )
+    await h.pause(1.5);
+    m.firstTimeShowMembers = false;
+  });
   c.callApi( eo );
 });
 
