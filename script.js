@@ -452,17 +452,17 @@ const h = { // the HELPER object
     console.log(result);
     const resultDiv = document.createElement(`div`);
     resultDiv.style.position = "absolute";
-    resultDiv.style.top = "5%";    
+    resultDiv.style.top = "10%";    
     resultDiv.style.height = "100%";
     resultDiv.style.width ="100%";    
     JSON.parse(result).forEach( member =>{
       let circle = document.createElement(`div`);
       circle.style.display ="inline-block";
-      circle.style.height = "4rem";
-      circle.style.width ="4rem";
+      circle.style.height = "5rem";
+      circle.style.width ="5rem";
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
-      circle.style.margin ="0.75rem";      
+      circle.style.margin ="1rem";      
       circle.style.color ="white";
       circle.style.backgroundColor ="teal";
       

@@ -404,8 +404,7 @@ select, option {
 #apiResults{
   display: grid;
   place-content: left;
-  /*width: 90%;*/
-  border: 1px solid black;
+  /*width: 90%;*/ 
   padding: 0.5rem;
   overflow: auto;
   user-select: text;
