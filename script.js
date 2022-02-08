@@ -801,7 +801,7 @@ const c = { // the CONTROLLER object
       /*v.apiResults.innerText = result;*/
       v.apiResults.innerHTML = ``;
       let preParse = JSON.parse( result );
-      let jstring = JSON.stringify([...preParse]);
+      let jstring = JSON.stringify([preParse].flat());
       v.apiResults.appendChild( await h.beautifyResult( jstring ) );
       v.popupDiv.css(`
         opacity: 1;
