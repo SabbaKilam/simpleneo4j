@@ -465,8 +465,8 @@ const h = { // the HELPER object
       circle.style.borderRadius ="50%";
       circle.style.margin ="1rem";      
       circle.style.color ="white";
-      circle.style.backgroundColor ="teal";
-      
+      circle.style.backgroundColor ="teal"; 
+
       circle.innerText = `${member.firstName}\n${member.lastName}`
       resultDiv.appendChild( circle );
     });
@@ -791,8 +791,8 @@ const c = { // the CONTROLLER object
     try{
       const result = await fetch( apiString ).then( response => {
         if ( response.status > 299 ){ throw new Error(`Trouble with API request: ${response.status}` )}
-        /*return response.text();*/
-        return response.json();
+        return response.text();
+        /*return response.json();*/
         
       })
       console.log( result );
