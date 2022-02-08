@@ -464,7 +464,7 @@ const h = { // the HELPER object
       circle.innerText = `${member.firstname}\n${member.lastname}`
       resultDiv.appendChild( circle );
     });
-    return JSON.stringify(resultDiv);
+    return resultDiv;
   }
 
 };/////| END of h Helpers |///////
@@ -790,7 +790,7 @@ const c = { // the CONTROLLER object
       console.log( result );
       
       /*v.apiResults.innerText = result;*/
-      v.apiResults.innerText = await h.beautifyResult( result );
+      v.apiResults.appendChild( await h.beautifyResult( result ) );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
