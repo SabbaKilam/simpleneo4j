@@ -905,9 +905,9 @@ v.btnCreateRelationship.on('click', c.createRelationship);
 v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
   if (m.firstTimeShowMembers) {
+    m.firstTimeShowMembers = false;
     alert( "First time showing members\nis dealyed a bit.\nTry again." );
     await h.pause(1.5);
-    m.firstTimeShowMembers = false;
   };
   c.callApi( eo );
 });
