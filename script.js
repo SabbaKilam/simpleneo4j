@@ -451,8 +451,8 @@ const h = { // the HELPER object
   async beautifyResult( result=[{lastname: "Smith", firstname: "John"}]){
     const resultDiv = document.createElement(`div`);
     resultDiv.style.position = "absolute";
-    esultDiv.style.height = "100%";
-    esultDiv.style.width ="100%";    
+    resultDiv.style.height = "100%";
+    resultDiv.style.width ="100%";    
     result.forEach( member =>{
       let circle = document.createElement(`div`);
       circle.style.display ="inline-block";
@@ -461,8 +461,7 @@ const h = { // the HELPER object
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
       circle.innerText = `${member.firstname}\n${member.lastname}`
-      resultDiv.appendChild( circle )
-
+      resultDiv.appendChild( circle );
     });
     return resultDiv;
   }
