@@ -448,7 +448,8 @@ const h = { // the HELPER object
   },
 
   /** */ 
-  async beautifyResult( result=[{lastname: "Smith", firstname: "John"}]){
+  async beautifyResult( result=[{"lastname": "Smith", "firstname": "John"}]){
+    console.log(result);
     const resultDiv = document.createElement(`div`);
     resultDiv.style.position = "absolute";
     resultDiv.style.height = "100%";
@@ -463,7 +464,7 @@ const h = { // the HELPER object
       circle.innerText = `${member.firstname}\n${member.lastname}`
       resultDiv.appendChild( circle );
     });
-    return resultDiv;
+    return JSON.stringify(resultDiv);
   }
 
 };/////| END of h Helpers |///////
