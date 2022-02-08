@@ -440,7 +440,7 @@ const h = { // the HELPER object
 
     let apiOptions = await h.getApiOptions();
     let apiOptionsArray = apiOptions.split('\n');
-    await h.pause(2);
+    //await h.pause(2);/* Why wait?? */
     for (let apiOption of apiOptionsArray){
       let option = document.createElement('option');
       option.innerText = apiOption;
@@ -856,16 +856,15 @@ else{
 
 v.passwordInput.focus();
 
-/*
-v.createNewPairBox.css(`
-  visibility: visible;
-`);
-*/
 v.createMemberBox.css(`
   visibility: visible;
 `);
 
 h.showApiOptions();
+
+////////////////////////////////////////////
+//////| Custom Query to ping the DB |///////
+////////////////////////////////////////////
 async function customQuery( URL, cypherquery, jsonargs ){ 
   const metadata = { 
     method: "GET", 
@@ -886,10 +885,12 @@ async function customQuery( URL, cypherquery, jsonargs ){
   catch(error){
     console.log(error)
   }
-} 
+}
+/////| Create query arguments |/////
 var URL = "https://kin-keepers-neo4j.herokuapp.com/api/returnOneVariable";
 var cypherquery = "MATCH (p) WHERE p.lastName = $param1  RETURN p"; 
 var jsonargs = JSON.stringify({param1: "Burns"});
+/////| run Custom Query |////
 var result = customQuery(URL, cypherquery, jsonargs); //the request returns a promise
 result.then(console.log); //view the result
 
@@ -904,11 +905,13 @@ v.btnCreateRelationship.on('click', c.createRelationship);
 /*v.btnShowBigGraph.on('click', c.showBigGraph);*/
 v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
+  /*
   if (m.firstTimeShowMembers) {
     m.firstTimeShowMembers = false;
     alert( "First time Showing Members\nis delayed a bit.\nTry again." );
     await h.pause(1.5);
   };
+  */
   c.callApi( eo );
 });
 
