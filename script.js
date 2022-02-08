@@ -906,7 +906,7 @@ v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
   if (m.firstTimeShowMembers) {
     m.firstTimeShowMembers = false;
-    alert( "First time showing members\nis delayed a bit.\nTry again." );
+    alert( "First time Showing Members\nis delayed a bit.\nTry again." );
     await h.pause(1.5);
   };
   c.callApi( eo );
