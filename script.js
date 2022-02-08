@@ -463,7 +463,8 @@ const h = { // the HELPER object
       circle.style.width ="5rem";
       circle.style.border ="1px solid white";
       circle.style.borderRadius ="50%";
-      circle.style.margin ="1rem";      
+      circle.style.margin ="1rem";
+      circle.style.paddingTop ="1.25rem";           
       circle.style.color ="white";
       circle.style.backgroundColor ="teal"; 
 
