@@ -800,7 +800,9 @@ const c = { // the CONTROLLER object
       
       /*v.apiResults.innerText = result;*/
       v.apiResults.innerHTML = ``;
-      v.apiResults.appendChild( await h.beautifyResult( [...result] ) );
+      let preParse = JSON.parse( result );
+      let jstring = JSON.stringify([...preParse]);
+      v.apiResults.appendChild( await h.beautifyResult( jstring ) );
       v.popupDiv.css(`
         opacity: 1;
         visibility: visible;
