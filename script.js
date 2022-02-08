@@ -901,8 +901,9 @@ v.btnAddProperty.on('click', c.addProperty);
 v.btnCreateMember.on('click', c.createMember);
 v.btnCreateRelationship.on('click', c.createRelationship);
 /*v.btnShowBigGraph.on('click', c.showBigGraph);*/
-v.btnShowBigGraph.on('click', eo => {
+v.btnShowBigGraph.on('click', async eo => {
   v.apiSelector.selectedIndex = 1;
+  await h.pause(0.75);
   c.callApi( eo );
 });
 
