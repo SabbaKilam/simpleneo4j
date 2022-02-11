@@ -823,7 +823,7 @@ const c = { // the CONTROLLER object
     m.eventsArray.shift();
     m.eventsArray.push( eo );
     let eventTypesArray = m.eventsArray.map( eo => eo.key );
-    console.log(eventTypesArray);
+    //console.log(eventTypesArray);
     /* Shift + Alt + arrowUp  ( in any order ) */
     let properKeyCombo = eventTypesArray.includes("Shift")
       && eventTypesArray.includes("ArrowUp")
