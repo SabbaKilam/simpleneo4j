@@ -94,7 +94,7 @@ module.exports = {
         const DOB = urlArray[5] || req.headers.dob;
         const sex = urlArray[6] || req.headers.sex;        
         
-        const queryString = `MERGE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai', DOB: '${DOB}', sex: '${sex}'})
+        const queryString = `MERGE ON CREATE (p:Person {name: '${firstName}', firstName: '${firstName}', lastName: '${lastName}', email: '${firstName}.${lastName}@kin-keepers.ai', DOB: '${DOB}', sex: '${sex}'})
         RETURN p`;
         const argObject = {
             res,
@@ -181,7 +181,7 @@ module.exports = {
         const targetFirstName = targetName.split('.')[0]
         const targetLastName = targetName.split('.')[1]            
   
-        const queryString = `MERGE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
+        const queryString = `MERGE ON CREATE (s:Person {name: $sfn, lastName: $sln, firstName: $sfn, email: $semail})
         ${relationshipComponent}(t:Person {name: $tfn, lastName: $tln, firstName: $tfn, email: $temail})
         RETURN s, t`;
 
@@ -226,7 +226,7 @@ module.exports = {
         try {
             const queryString = `MATCH (s:Person {email: $sEmail })
             MATCH (t:Person {email: $tEmail})
-            MERGE (s)-[:${relationship}]-${directionalString}(t)
+            MERGE ON CREATE (s)-[:${relationship}]-${directionalString}(t)
             RETURN s, t`
             console.log(`createRelationAB queryString:\n${queryString}`)
             const result = await session.run(
@@ -383,7 +383,7 @@ module.exports = {
         const newEmail = `${firstName}.${lastName}@kin-keepers.ai`;
         
         const queryString = `MATCH (oldMember:Person {email: '${oldEmail}' })
-            MERGE (oldMember)-[:${relationship}]->(newMember:Person {email: '${newEmail}', name: '${firstName}', lastName: '${lastName}', firstName: '${firstName}'})
+            CREATE UNIQUE (oldMember)-[:${relationship}]->(newMember:Person {email: '${newEmail}', name: '${firstName}', lastName: '${lastName}', firstName: '${firstName}'})
             RETURN oldMember, newMember`
         console.log( `queryString:\n${queryString}`) ;
         try {
