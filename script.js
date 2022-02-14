@@ -490,7 +490,7 @@ const h = { // the HELPER object
     }
 
     
-    let DOB = JSON.parse(result)["DOB"];
+    let DOB = JSON.parse(result)["DOB"].split("-");
     console.log(DOB);
     return;
     //source:https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd/7091965#7091965
