@@ -471,7 +471,40 @@ const h = { // the HELPER object
       resultDiv.appendChild( circle );
     });
     return resultDiv;
+  },
+
+  /** */  
+  async getAge(firstname="Peter", lastname="Burns") {
+    
+    let apiString = `./api/getMember/${firstname}.${lastname}@kin-keepers.ai`;
+    let result;
+    try{
+      result = await fetch( apiString ).then( response => {
+        if ( response.status > 299 ){ throw new Error(`Trouble with API request: ${response.status}` )}
+        return response.text();        
+      })
+      console.log( result );
+    }
+    catch(error){
+      console.log(`Error getting age\n${error}`)
+    }
+
+    
+    let DOB = JSON.parse(result)[0]["DOB"];
+    console.log(DOB);
+    return;
+    //source:https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd/7091965#7091965
+    let dateString ='19520721';
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
   }
+  
 
 };/////| END of h Helpers |///////
 
@@ -823,8 +856,6 @@ const c = { // the CONTROLLER object
     m.eventsArray.shift();
     m.eventsArray.push( eo );
     let eventTypesArray = m.eventsArray.map( eo => eo.key );
-    //console.log(eventTypesArray);
-    /* Shift + Alt + arrowUp  ( in any order ) */
     let properKeyCombo = eventTypesArray.includes("Shift")
       && eventTypesArray.includes("ArrowUp")
       && eventTypesArray.includes("Alt")
