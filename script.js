@@ -474,7 +474,7 @@ const h = { // the HELPER object
   },
 
   /** */  
-  async getAge(firstname="Peter", lastname="Burns") {
+  async getAge( firstname="Peter", lastname="Burns" ) {
     
     let apiString = `./api/getMember/${firstname}.${lastname}@kin-keepers.ai`;
     let result;
@@ -490,7 +490,7 @@ const h = { // the HELPER object
     }
 
     
-    let DOB = JSON.parse(result)["DOB"].split("-");
+    let DOB = JSON.parse( result )["DOB"].split("-");
     let ageObject = { year: DOB.pop(), day: DOB.pop(), month: DOB.pop()}
     console.log(ageObject);
     let day = ageObject.length == 2 ? 
@@ -509,7 +509,7 @@ const h = { // the HELPER object
         age--;
     }
     return age;
-  }
+  },
   
 
 };/////| END of h Helpers |///////
