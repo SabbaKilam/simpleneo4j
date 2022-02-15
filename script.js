@@ -483,20 +483,24 @@ const h = { // the HELPER object
         if ( response.status > 299 ){ throw new Error(`Trouble with API request: ${response.status}` )}
         return response.text();        
       })
-      console.log( result );
+      //console.log( result );
     }
     catch(error){
-      console.log(`Error getting age\n${error}`)
+      console.log(`Error getting age\n${error}`);
     }
 
     
     let DOB = JSON.parse(result)["DOB"].split("-");
     let ageObject = { year: DOB.pop(), day: DOB.pop(), month: DOB.pop()}
     console.log(ageObject);
-    
-    return;
+    let day = ageObject.length == 2 ? 
+        ageObject.day 
+      : "0" + ageObject.day;
+    let month = ageObject.month.length == 2 ?
+        ageObject.month
+      : "0" + ageObject.day;
+    let dateString = `${ageObject.year}${month}${day}`;  
     //source:https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd/7091965#7091965
-    let dateString ='19520721';
     var today = new Date();
     var birthDate = new Date(dateString);
     var age = today.getFullYear() - birthDate.getFullYear();
