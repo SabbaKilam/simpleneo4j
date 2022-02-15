@@ -474,9 +474,9 @@ const h = { // the HELPER object
   },
 
   /** */  
-  async getAge(nameObject={firstname:"Peter", lastname:"Burns"}) {
+  async getAge(firstname="Peter", lastname="Burns") {
     
-    let apiString = `./api/getMember/${nameObject.firstname}.${nameObject.lastname}@kin-keepers.ai`;
+    let apiString = `./api/getMember/${firstname}.${lastname}@kin-keepers.ai`;
     let result;
     try{
       result = await fetch( apiString ).then( response => {
