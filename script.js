@@ -505,12 +505,8 @@ const h = { // the HELPER object
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
-    
-   /*if ( today.getMonth() < birthDate.getMonth() ){ --age; }*/
-    console.log( "age?: ", age );
     return age;
-  },
-  
+  },  
 
 };/////| END of h Helpers |///////
 
