@@ -504,13 +504,14 @@ const h = { // the HELPER object
     var birthDate = new Date(dateString);
     var age = parseInt(today.getFullYear(), 10) - parseInt(birthDate.getFullYear(), 10);
     console.log("age?: ", age);
-    /*
+    
     var m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
-    */
-   if ( today.getMonth() < birthDate.getMonth() ){ --age}
+    
+   /*if ( today.getMonth() < birthDate.getMonth() ){ --age; }*/
+    console.log( "age?: ", age );
     return age;
   },
   
