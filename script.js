@@ -489,16 +489,10 @@ const h = { // the HELPER object
     }    
     let DOB = JSON.parse( result )["DOB"].split("-");
     let ageObject = { year: DOB.pop(), day: DOB.pop(), month: DOB.pop()}
-    let day = ageObject.day.length == 2 ? 
-        ageObject.day 
-      : "0" + ageObject.day;
-    let month = ageObject.month.length == 2 ?
-        ageObject.month
-      : "0" + ageObject.month;
     let dateString = `${ageObject.year}-${ageObject.month}-${ageObject.day}`;
     //source:https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd/7091965#7091965
     var today = new Date();
-    var birthDate = new Date(dateString);
+    var birthDate = new Date( dateString );
     var age = today.getFullYear() - birthDate.getFullYear();   
     var m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
