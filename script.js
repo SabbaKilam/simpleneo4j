@@ -496,7 +496,7 @@ const h = { // the HELPER object
       : "0" + ageObject.day;
     let month = ageObject.month.length == 2 ?
         ageObject.month
-      : "0" + ageObject.day;
+      : "0" + ageObject.month;
     let dateString = `${ageObject.year}${month}${day}`;
     console.log("Date String: ", dateString)
     //source:https://stackoverflow.com/questions/4060004/calculate-age-given-the-birth-date-in-the-format-yyyymmdd/7091965#7091965
