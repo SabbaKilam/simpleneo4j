@@ -823,8 +823,7 @@ const c = { // the CONTROLLER object
         /*return response.json();*/
         
       })
-      console.log( result );
-      
+      console.log( result );      
       /*v.apiResults.innerText = result;*/
       v.apiResults.innerHTML = ``;
       let preParse = JSON.parse( result );

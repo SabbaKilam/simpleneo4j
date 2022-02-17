@@ -389,6 +389,7 @@ select, option {
   transition: all 1s ease;
   background-color:rgb(200, 200, 200);
   z-index: 5;
+  overflow: auto;
 }
 #btnPopup{
   position: absolute;
@@ -405,7 +406,6 @@ select, option {
 #apiResults{
   display: grid;
   place-content: left;
-  /*width: 90%;*/ 
   padding: 0.5rem;
   overflow: auto;
   user-select: text;
