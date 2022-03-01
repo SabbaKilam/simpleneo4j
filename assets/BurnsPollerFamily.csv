@@ -1,16 +1,16 @@
-firstName, lastName, name, DOB, sex, email
-Peter, Burns, Peter,1/1/1921,m,Peter.Burns@kin-keepers.ai
-Samuel,Adams,Samuel,9/9/1923,m,Samuel.Adams@kin-keepers.ai
-Richard,Boomsma,Richard,7/18/1924,m,Richard.Boomsma@kin-keepers.ai
-Tom, Burns,Tom,12/25/1943,m,Tom.Burns@kin-keepers.ai
-Victoria,Poller,Victoria,10/8/1975,f,Victoria.Poller@kin-keepers.ai
-Frank,West,Frank,5/23/1923,m,Frank.West@kin-keepers.ai
-Josephine,West,Josephine,6/22/1928,f,Josephine.West@kin-keepers.ai
-Kurt,Poller,Kurt,8/12/1959,m,Kurt.Poller@kin-keepers.ai
-Julie,Poller,Julie,2/20/1961,f,Julie.Poller@kin-keepers.ai
-Billy,Poller,Billy,10/28/1979,m,Billy.Poller@kin-keepers.ai
-Mark,Poller,Mark,7/10/1999,m,Mark.Poller@kin-keepers.ai
-Alice,Poller,Alice,9/24/2000,f,Alice.Poller@kin-keepers.ai
-Helen,Burns,Helen,3/14/1950,f,Helen.Burns@kin-keepers.ai
-Natalie,Poller,Natalie,11/30/1980,f,Natalie.Poller@kin-keepers.ai
-Sarah,Burns,Sarah,5/20/1925,f,Sarah.Burns@kin-keepers.ai
+firstName, lastName, name, DOB, sex, email, famID
+Peter, Burns, Peter,1/1/1921,m,Peter.Burns@kin-keepers.ai,99999999
+Samuel,Adams,Samuel,9/9/1923,m,Samuel.Adams@kin-keepers.ai,99999999
+Richard,Boomsma,Richard,7/18/1924,m,Richard.Boomsma@kin-keepers.ai,99999999
+Tom, Burns,Tom,12/25/1943,m,Tom.Burns@kin-keepers.ai,99999999
+Victoria,Poller,Victoria,10/8/1975,f,Victoria.Poller@kin-keepers.ai,99999999
+Frank,West,Frank,5/23/1923,m,Frank.West@kin-keepers.ai,99999999
+Josephine,West,Josephine,6/22/1928,f,Josephine.West@kin-keepers.ai,99999999
+Kurt,Poller,Kurt,8/12/1959,m,Kurt.Poller@kin-keepers.ai,99999999
+Julie,Poller,Julie,2/20/1961,f,Julie.Poller@kin-keepers.ai,99999999
+Billy,Poller,Billy,10/28/1979,m,Billy.Poller@kin-keepers.ai,99999999
+Mark,Poller,Mark,7/10/1999,m,Mark.Poller@kin-keepers.ai,99999999
+Alice,Poller,Alice,9/24/2000,f,Alice.Poller@kin-keepers.ai,99999999
+Helen,Burns,Helen,3/14/1950,f,Helen.Burns@kin-keepers.ai,99999999
+Natalie,Poller,Natalie,11/30/1980,f,Natalie.Poller@kin-keepers.ai,99999999
+Sarah,Burns,Sarah,5/20/1925,f,Sarah.Burns@kin-keepers.ai,99999999

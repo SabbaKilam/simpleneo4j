@@ -48,8 +48,7 @@ http.createServer( ( req, res )=>{
     url = `.${url}`;
     if ( forbiddenFiles.includes(url) ){
         url = './index.html'
-    }
-    
+    }    
     console.log(`url: ${url}`)
 
     const urlArray = url.split('/')

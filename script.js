@@ -222,8 +222,9 @@ const h = { // the HELPER object
     for ( let member of arrayMembers ){
       member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
       let memberArray = member.split(`,`);
-      memberArray.splice( count-1, 1 ); // remove email
-      memberArray.splice( 2, 1 ); // remove name      
+      //memberArray.splice( count-1, 1 ); // remove email
+      memberArray.splice( count-1, 2 ); // remove last 2 items in the string (email, famID)      
+      memberArray.splice( 2, 1 ); // remove name (3rd item in the string)     
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
