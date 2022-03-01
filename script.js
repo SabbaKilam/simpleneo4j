@@ -500,8 +500,27 @@ const h = { // the HELPER object
         age--;
     }
     return age;
-  },  
+  }, 
 
+  /*
+  This is generateFamID() method on the front end is for testing and demos only
+  the server version is intended to be identical, located in the helper_methods.js module
+  */ 
+  generateFamID(){
+    const allCaps = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
+    const allLower ='abcdefghijklmnopqrstuvwxyz';
+    const allLettersArray = (allCaps + allLower).split();
+    // make four random text digits, slicing off the prefixed '0.'
+    const fourDigits = ((Math.random()).toFixed(4)).slice(2);    
+    const fourLetters = allLettersArray.reduce((r,m,i,a)=>{
+        if (r.length < 4){
+            let index = Math.floor(a.length * Math.random());
+            r += a[index];
+            return r;
+        }
+    }, "");
+    return `${fourLetter}${fourDigits}`
+  },
 };/////| END of h Helpers |///////
 
 /////////////////////////////////////
