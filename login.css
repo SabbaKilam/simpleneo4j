@@ -2,7 +2,7 @@ html{
   position: absolute;
   user-select: none;
   font-size: calc(0.7vw + 0.7vh + 7px);
-  tap-highlight-color: transparent;
+  /*tap-highlight-color: transparent;*/
 }
 html, body {
   margin: 0;
