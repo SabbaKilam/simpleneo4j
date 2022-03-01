@@ -507,8 +507,8 @@ const h = { // the HELPER object
   the server version is intended to be identical, located in the helper_methods.js module
   */ 
   generateFamID(){
-    const allCaps = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
-    const allLower ='abcdefghijklmnopqrstuvwxyz';
+    const allCaps = `ABCDEFGHJKLMNPQRSTUVWXYZ`; // no I and no O
+    const allLower ='abcdefghijkmnpqrstuvwxyz'; // no l and no 0
     const allLettersArray = (allCaps + allLower).split('');
     // make four random text digits, slicing off the prefixed '0.'
     const fourDigits = ((Math.random()).toFixed(4)).slice(2);    
