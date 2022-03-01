@@ -513,10 +513,13 @@ const h = { // the HELPER object
     // make four random text digits, slicing off the prefixed '0.'
     const fourDigits = ((Math.random()).toFixed(4)).slice(2);    
     const fourLetters = allLettersArray.reduce((r,m,i,a)=>{
-        if (r.length < 4){
+        if ( r.length < 4 ){
             let index = Math.floor(a.length * Math.random());
             r += a[index];
             return r;
+        }
+        else {
+          return r;
         }
     }, "");
     return `${fourLetters}${fourDigits}`
