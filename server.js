@@ -44,9 +44,6 @@ http.createServer( ( req, res )=>{
     //allow cors:
     CorsMiddleware( req, res );
 
-    res.writeHead( 200, {'Content-Type': 'text/plain'});
-    res.write( generateFamID() );
-
     let url = decodeURI(req.url)
     url = `.${url}`;
     if ( forbiddenFiles.includes(url) ){
