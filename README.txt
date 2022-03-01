@@ -45,6 +45,10 @@ An Expanding list of database methods in module api_methods.js:
             Sarah Burns: Samuel Adams, Richard Boomsma
 
 ///////////| Readying the app for VC testing |////////////
+3-1-2022:
+For short-term simplification, the login password for any given family will be the famID,
+an 8-character database value generated when the primary caregiver creates a family circle.
+
 Responses to all GET requests should be modified to work only for
 members who are logged in (verified in the database), and only for
 data from their family (memebers with famIDs that match the logged-in user) .
@@ -53,3 +57,10 @@ Responses to all requests that add, remove or modify data (POST, PUT, DELETE)
 should have the smae aforementioned requirements with the crucial 
 addition requirement that the user is the primary care giver (verified
 in the database).
+
+For any REST requests, the front end must send the first and last name as the only credential after login.
+The first and last name will be used to verify login status, and famID.
+(This presumes, in the short term, that the first name / last name pair is unique; a bad idea in the long run)
+FamID must be attached to all DB requests by the server API, not by the frontend user.
+If login is not verified, the logout is forced (even if login is not verified),
+and the login screen is reloaded
