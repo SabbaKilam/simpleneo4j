@@ -107,7 +107,7 @@ module.exports = {
                 return r;
             }
         }, "");
-        return `${fourLetter}${fourDigits}`
+        return `${fourLetters}${fourDigits}`
     }
 
     /** */ 

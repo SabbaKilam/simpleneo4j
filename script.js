@@ -519,7 +519,7 @@ const h = { // the HELPER object
             return r;
         }
     }, "");
-    return `${fourLetter}${fourDigits}`
+    return `${fourLetters}${fourDigits}`
   },
 };/////| END of h Helpers |///////
 
