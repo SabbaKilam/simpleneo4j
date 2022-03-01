@@ -44,3 +44,12 @@ An Expanding list of database methods in module api_methods.js:
         FRIEND
             Sarah Burns: Samuel Adams, Richard Boomsma
 
+///////////| Readying the app for VC testing |////////////
+Responses to all GET requests should be modified to work only for
+members who are logged in (verified in the database), and only for
+data from their family (memebers with famIDs that match the logged-in user) .
+
+Responses to all requests that add, remove or modify data (POST, PUT, DELETE)
+should have the smae aforementioned requirements with the crucial 
+addition requirement that the user is the primary care giver (verified
+in the database).
