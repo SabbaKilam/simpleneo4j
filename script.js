@@ -245,18 +245,18 @@ const h = { // the HELPER object
   },
 
   /** */  
-  async createMember( {firstname, lastname, dob, sex} ){
-      /**
-       *firstname: array[0],
-        lastname: array[1],
-        dob: array[2],
-        sex: array[3],
-        senior: array[4],
-        primary: array[5],
-        email: array[6],
-        famid: array[7],
-        hashword:array[8],
-       */
+  async createMember(
+    {  firstname, 
+        lastname, 
+        dob, 
+        sex,
+        senior,
+        primary,
+        famid,
+        hashword
+    } 
+  )
+    {
       const parameters = {
       method: 'POST',
       headers: {
