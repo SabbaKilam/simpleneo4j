@@ -60,8 +60,8 @@ module.exports = {
             }
             /////| need to remove sensitive data first |///// 
             let cleanedArray = arrayOfNodeProperties.map( member => {
-                member.delete('famid');
-                member.delete('hashword');
+                delete member['famid'];
+                delete member['hashword'];
                 return member;               
             })          
             res.writeHead( 200, {'Content-Type':'application/json'})
