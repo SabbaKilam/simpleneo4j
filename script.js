@@ -266,7 +266,6 @@ const h = { // the HELPER object
         sex,
         senior,
         primary,
-        email,
         famid,
         hashword
       }
