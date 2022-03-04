@@ -57,10 +57,17 @@ module.exports = {
             for (let record of result.records){
                 let properties = record.get(0).properties;
                 arrayOfNodeProperties.push( properties );
-            }    
-            
+            }
+            /////| need to remove sensitive data first |///// 
+            let cleanedArray = arrayOfNodeProperties.map( member => {
+                member.delete('famid');
+                member.delete('hashword');
+                return member;               
+            })          
             res.writeHead( 200, {'Content-Type':'application/json'})
-            res.end(JSON.stringify(arrayOfNodeProperties));
+            /*res.end(JSON.stringify(arrayOfNodeProperties));*/
+            res.end( JSON.stringify(cleanedArray) );
+            
         }
         catch( dbError){
             console.error( dbError )
