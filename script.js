@@ -222,19 +222,23 @@ const h = { // the HELPER object
     for ( let member of arrayMembers ){
       member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
       let memberArray = member.split(`,`);
-      //memberArray.splice( count-1, 1 ); // remove email
-      memberArray.splice( count-1, 2 ); // remove last 2 items in the string (email, famID)      
-      memberArray.splice( 2, 1 ); // remove name (3rd item in the string)     
+      //memberArray.splice( count-1, 3); // remove last 3 items in the string (email, famID, hashword)      
+      memberArray.splice( 2, 1 ); // remove name (3rd item, index 2, in the string) 
+      memberArray.splice( 6, 1 ); // remove email (now the 7th item, index 6,in the string) 
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
-
+    //[firstName, lastName, name, DOB, sex, senior, primary, email, famID, hashword]
     for await (array of arrayOfArrays){
       let parameters = {
         firstname: array[0],
         lastname: array[1],
         dob: array[2],
         sex: array[3],
+        senior: array[4],
+        primary: array[5],
+        famid: array[6],
+        hashword:array[7], 
       };
       h.createMember( parameters );
     }
@@ -242,6 +246,17 @@ const h = { // the HELPER object
 
   /** */  
   async createMember( {firstname, lastname, dob, sex} ){
+      /**
+       *firstname: array[0],
+        lastname: array[1],
+        dob: array[2],
+        sex: array[3],
+        senior: array[4],
+        primary: array[5],
+        email: array[6],
+        famid: array[7],
+        hashword:array[8],
+       */
       const parameters = {
       method: 'POST',
       headers: {
@@ -249,6 +264,11 @@ const h = { // the HELPER object
         lastname,
         dob,
         sex,
+        senior,
+        primary,
+        email,
+        famid,
+        hashword
       }
     };
     try{

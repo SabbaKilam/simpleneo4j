@@ -86,19 +86,36 @@ module.exports = {
 
         let url = decodeURI(req.url);
         url = `.${url}`;
-
+        /*
+        firstname: array[0],
+        lastname: array[1],
+        dob: array[2],
+        sex: array[3],
+        senior: array[4],
+        primary: array[5],
+        famid: array[6],
+        hashword:array[7],
+         */
         const urlArray =  url.split('/') ;
         const firstName = urlArray[3] || req.headers.firstname;
         const lastName = urlArray[4] || req.headers.lastname;
         const DOB = urlArray[5] || req.headers.dob;
-        const sex = urlArray[6] || req.headers.sex;        
+        const sex = urlArray[6] || req.headers.sex;
+        const senior = urlArray[7] || req.headers.senior;
+        const primary = urlArray[8] || req.headers.primary;
+        const famid = urlArray[9] || req.headers.famid;
+        const hashword = urlArray[10] || req.headers.hashword;        
         
         const queryString = `MERGE (p:Person {name: '${firstName}',
          firstName: '${firstName}',
          lastName: '${lastName}',
-         email: '${firstName}.${lastName}@kin-keepers.ai',
          DOB: '${DOB}',
-         sex: '${sex}'})
+         sex: '${sex}',
+         senior: '${senior}',
+         primary: '${primary}',
+         email: '${firstName}.${lastName}@kin-keepers.ai',
+         famid: '${famid}',
+         hashword: '${hashword}'})
         RETURN p`;
         const argObject = {
             res,
