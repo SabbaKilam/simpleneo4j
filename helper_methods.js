@@ -62,6 +62,7 @@ module.exports = {
             let cleanedArray = arrayOfNodeProperties.map( member => {
                 delete member['famid'];
                 delete member['hashword'];
+                delete member['name'];                
                 return member;               
             })          
             res.writeHead( 200, {'Content-Type':'application/json'})
