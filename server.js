@@ -1,6 +1,9 @@
 const http = require('http');
 const fs = require('fs');
-const { CorsMiddleware, generateFamID } = require('./helper_methods.js');
+const { 
+    CorsMiddleware, 
+    generateFamID,
+} = require('./helper_methods.js');
 const api = require('./api_methods.js');
 require( 'dotenv' ).config();
 
@@ -41,6 +44,7 @@ const forbiddenFiles = [
 ];
 
 http.createServer( ( req, res )=>{
+
     //allow cors:
     CorsMiddleware( req, res );
 

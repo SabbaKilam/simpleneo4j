@@ -1,7 +1,7 @@
-firstName, lastName, name, DOB, sex, email, famID
-Abbas,Abdulmalik,Abbas,7/21/1952,m,Abbas.Abdulmalik@kin-keepers.ai,88888888
-Linda,Melendez,Linda,8/9/1952,f,Linda.Melendez@kin-keepers.ai,88888888
-Sharif,Abdulmalik,Sharif,1/26/1979,m,Sharif.Abdulmalik@kin-keepers.ai,88888888
-Lucy,Pistilli,Lucy,6/15/1982,f,Lucy.Pistilli@kin-keepers.ai,88888888
-Anwar,Abdulmalik,Anwar,5/28/1983,m,Anwar.Abdulmalik@kin-keepers.ai,88888888
-Aylan,Malik,Aylan,12/20/2005,m,Aylan.Malik@kin-keepers.ai,88888888
+firstName, lastName, name, DOB, sex, senior, primary, email, famID, hashword
+Abbas,Abdulmalik,Abbas,7/21/1952,m,false,true,Abbas.Abdulmalik@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39
+Linda,Melendez,Linda,8/9/1952,f,false,false,Linda.Melendez@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39
+Sharif,Abdulmalik,Sharif,1/26/1979,m,false,false,Sharif.Abdulmalik@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39
+Lucy,Pistilli,Lucy,6/15/1982,f,false,false,Lucy.Pistilli@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39
+Anwar,Abdulmalik,Anwar,5/28/1983,m,false,false,Anwar.Abdulmalik@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39
+Aylan,Malik,Aylan,12/20/2005,m,false,false,Aylan.Malik@kin-keepers.ai,wxyz6789,316c0cb5044aceec779abb4e118a988ed239f11f9d5b190857e68a5bc0cb49e092dbe517eb4cac9af61b2195f68a0122e1e26ef4306e2d96f0a3c2a6b3bfac39

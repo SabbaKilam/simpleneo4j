@@ -58,7 +58,7 @@ module.exports = {
                 let properties = record.get(0).properties;
                 arrayOfNodeProperties.push( properties );
             }
-            /////| need to remove sensitive data first |///// 
+            /////| need to remove sensitive and redundant data first |///// 
             let cleanedArray = arrayOfNodeProperties.map( member => {
                 delete member['famid'];
                 delete member['hashword'];
@@ -66,9 +66,7 @@ module.exports = {
                 return member;               
             })          
             res.writeHead( 200, {'Content-Type':'application/json'})
-            /*res.end(JSON.stringify(arrayOfNodeProperties));*/
-            res.end( JSON.stringify(cleanedArray) );
-            
+            res.end( JSON.stringify(cleanedArray) );            
         }
         catch( dbError){
             console.error( dbError )
