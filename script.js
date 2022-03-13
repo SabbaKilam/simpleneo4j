@@ -42,6 +42,10 @@ let m = { // the MODEL object
     ["Abbas.Abdulmalik","Linda.Melendez"],
     ["Sharif.Abdulmalik","Lucy.Pistilli"],
   ],
+  abdulmalikFriends:[
+    ["Abbas.Abdulmalik","Peter.Burns"],
+  ],
+  
 
   /////////////| BurnsPoller Family |/////////
   burnsPollerFamily: [
@@ -162,6 +166,8 @@ const h = { // the HELPER object
     h.batchParentChild( m.abdulmalikParentChild );
     await h.pause(0.5);    
     h.batchCreateSpouse( m.abdulmalikSpouses );
+    await h.pause(0.5); 
+    h.batchCreateFriend( m.abdulmalikFriends );    
   },
 
   /** */ 
