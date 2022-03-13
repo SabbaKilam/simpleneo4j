@@ -166,8 +166,8 @@ const h = { // the HELPER object
     h.batchParentChild( m.abdulmalikParentChild );
     await h.pause(0.5);    
     h.batchCreateSpouse( m.abdulmalikSpouses );
-    await h.pause(0.5); 
-    h.batchCreateFriend( m.abdulmalikFriends );    
+    //await h.pause(0.5); 
+    //h.batchCreateFriend( m.abdulmalikFriends );    
   },
 
   /** */ 
