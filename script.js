@@ -18,7 +18,7 @@
 let m = { // the MODEL object
   username: "",
   menuOpen: false,
-  loginActive: false,
+  loginActive: true,
   eventsArray: [ {}, {}, {} ], /* looking for Shift + Alt + arrowUp for eo.code */ 
   
   //////////| AbdulmallikFamily |/////////////////
