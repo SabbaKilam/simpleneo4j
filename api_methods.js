@@ -93,8 +93,9 @@ module.exports = {
         sex: array[3],
         senior: array[4],
         primary: array[5],
-        famid: array[6],
-        hashword:array[7],
+        urlimage: array[6]
+        famid: array[7],
+        hashword:array[8],
          */
         const urlArray =  url.split('/') ;
         const firstName = urlArray[3] || req.headers.firstname;
@@ -103,8 +104,9 @@ module.exports = {
         const sex = urlArray[6] || req.headers.sex;
         const senior = urlArray[7] || req.headers.senior;
         const primary = urlArray[8] || req.headers.primary;
-        const famid = urlArray[9] || req.headers.famid;
-        const hashword = urlArray[10] || req.headers.hashword;        
+        const urlImage = urlArray[9] || req.headers.urlimage;
+        const famid = urlArray[10] || req.headers.famid;
+        const hashword = urlArray[11] || req.headers.hashword;        
         
         const queryString = `MERGE (p:Person {name: '${firstName}',
          firstName: '${firstName}',
@@ -114,6 +116,7 @@ module.exports = {
          senior: '${senior}',
          primary: '${primary}',
          email: '${firstName}.${lastName}@kin-keepers.ai',
+         urlImage: '${urlImage}'
          famid: '${famid}',
          hashword: '${hashword}'})
         RETURN p`;
