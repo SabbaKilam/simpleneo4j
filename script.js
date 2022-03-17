@@ -226,7 +226,7 @@ const h = { // the HELPER object
     let count = headings.split(',').length;
     let arrayOfArrays = [];
     for ( let member of arrayMembers ){
-      member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
+      //member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
       let memberArray = member.split(`,`);
       //memberArray.splice( count-1, 3); // remove last 3 items in the string (email, famID, hashword)      
       memberArray.splice( 2, 1 ); // remove name (3rd item, index 2, in the string) 
@@ -234,7 +234,7 @@ const h = { // the HELPER object
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
-    //[firstName, lastName, name, DOB, sex, senior, primary, email, famID, hashword]
+    //[firstName, lastName, name, DOB, sex, senior, primary, email, urlImage, famID, hashword]
     for await (array of arrayOfArrays){
       let parameters = {
         firstname: array[0],
@@ -242,7 +242,7 @@ const h = { // the HELPER object
         dob: array[2],
         sex: array[3],
         senior: array[4],
-        primary: array[5],
+        primary: array[5],        
         famid: array[6],
         hashword:array[7], 
       };
