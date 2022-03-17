@@ -236,7 +236,7 @@ const h = { // the HELPER object
     console.log( arrayOfArrays );
     //[firstName, lastName, name, DOB, sex, senior, primary, email, urlImage, famID, hashword]
     for await (array of arrayOfArrays){
-      array[2] = arra[2].replace(/\//g, '-'); // replace all slashes with hyphens in dob
+      array[2] = array[2].replace(/\//g, '-'); // replace all slashes with hyphens in dob
       let parameters = {
         firstname: array[0],
         lastname: array[1],
