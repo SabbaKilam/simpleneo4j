@@ -236,15 +236,17 @@ const h = { // the HELPER object
     console.log( arrayOfArrays );
     //[firstName, lastName, name, DOB, sex, senior, primary, email, urlImage, famID, hashword]
     for await (array of arrayOfArrays){
+      array[2] = arra[2].replace(/\//g, '-'); // replace all slashes with hyphens in dob
       let parameters = {
         firstname: array[0],
         lastname: array[1],
         dob: array[2],
         sex: array[3],
         senior: array[4],
-        primary: array[5],        
-        famid: array[6],
-        hashword:array[7], 
+        primary: array[5],
+        urlimage: array[6],     
+        famid: array[7],
+        hashword:array[8], 
       };
       h.createMember( parameters );
     }
@@ -258,6 +260,7 @@ const h = { // the HELPER object
         sex,
         senior,
         primary,
+        urlimage,
         famid,
         hashword
     } 
@@ -272,6 +275,7 @@ const h = { // the HELPER object
         sex,
         senior,
         primary,
+        urlimage,
         famid,
         hashword
       }
