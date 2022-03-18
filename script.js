@@ -215,7 +215,7 @@ const h = { // the HELPER object
   },
 
   /** */
-  async createMembersFromCsv( csvFile = 'BurnsPollerFamily.csv' ){
+  async createMembersFromCsv( csvFile = 'AbdulmalikFamily.csv' ){
     let membersCSV = await fetch( `./assets/${csvFile}` )
         .then( response => response.text());
     let arrayMembers = membersCSV.split(`\n`);
@@ -225,17 +225,15 @@ const h = { // the HELPER object
     console.log( `typeof headings: ${typeof headings}`)
     let count = headings.split(',').length;
     let arrayOfArrays = [];
-    for ( let member of arrayMembers ){
-      //member = member.replace(/\//g, '-'); // replace all slashes with hyphens     
-      let memberArray = member.split(`,`);
-      //memberArray.splice( count-1, 3); // remove last 3 items in the string (email, famID, hashword)      
+    for ( let member of arrayMembers ){   
+      let memberArray = member.split(`,`);    
       memberArray.splice( 2, 1 ); // remove name (3rd item, index 2, in the string) 
       memberArray.splice( 6, 1 ); // remove email (now the 7th item, index 6,in the string) 
       arrayOfArrays.push( memberArray );
     }
     console.log( arrayOfArrays );
     //[firstName, lastName, name, DOB, sex, senior, primary, email, urlImage, famID, hashword]
-    for await (array of arrayOfArrays){
+    for await ( array of arrayOfArrays ){
       array[2] = array[2].replace(/\//g, '-'); // replace all slashes with hyphens in dob
       let parameters = {
         firstname: array[0],
@@ -246,7 +244,7 @@ const h = { // the HELPER object
         primary: array[5],
         urlimage: array[6],     
         famid: array[7],
-        hashword:array[8], 
+        hashword:array[8]
       };
       h.createMember( parameters );
     }
@@ -918,6 +916,8 @@ const c = { // the CONTROLLER object
 /////////| initialization: |////////
 ////////////////////////////////////
 h.IDsToView( m.IDs, v );
+
+
 if ( self.location.protocol == "http:" ) {
   self.location.assign(`https://${location.host}`)
 }

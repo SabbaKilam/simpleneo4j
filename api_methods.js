@@ -116,7 +116,7 @@ module.exports = {
          senior: '${senior}',
          primary: '${primary}',
          email: '${firstName}.${lastName}@kin-keepers.ai',
-         urlImage: '${urlImage}'
+         urlImage: '${urlImage}',
          famid: '${famid}',
          hashword: '${hashword}'})
         RETURN p`;
